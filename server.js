@@ -1,6 +1,7 @@
 const express = require('express'); 
 
 
+
 // Ejecutar con npm run dev
   
 const app = express(); 
@@ -16,5 +17,5 @@ app.listen(PORT, (error) =>{
 
 app.get('/', (req, res)=>{ 
     res.status(200); 
-    res.send("Bienvenido FRIO &#129398;"); 
+    res.send("Bienvenido FRIO &#129398;");
 }); 
