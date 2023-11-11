@@ -56,24 +56,24 @@
 #account-details {
     display: grid;
     grid-template-columns: 0.2fr 2.5fr 1fr;
-    background-color: #f6f7f9;
+    /* background-color: #f6f7f9; */
     color: black;
     border-radius: 2px;
-    outline: 1px solid gray;
 }
 
 #account-details-left {
-    background-color: #f6f7f9;
+    /* background-color: #f6f7f9; */
     margin-top: 5px;
     padding: 5px;   
 }
 
 #account-details-left h3 {
-    color: #112935;
+    /* color: #112935; */
+    color: #eceef2;
 }
 
 #account-details-right {
-    background-color: #eceef2;
+    /* background-color: #eceef2; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +89,8 @@
 #account-details-right span {
     margin-top: 10px;
     font-weight: 500;
-    color: #1a2c38;
+    /* color: #1a2c38; */
+    color: #eceef2;
 }
 
 .account-input {
@@ -98,16 +99,19 @@
 }
 
 .account-input .detail{
-    color: #2b3342;
+    /* color: #2b3342; */
+    color: #eceef2;
 }
 
 .account-input .edit{
     justify-self: end;
     margin-right: 20px;
-    color: #353a45;
+    /* color: #353a45; */
+    color: #d2dcee;
 }
 
 .account-input .info {
     justify-self: center;
-    color: #69778e;
+    /* color: #69778e; */
+    color: #eceef2;
 }
