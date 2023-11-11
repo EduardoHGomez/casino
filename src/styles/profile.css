@@ -33,5 +33,28 @@
     display: flex;
     direction: column;
     color: white;
-    justify-content: space-between;
+}
+
+#main-header span {
+    color: #d6dae1;
+    margin-right: 10px;
+}
+
+
+#account-details {
+    display: flex;
+    flex: 5 1;
+    background-color: #f6f7f9;
+    color: black;
+    border-radius: 2px;
+    outline: 1px solid gray;
+}
+
+#account-details-left {
+    background-color: #f6f7f9;
+
+}
+
+#account-details-right {
+    background-color: #eceef2
 }
