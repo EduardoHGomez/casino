@@ -34,11 +34,21 @@
     display: flex;
     direction: column;
     color: white;
+    align-items: center;
 }
 
 #main-header span {
     color: #d6dae1;
     margin-right: 10px;
+}
+
+#main-header .badge {
+  background-color: white;
+  color: #2b414e;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 
@@ -57,6 +67,10 @@
     padding: 5px;   
 }
 
+#account-details-left h3 {
+    color: #112935;
+}
+
 #account-details-right {
     background-color: #eceef2
 }
@@ -66,9 +80,14 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.account-input .detail{
+    color: #2b3342;
+}
+
 .account-input .edit{
     justify-self: end;
     margin-right: 20px;
+    color: #353a45;
 }
 
 .account-input .info {
