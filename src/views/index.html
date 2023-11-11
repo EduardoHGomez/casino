@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="../styles/output.css">
-    <link rel="icon" href="../assets/icon.png" type="image/png">
+    <link rel="icon" href="../assets/images/icon.png" type="image/png">
 </head>
 <body>
 
 
-<div class="h-screen w-full bg-white relative flex overflow-hidden">
+<div class="h-screen w-full bg-white relative flex overflow-hidden ">
 
-    <aside id="side" class="h-full w-16 flex flex-col space-y-10 items-center justify-center relative dark:bg-[#1a2c38] text-white ">
+    <aside id="side" class="h-full w-16 flex flex-col space-y-10 items-center justify-center relative  text-white ">
 
         <!-- Games -->
         <div class="group relative h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
@@ -69,13 +69,13 @@
 
     <div class="w-full h-full flex flex-col justify-between">
         <!-- Header -->
-        <header class="h-20 w-full flex items-center relative justify-between px-5 space-x-10 dark:bg-[#1a2c38] ">
-            <div class="px-3">
-
+        <header id="nav" class="h-20 w-full flex items-center relative justify-between px-5 space-x-10 dark:bg-[#1a2c38] ">
+            <div id="mainText" class="px-3 dark:text-white text-6xl ">
+                Frio
             </div>
 
             <div class="invisible flex flex-none ">
-                <img src="../assets/full_logo.png" alt="iconOnMainPage">
+                <img src="../assets/images/full_logo.png" alt="iconOnMainPage">
             </div>
 
             <div class="flex flex-shrink-0 items-center space-x-4 text-white">
@@ -99,12 +99,10 @@
 
 
 
-        <main class="max-w-full h-full flex relative overflow-y-hidden dark:bg-[#121e27]">
+        <main id="mains" class="max-w-full h-full flex relative overflow-y-hidden  ">
 
             <div class="h-full w-full m-4 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll">
-                <div>
-
-                </div>
+                
 
                 <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
                     <div class="w-full relative flex items-center justify-center">
@@ -116,38 +114,38 @@
                             <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
                                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                     <a id="cardHov2" href="#">
-                                        <img src="../assets/hilo_car.png" alt="black chair and white table" class="object-cover object-center w-80" />
+                                        <img src="../assets/images/hilo_car.png" alt="black chair and white table" class="object-cover object-center w-80" />
                                     </a>
                                 </div>
                                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                     <a id="cardHov1" href="#">
-                                        <img src="../assets/crash_car.png" alt="black chair and white table" class="object-cover object-center w-80" />
+                                        <img src="../assets/images/crash_car.png" alt="black chair and white table" class="object-cover object-center w-80" />
                                     </a>
                                 </div>
                                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                     <a id="cardHov3" href="#">
-                                        <img src="../assets/roulette_car.png" alt="black chair and white table" class="object-cover object-center w-80" />
+                                        <img src="../assets/images/roulette_car.png" alt="black chair and white table" class="object-cover object-center w-80" />
                                     </a>
                                 </div>
                                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                     <a id="cardHov4" href="#">
-                                        <img src="../assets/slots_car.png" alt="black chair and white table" class="object-cover object-center w-80" />
+                                        <img src="../assets/images/slots_car.png" alt="black chair and white table" class="object-cover object-center w-80" />
                                     </a>
                                 </div>
                                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                     <a id="cardHov5" href="#">
-                                        <img src="../assets/slide_prox.png" alt="black chair and white table" class="object-cover object-center w-80" />
+                                        <img src="../assets/images/slide_prox.png" alt="black chair and white table" class="object-cover object-center w-80" />
                                     </a>
                                 </div>
 
                                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                     <a id="cardHov6" href="#">
-                                        <img src="../assets/videoPoker_prox.png" alt="black chair and white table" class="object-cover object-center w-80" />
+                                        <img src="../assets/images/videoPoker_prox.png" alt="black chair and white table" class="object-cover object-center w-80" />
                                     </a>
                                 </div>
                                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                     <a id="cardHov7" href="#">
-                                        <img src="../assets/limbo_prox.png" alt="black chair and white table" class="object-cover object-center w-80" />
+                                        <img src="../assets/images/limbo_prox.png" alt="black chair and white table" class="object-cover object-center w-80" />
                                     </a>
                                 </div>
 
@@ -173,9 +171,33 @@
 
 <style>
 
-    #side {
-        box-shadow: #0003 0 4px 6px -1px, #0000001f 0 2px 4px -1px;
+    #mainText{
+        font-family: Switzer-Variable;
     }
+
+    @font-face {
+        font-family: 'Switzer-Variable';
+        src:
+                url('src/assets/fonts/Switzer-Variable.ttf') format('woff2'),
+                url('src/assets/fonts/Switzer-Variable.woff') format('woff'),
+                url('src/assets/fonts/Switzer-Variable.ttf') format('truetype');
+        font-weight: 100 900;
+        font-display: swap;
+        font-style: normal;
+    }
+
+    #mains{
+        background-image: linear-gradient(to bottom, #0d1e2b, #0e1f2f, #0f2132, #112236, #132339, #132339, #132339, #132339, #112236, #0f2132, #0e1f2f, #0d1e2b);
+    }
+
+    #side{
+        background-image: linear-gradient(to top, #0d1e2b, #0e2030, #102234, #122439, #15263d, #15263d, #15263d, #15263d, #122439, #102234, #0e2030, #0d1e2b);
+    }
+
+    #nav{
+        background-image: linear-gradient(to right, #0d1e2b, #0e2030, #102234, #122439, #15263d, #15263d, #15263d, #15263d, #122439, #102234, #0e2030, #0d1e2b);
+    }
+
 
 
     #next {
@@ -207,7 +229,7 @@
         height: 40px;
         font-size: 1.1em;
         cursor: pointer;
-        background-color: #31596d;
+        background-image: linear-gradient(to right top, #1b2f3e, #182c3d, #16293b, #14263a, #132338, #13243a, #14263b, #14273d, #152d43, #173349, #183a4f, #1a4055);
         color: #fff;
         border: none;
         border-radius: 10px;
@@ -389,7 +411,7 @@
         height: 40px;
         font-size: 1.1em;
         cursor: pointer;
-        background-color: #59a0b7;
+        background-image: linear-gradient(to right top, #1b2f3e, #193247, #173550, #183859, #1a3b62, #183b62, #173b62, #153b62, #0f3858, #0e354e, #103145, #132d3b);
         color: #fff;
         border: none;
         border-radius: 10px;
