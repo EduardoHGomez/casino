@@ -3,6 +3,7 @@
     flex-direction: row;
     outline: 1px solid gray;
     font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
 }
 
 #left-sidebar {
@@ -72,7 +73,23 @@
 }
 
 #account-details-right {
-    background-color: #eceef2
+    background-color: #eceef2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#account-details-right img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+#account-details-right span {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #1a2c38;
 }
 
 .account-input {
