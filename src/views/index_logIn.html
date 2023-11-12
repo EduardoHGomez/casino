@@ -39,6 +39,18 @@
             group-hover:scale-100">Info<span></span></span>
         </div>
 
+        <!-- Rules -->
+        <div class="group relative h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg"  class="h-6 w-6" viewBox="0 0 640 512" fill="currentColor"><path fill-rule="evenodd" d="M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zm55.6 288H584.4L512 195.8 439.6 320zM512 416c-62.9 0-115.2-34-126-78.9c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C627.2 382 574.9 416 512 416zM126.8 195.8L54.4 320H199.3L126.8 195.8zM.9 337.1c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C242 382 189.7 416 126.8 416S11.7 382 .9 337.1z" clip-rule="evenodd" /></svg>
+            </button>
+            <span class="absolute -top-6 left-[50%] -translate-x-[50%]
+            z-20 origin-left scale-0 px-2 rounded-lg border
+            border-gray-300 bg-white py-1 text-sm font-bold
+            shadow-md transition-all duration-300 ease-in-out
+            group-hover:scale-100">Reglas<span></span></span>
+        </div>
+
         <!-- Profile -->
         <div class="group relative h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
             <button>
@@ -80,17 +92,27 @@
             <div class="flex flex-shrink-0 items-center space-x-4 text-white">
 
 
-                <div id="prof" class="flex px-3 space-x-3">
-                    <!-- Simula el perfil -->
-                    <button class="btn">
-                        Iniciar Sesion
-                    </button>
+                <div id="name" class="flex px-3 space-x-3">
+
                 </div>
 
-                <div id="reg" class="flex px-3 space-x-3">
+
+
+
+                <div id="reg" class="invisible flex px-3 space-x-3">
                     <!-- Simula el perfil -->
                     <button class="btn">
                         Registrarse
+                    </button>
+                </div>
+
+                <div id="btnProf" class="flex px-3 space-x-3">
+                    <!-- Simula el perfil -->
+                    <button class="btn">
+                        Perfil
+                    </button>
+                    <button class="rounded-full ">
+                        <img class="h-6 w-auto rounded-full" src="../assets/images/pos.jpg" alt=""/>
                     </button>
                 </div>
             </div>
@@ -108,7 +130,7 @@
                     <div class="w-full relative flex items-center justify-center">
 
 
-                        <button aria-label="slide backward" class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
+                        <button aria-label="slide backward" class=" absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
                             <svg class="dark:text-white" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
                         </button>
 
@@ -245,6 +267,31 @@
         border-radius: 5px;
     }
 
+    #btnProf {
+        padding: 5px 10px;
+        font-weight: 700;
+        background: linear-gradient(to top, #0d1e2b, #0e2030, #102234, #122439, #15263d, #15263d, #15263d, #15263d, #122439, #102234, #0e2030, #0d1e2b);
+        color: white;
+        border-radius: .5rem;
+        border-bottom: 2px solid darkslateblue;
+        border-right: 2px solid darkslateblue;
+        border-top: 2px solid #584ddf;
+        border-left: 2px solid #584ddf;
+        transition-duration: 1s;
+        transition-property: border-top,
+        border-left,
+        border-bottom,
+        border-right,
+        box-shadow;
+    }
+
+    #btnProf:hover {
+        border-top: 2px solid darkslateblue;
+        border-left: 2px solid darkslateblue;
+        border-bottom: 2px solid #584ddf;
+        border-right: 2px solid #584ddf;
+        box-shadow: rgb(29, 61, 95) 5px 5px, rgb(23, 50, 77) 10px 10px, rgb(12, 27, 39) 15px 15px;
+    }
 
 
     #prof {
@@ -484,77 +531,3 @@
 </html>
 
 
-<!---
-<main>
-
-    <div class="w-full h-full flex flex-col justify-between">
-        <header>
-            <nav class="fixed inset-x-0 top-0 z-10 w-full px-4 py-1 bg-white shadow-md border-slate-500 dark:bg-[#1a2c38] transition duration-700 ease-out">
-
-                <div class="flex justify-between items-center min-h-min">
-
-                    <div class=" w-28 h-14">
-
-                    </div>
-
-                    <div class="flex justify-end p-2 w-28 h-14">
-                        <button type="button" class="p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-gray-700 dark:text-white dark:hover:bg-white/10 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#sidebar-mini" aria-controls="sidebar-mini" aria-label="Toggle navigation">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <svg class="flex-shrink-0 w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="flex flex-none ">
-                        <img src="../assets/full_logo.png" alt="iconOnMainPage">
-                    </div>
-
-                    <div class="flex-none  space-x-4 text-lg font-semibold tracking-tight">
-                        <button class="px-3 py-2 text-sm text-black transition  duration-500 ease-out bg-white border border-black rounded-lg hover:bg-black hover:border hover:text-white dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black">
-                            Iniciar Sesion
-                        </button>
-                        <button class="px-3 py-2 text-sm text-black transition duration-500 ease-out bg-white border border-black rounded-lg hover:bg-black hover:border hover:text-white dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black">
-                            Registrarse
-                        </button>
-
-
-
-                        <button class="px-3 py-2 text-sm text-black transition duration-500 ease-out bg-white border border-black rounded-lg hover:bg-black hover:border hover:text-white dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black">
-                            Registrarse
-                        </button>
-
-                    </div>
-                </div>
-
-            </nav>
-        </header>
-    </div>
-
-
-
-    <div>
-
-        <footer></footer>
-    </div>
-
-
-
-</main>
-
-<div id="name" class="flex px-3 space-x-3">
-
-Botton:
-
-<button class="btn">
-    Perfil
-</button>
-
-<button class="rounded-full ">
-    <img class="h-6 w-auto rounded-full" src="../assets/pos.jpg" alt=""/>
-</button>
-</div>
-
-
-
---->
