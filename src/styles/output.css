@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+
+.mr-8 {
+  margin-right: 2rem;
+=======
 .sr-only {
   position: absolute;
   width: 1px;
@@ -614,11 +618,16 @@ video {
 
 .mr-10 {
   margin-right: 2.5rem;
+
 }
 
 .flex {
   display: flex;
 }
+
+
+.font-bold {
+  font-weight: 700;
 
 .inline-flex {
   display: inline-flex;
@@ -1267,4 +1276,5 @@ video {
   .lg\:gap-8 {
     gap: 2rem;
   }
+
 }
