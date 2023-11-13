@@ -122,7 +122,46 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.activity-container-header {
+.activity-container-header div{
+    background-color: white;
+    color: #2b414e;
+    padding: 4px 8px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid gray;
+}
+
+.activity-container-content {
+    margin-top: 3px;
+}
+
+.activity-container-content-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.activity-container-content-column {
+    border: 1px solid gray;
+    padding: 10px 10px;
+}
+
+.activity-container-content-column .game{
+    font-weight: bold;
+}
+
+.activity-container-content-column .amount.positive{
+    font-weight: bold;
+    color: rgb(128, 223, 128);
+}
+
+.activity-container-content-column .amount.negative{
+    font-weight: bold;
+    color: rgb(223, 128, 128);
+}
+
+.activity-container-content-column .details{
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 7px;
 }
