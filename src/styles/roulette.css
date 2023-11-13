@@ -55,5 +55,55 @@
 
 .inputCantidadAApostar{
     color: white;
+    margin-top: 20px;
 }
 
+.inputTags{
+    font-size: 130%;
+    font-weight: bold;
+}
+
+.cantidadesInput{
+    margin-bottom: 20%;
+    text-align: center;
+}
+
+.divsCheckboxes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lbl-switch{
+    display: inline;
+    width: 55px;
+    height: 30px;
+    background-color: #aaa;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    border-style: solid;
+}
+.btn-switch:checked~ .lbl-switch{
+    background: #61a0ff;
+}
+.lbl-switch:after{
+    position: absolute;
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 100px;
+    top: 4px;
+    left: 5px;
+    transition: 0.3s;
+}
+
+.btn-switch:checked~ .lbl-switch::after{
+    left: 28px;
+}
+
+.btn-switch{
+    display: none;
+}

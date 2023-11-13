@@ -87,14 +87,11 @@ tagBalance.textContent = 'Balance: ' + balance;
 
 
 btnSpin.addEventListener('click', function () {
-
-
-
   //Checar valores
-  let valorNumeroElegido = numeroElegido.value;
-  console.log("Valor numero elegido: " + valorNumeroElegido);
-  let indiceValorElegido = props.items.findIndex(item => item.label === valorNumeroElegido);
-  console.log("Indice del numero elegido: " + indiceValorElegido);
+  // let valorNumeroElegido = numeroElegido.value;
+  // console.log("Valor numero elegido: " + valorNumeroElegido);
+  // let indiceValorElegido = props.items.findIndex(item => item.label === valorNumeroElegido);
+  // console.log("Indice del numero elegido: " + indiceValorElegido);
 
   console.log("Checkbox rojo status: " + checkboxRojo.checked);
   
@@ -110,10 +107,10 @@ btnSpin.addEventListener('click', function () {
   docenaGanadora.textContent = 'Docena ganadora: ';
 
   //Restar lo apostado 
-  if (cantidadANumero != '' && numeroElegido.value  != ''){
-    balance = balance - cantidadANumero.value;
-    tagBalance.textContent = 'Balance: ' + balance;
-  };
+  // if (cantidadANumero != '' && numeroElegido.value  != ''){
+  //   balance = balance - cantidadANumero.value;
+  //   tagBalance.textContent = 'Balance: ' + balance;
+  // };
 
   if (cantidadAColor != '' && (checkboxRojo.checked == true || checkboxNegro.checked == true)){
     balance = balance - cantidadAColor.value;
@@ -133,16 +130,17 @@ btnSpin.addEventListener('click', function () {
   //CONDICIONALES Y CONTROL DE RANGOS
   //Si no eligio ningun numero en especifico lo hace de manera aleatorio, si no lo manda a un numero despues del que eligio
   //numeroAleatorio o indiceValorElegido+1
-  if(indiceValorElegido == -1){
-    indiceValorElegido = numeroAleatorio;
-  }
-  if (valorNumeroElegido > 36){
+  // if(indiceValorElegido == -1){
+  //   indiceValorElegido = numeroAleatorio;
+  // }
+  // indiceValorElegido = numeroAleatorio;
+  // if (valorNumeroElegido > 36){
     
-    return alert("Numero fuera de rango");
-  }
+  //   return alert("Numero fuera de rango");
+  // }
 
-  console.log('Valor numero elegido: ' + numeroElegido.value);
-  wheel.spinToItem(indiceValorElegido-1, 6000, false, 2);
+  // console.log('Valor numero elegido: ' + numeroElegido.value);
+  wheel.spinToItem(numeroAleatorio, 6000, false, 2);
 
     setTimeout(() => {
 
@@ -153,11 +151,11 @@ btnSpin.addEventListener('click', function () {
       let winnerDozen = props.items[indiceGanador].docena;
 
       //Reiniciar las etiquetas y las opciones
-      numeroGanador.textContent = 'Numero ganador: ' + winnerLabel;
+      // numeroGanador.textContent = 'Numero ganador: ' + winnerLabel;
       colorGanador.textContent = 'Color Ganador: ' + winnerColor;
       parOImpar.textContent = 'Par o Impar: ' + winnerParity;
       docenaGanadora.textContent = 'Docena ganadora: ' + winnerDozen;
-      numeroElegido.value = '';
+      // numeroElegido.value = '';
       
 
 
@@ -210,11 +208,9 @@ btnSpin.addEventListener('click', function () {
         checkboxTercera.checked = false; 
     
         //Resets cantidades
-        cantidadANumero.value = '';
+        // cantidadANumero.value = '';
         cantidadAColor.value = '';
         cantidadAParidad.value = '';
         cantidadADocena.value = '';
     }, 6500);
-
-
 });

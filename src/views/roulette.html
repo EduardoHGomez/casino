@@ -134,51 +134,49 @@
                     <p id="tagBalance" class="text-white">Balance: 0</p>
                 </div>
             </div>
-            <div class=" flex-col" style=" display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class=" flex-col" style=" display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: 5%;">
                 <!-- NUMERO GANADOR -->
 
-                <p class="inputTags">Numero Ganador: </p><input type="number" id="numeroElegido">
-
-
-                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadANumero">
+                <!-- <p class="inputTags">Numero Ganador: </p><input type="number" id="numeroElegido">
+                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadANumero"> -->
                 <!-- COLOR GANADOR -->
                 <p class="inputTags">Color Ganador: </p>
-                <div style="display: flex; flex-direction: row; background-color: black;">
-                    <div style="margin-right: 50%;">
-                        <p style="color: white;">Rojo</p><input type="checkbox" id="checkboxRojo">
+                <div style="display: flex; flex-direction: row; margin-right: 15%;">
+                    <div style="margin-right: 50%;" class="divsCheckboxes">
+                        <p style="color: white;">Rojo</p><div class="btn-checkbox"><input type="checkbox" id="checkboxRojo" class="btn-switch" style="border-style: solid;"><label for="checkboxRojo" class="lbl-switch"></label></div>
                     </div>
-                    <div>
-                        <p style="color: white;">Negro</p><input type="checkbox" id="checkboxNegro">
+                    <div class="divsCheckboxes">
+                        <p style="color: white;" >Negro</p><input type="checkbox" id="checkboxNegro">
                     </div>
                 </div>
-                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAColor">
-
-                <!-- PARIDAD Ganadora -->
+                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAColor" class="cantidadesInput"
+                
+                <!-- PARIDAD GANADORA  -->
                 <p class="inputTags">Paridad Ganadora: </p>
-                <div style="display: flex; flex-direction: row;">
-                    <div style="margin-right: 50%;">
+                <div style="display: flex; flex-direction: row; margin-right: 15%;">
+                    <div style="margin-right: 50%;" class="divsCheckboxes">
                         <p style="color: white;">Par</p><input type="checkbox" id="checkboxPar">
                     </div>
-                    <div>
+                    <div class="divsCheckboxes">
                         <p style="color: white;">Impar</p><input type="checkbox" id="checkboxImpar">
                     </div>
                 </div>
-                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAParidad">
+                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAParidad" class="cantidadesInput">
 
                 <!-- DOCENA Ganadora -->
                 <p class="inputTags">Docena Ganadora: </p>
-                <div style="display: flex; flex-direction: row;">
-                    <div style="margin-right: 50%;">
+                <div style="display: flex; flex-direction: row; margin-right: 50%;">
+                    <div style="margin-right: 50%;" class="divsCheckboxes">
                         <p style="color: white;">1era</p><input type="checkbox" id="checkboxPrimera">
                     </div>
-                    <div >
+                    <div class="divsCheckboxes">
                         <p style="color: white;">2da</p><input type="checkbox" id="checkboxSegunda">
                     </div>
-                    <div style="margin-left: 50%;">
+                    <div style="margin-left: 50%;" class="divsCheckboxes">
                         <p style="color: white;">3era</p><input type="checkbox" id="checkboxTercera">
                     </div>
                 </div>
-                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadADocena">
+                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadADocena" class="cantidadesInput">
 
                 <!-- RESULTADOS  -->
                 <br><br><br><br>
