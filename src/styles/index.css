@@ -322,3 +322,33 @@
     border-radius: 10px;
 
 }
+
+
+.prof {
+    width: 130px;
+    height: 40px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-image: linear-gradient(to right top, #1b2f3e, #182c3d, #16293b, #14263a, #132338, #13243a, #14263b, #14273d, #152d43, #173349, #183a4f, #1a4055);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    transition: all .4s;
+}
+
+
+.prof:hover {
+    border-radius: 10px;
+    transform: translateY(-10px);
+    box-shadow: 0 7px 0 -2px #bcdbe5,
+    0 15px 0 -4px #39a2db,
+    0 16px 10px -3px #39a2db;
+}
+
+.prof:active {
+    transition: all 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 -2px #bcdbe5,
+    0 8px 0 -4px #39a2db,
+    0 12px 10px -3px #39a2db ;
+}

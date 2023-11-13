@@ -53,10 +53,11 @@ const dropdownWinningItem = document.querySelector('select.winning-item');
 
 // Creacion y atributos de wheel
 const wheel = new Wheel(container, props);
-wheel.borderWidth = 10;
+wheel.borderWidth = 12;
 wheel.isInteractive = false;
 wheel.lineColor = '#D4AF37';
 
+wheel.radius = 0.9;
 //ELEMENTOS
 let btnSpin = document.getElementById('btnSpin');
 let numeroGanador = document.getElementById('numeroGanador');
@@ -82,7 +83,13 @@ let tagBalance = document.getElementById('tagBalance');
 let balance = 1000;
 tagBalance.textContent = 'Balance: ' + balance;
 
+
+
+
 btnSpin.addEventListener('click', function () {
+
+
+
   //Checar valores
   let valorNumeroElegido = numeroElegido.value;
   console.log("Valor numero elegido: " + valorNumeroElegido);
@@ -136,8 +143,9 @@ btnSpin.addEventListener('click', function () {
 
   console.log('Valor numero elegido: ' + numeroElegido.value);
   wheel.spinToItem(indiceValorElegido-1, 6000, false, 2);
-    
+
     setTimeout(() => {
+
       let indiceGanador = wheel.getCurrentIndex();
       let winnerLabel = props.items[indiceGanador].label;
       let winnerColor = props.items[indiceGanador].color;
@@ -207,4 +215,6 @@ btnSpin.addEventListener('click', function () {
         cantidadAParidad.value = '';
         cantidadADocena.value = '';
     }, 6500);
+
+
 });

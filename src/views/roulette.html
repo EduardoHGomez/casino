@@ -13,42 +13,41 @@
 </head>
 <body style="background-image: linear-gradient(to bottom, #0d1e2b, #0e1f2f, #0f2132, #112236, #132339, #132339, #132339, #132339, #112236, #0f2132, #0e1f2f, #0d1e2b);">
 
-<header id="nav" class="h-20 w-full flex items-center relative justify-between px-5 space-x-10 dark:bg-[#1a2c38] ">
-    <div id="mainText" class="invisible px-3 dark:text-white text-6xl ">
-        Frio
-    </div>
-
-    <div class=" flex flex-none ">
-        <img src="../assets/images/full_logo.png" alt="iconOnMainPage">
-    </div>
-
-    <div class="flex flex-shrink-0 items-center space-x-4 text-white">
-
-
-        <div id="name" class="flex px-3 space-x-3">
-
+    <header id="nav" class="h-20 w-full flex items-center relative justify-between px-5 space-x-10 dark:bg-[#1a2c38] ">
+        <div id="mainText" class="invisible px-3 dark:text-white text-6xl ">
+            Frio
         </div>
 
-
-        <div id="reg" class="invisible flex px-3 space-x-3">
-            <!-- Simula el perfil -->
-            <button class="btn">
-                Registrarse
-            </button>
+        <div class=" flex flex-none ">
+            <img src="../assets/images/full_logo.png" alt="iconOnMainPage">
         </div>
 
-        <div id="btnProf" class="flex px-3 space-x-3">
-            <!-- Simula el perfil -->
-            <button class="btn">
-                Perfil
-            </button>
-            <button class="rounded-full ">
-                <img class="h-6 w-auto rounded-full" src="../assets/images/pos.jpg" alt=""/>
-            </button>
-        </div>
-    </div>
-</header>
+        <div class="flex flex-shrink-0 items-center space-x-4 text-white">
 
+
+            <div id="name" class="flex px-3 space-x-3">
+
+            </div>
+
+
+            <div id="reg" class="invisible flex px-3 space-x-3">
+                <!-- Simula el perfil -->
+                <button class="btn">
+                    Registrarse
+                </button>
+            </div>
+
+            <div id="btnProf" class="flex px-3 space-x-3">
+                <!-- Simula el perfil -->
+                <button class="btn">
+                    Perfil
+                </button>
+                <button class="rounded-full ">
+                    <img class="h-6 w-auto rounded-full" src="../assets/images/pos.jpg" alt=""/>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <div style="border-style: solid; display: flex; flex-direction: row; align-items: center; justify-content: center; height: 100vh;">
 
@@ -117,76 +116,83 @@
             </div>
         </aside>
 
-        <div style="border-style: solid; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 20%;">
-            <button id="btnSpin" style="height: 20%; width: 50%; border-radius: 30px; color: white; background-color: black;"> GIRA </button><br>
-            <p id="tagBalance">Balance: 0</p>
-        </div>
-        <div style="border-style: solid; height: 100%; width: 60%;">
-            
-            <div>
-                <br><br><br><br><br>
-                <div style="display: flex; align-items: center; justify-content: center; color: white; font-size: large;">
-                    ↓
-                </div>
-                <div class="wheel-container" style="height: 70%;"></div>
-            </div>
-        </div>
-        <div style="border-style: solid; height: 100%; width: 20%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <!-- NUMERO GANADOR -->
-            
-                <p class="inputTags">Numero Ganador: </p><input type="number" id="numeroElegido">
-                
-            
-            <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadANumero">
-            <!-- COLOR GANADOR -->
-            <p class="inputTags">Color Ganador: </p>
-            <div style="display: flex; flex-direction: row; background-color: black;">
-                <div style="margin-right: 50%;">
-                    <p style="color: white;">Rojo</p><input type="checkbox" id="checkboxRojo">
-                </div>
-                <div>
-                    <p style="color: white;">Negro</p><input type="checkbox" id="checkboxNegro">
-                </div>
-            </div>
-            <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAColor">
-            
-            <!-- PARIDAD Ganadora -->
-            <p class="inputTags">Paridad Ganadora: </p>
-            <div style="display: flex; flex-direction: row;">
-                <div style="margin-right: 50%;">
-                    <p style="color: white;">Par</p><input type="checkbox" id="checkboxPar">
-                </div>
-                <div>
-                    <p style="color: white;">Impar</p><input type="checkbox" id="checkboxImpar">
-                </div>
-            </div>
-            <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAParidad">
 
-            <!-- DOCENA Ganadora -->
-            <p class="inputTags">Docena Ganadora: </p>
-            <div style="display: flex; flex-direction: row;">
-                <div style="margin-right: 50%;">
-                    <p style="color: white;">1era</p><input type="checkbox" id="checkboxPrimera">
-                </div>
+        <div class="flex justify-between h-full w-full">
+            <div  class="flex-col items-center h-full w-full">
+
                 <div >
-                    <p style="color: white;">2da</p><input type="checkbox" id="checkboxSegunda">
+                    <br><br><br><br><br>
+
+                    <div class="flex flex-col items-center ">
+                        <i class="fa-solid fa-arrow-right fa-rotate-90 fa-lg" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="wheel-container " style="height: 80%;"></div>
                 </div>
-                <div style="margin-left: 50%;">
-                    <p style="color: white;">3era</p><input type="checkbox" id="checkboxTercera">
+
+                <div class="flex flex-col items-center">
+                    <button id="btnSpin" class="prof py-10" > Jugar </button><br>
+                    <p id="tagBalance" class="text-white">Balance: 0</p>
                 </div>
             </div>
-            <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadADocena">
+            <div class=" flex-col" style=" display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <!-- NUMERO GANADOR -->
 
-            <!-- RESULTADOS  -->
-            <br><br><br><br>
-            <div id="numeroGanador" style="color: white; font-size: large;">Numero ganador: </div>
-            <div id="colorGanador" style="color: white; font-size: large;">Color ganador: </div>
-            <div id="parOImpar" style="color: white; font-size: large;">Par o Impar: </div>
-            <div id="docenaGanadora" style="color: white; font-size: large;">Docena ganadora: </div>
+                <p class="inputTags">Numero Ganador: </p><input type="number" id="numeroElegido">
 
+
+                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadANumero">
+                <!-- COLOR GANADOR -->
+                <p class="inputTags">Color Ganador: </p>
+                <div style="display: flex; flex-direction: row; background-color: black;">
+                    <div style="margin-right: 50%;">
+                        <p style="color: white;">Rojo</p><input type="checkbox" id="checkboxRojo">
+                    </div>
+                    <div>
+                        <p style="color: white;">Negro</p><input type="checkbox" id="checkboxNegro">
+                    </div>
+                </div>
+                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAColor">
+
+                <!-- PARIDAD Ganadora -->
+                <p class="inputTags">Paridad Ganadora: </p>
+                <div style="display: flex; flex-direction: row;">
+                    <div style="margin-right: 50%;">
+                        <p style="color: white;">Par</p><input type="checkbox" id="checkboxPar">
+                    </div>
+                    <div>
+                        <p style="color: white;">Impar</p><input type="checkbox" id="checkboxImpar">
+                    </div>
+                </div>
+                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAParidad">
+
+                <!-- DOCENA Ganadora -->
+                <p class="inputTags">Docena Ganadora: </p>
+                <div style="display: flex; flex-direction: row;">
+                    <div style="margin-right: 50%;">
+                        <p style="color: white;">1era</p><input type="checkbox" id="checkboxPrimera">
+                    </div>
+                    <div >
+                        <p style="color: white;">2da</p><input type="checkbox" id="checkboxSegunda">
+                    </div>
+                    <div style="margin-left: 50%;">
+                        <p style="color: white;">3era</p><input type="checkbox" id="checkboxTercera">
+                    </div>
+                </div>
+                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadADocena">
+
+                <!-- RESULTADOS  -->
+                <br><br><br><br>
+                <div id="numeroGanador" style="color: white; font-size: large;">Numero ganador: </div>
+                <div id="colorGanador" style="color: white; font-size: large;">Color ganador: </div>
+                <div id="parOImpar" style="color: white; font-size: large;">Par o Impar: </div>
+                <div id="docenaGanadora" style="color: white; font-size: large;">Docena ganadora: </div>
+
+            </div>
         </div>
-      </div>
-      <p>hola</p>
+    </div>
+    <p class="invisible">hola</p>
+
 </body>
 <script src="../scripts/roulette.js" type="module"></script>
+<script src="https://kit.fontawesome.com/549e1abe3e.js" crossorigin="anonymous"></script>
 </html>
