@@ -618,12 +618,6 @@ video {
 
 .mr-10 {
   margin-right: 2.5rem;
-
-}
-
-.mr-8 {
-  margin-right: 2rem;
-
 }
 
 .flex {
@@ -941,7 +935,6 @@ video {
   padding-bottom: 6rem;
 }
 
-
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -972,10 +965,6 @@ video {
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-extrabold {
-  font-weight: 800;
 }
 
 .font-semibold {

@@ -115,6 +115,11 @@ body {
     color: #d2dcee;
 }
 
+.account-input .edit a {
+    text-decoration: none;
+    color: white;
+}
+
 .account-input .info {
     justify-self: center;
     /* color: #69778e; */
