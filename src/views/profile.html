@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/src/styles/profile.css">
     <link rel="stylesheet" href="/src/styles/index.css">
     <link rel="stylesheet" href="/src/styles/output.css">
+
+    <script src="/src/scripts/profile.js"></script>
+
     <script src="https://kit.fontawesome.com/fffb4aa0e0.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -88,20 +91,46 @@
                     <h3><i class="fa-regular fa-file mr-8" style="margin-right: 10px"></i>Detalles de la cuenta</h3>
                     <div class="account-input">
                         <span class="detail" style="font-weight: bold;">Usuario</span>        
-                        <span class="info">Ron</span>        
-                        <span class="edit">Editar <i class="fa-regular fa-pen-to-square"></i></span>        
+                        <input type="text" id="account-input-username" data-prev="Ron" value="Ron" disabled>
+                        <div class="account-input-right-div">
+                            <span id="account-input-username-span" class="edit"><a href="javascript:edit('username')">Editar
+                                <i class="fa-regular fa-pen-to-square"></i></a>
+                            </span>        
+                            <button type="button" onclick="confirm('username')" id="account-input-username-confirm" style="display: none">
+                                <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                            <button type="button" onclick="cancel('username')" id="account-input-username-cancel" style="display: none">
+                                <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                        </div>
                     </div>
                     <hr>
                     <div class="account-input">
                         <span class="detail" style="font-weight: bold;">Correo</span>        
-                        <span class="info">ron@email.com</span>        
-                        <span class="edit">Editar <i class="fa-regular fa-pen-to-square"></i></span>        
+                        <input type="text" id="account-input-email" value="ron@email.com" data-prev = "ron@email.com" disabled>
+                        <div class="account-input-right-div">
+                            <span id="account-input-email-span" class="edit"><a href="javascript:edit('email')">Editar <i class="fa-regular fa-pen-to-square"></i></a></span>        
+                            <button type="button" onclick="confirm('email')" id="account-input-email-confirm" style="display: none">
+                                <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                            <button type="button" onclick="cancel('email')" id="account-input-email-cancel" style="display: none">
+                                <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                        </div>
                     </div>
                     <hr>
                     <div class="account-input">
                         <span class="detail" style="font-weight: bold;">Contraseña</span>        
-                        <span class="info">*****</span>        
-                        <span class="edit">Editar <i class="fa-regular fa-pen-to-square"></i></span>        
+                        <input type="password" id="account-input-password" value="***" disabled>
+                        <div class="account-input-right-div">
+                            <span id="account-input-password-span" class="edit"><a href="javascript:edit('password')">Editar <i class="fa-regular fa-pen-to-square"></i></a></span>        
+                            <button type="button" onclick="confirm('password')" id="account-input-password-confirm" style="display: none">
+                                <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                            <button type="button" onclick="cancel('password')" id="account-input-password-cancel" style="display: none">
+                                <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                        </div>
                     </div>
                     <hr>
                     <div class="account-input">
