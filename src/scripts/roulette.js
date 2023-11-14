@@ -95,7 +95,6 @@ btnSpin.addEventListener('click', function () {
   // console.log("Indice del numero elegido: " + indiceValorElegido);
 
   console.log("Checkbox rojo status: " + checkboxRojo.checked);
-  
   console.log('Jalando');
   let numeroDecimalAleatorio = Math.random();
   let numeroAleatorio = Math.floor(numeroDecimalAleatorio * 37);
