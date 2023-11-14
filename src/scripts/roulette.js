@@ -58,9 +58,10 @@ wheel.isInteractive = false;
 wheel.lineColor = '#D4AF37';
 
 wheel.radius = 0.9;
+
 //ELEMENTOS
 let btnSpin = document.getElementById('btnSpin');
-let numeroGanador = document.getElementById('numeroGanador');
+//let numeroGanador = document.getElementById('numeroGanador');
 let colorGanador = document.getElementById('colorGanador');
 let parOImpar = document.getElementById('parOImpar');
 let docenaGanadora = document.getElementById('docenaGanadora');
@@ -100,11 +101,14 @@ btnSpin.addEventListener('click', function () {
   let numeroAleatorio = Math.floor(numeroDecimalAleatorio * 37);
   console.log("Numero ganador: " + props.items[numeroAleatorio].label);
 
+  /*
   //RESETS
-  numeroGanador.textContent = 'Numero ganador: ';
+  //numeroGanador.textContent = 'Numero ganador: ';
   colorGanador.textContent = 'Color ganador: ';
   parOImpar.textContent = 'Par o Impar: ';
   docenaGanadora.textContent = 'Docena ganadora: ';
+
+   */
 
   //Restar lo apostado 
   // if (cantidadANumero != '' && numeroElegido.value  != ''){
@@ -118,12 +122,12 @@ btnSpin.addEventListener('click', function () {
   };
 
   if (cantidadAParidad != '' && (checkboxPar.checked == true || checkboxImpar.checked == true)){
-    balance = balance - cantidadAParidad.value;
+    balance = balance - cantidadAColor.value;
     tagBalance.textContent = 'Balance: ' + balance;
   };
 
   if (cantidadADocena != '' && (checkboxPrimera.checked == true || checkboxSegunda.checked == true || checkboxTercera.checked == true)){
-    balance = balance - cantidadADocena.value;
+    balance = balance - cantidadAColor.value;
     tagBalance.textContent = 'Balance: ' + balance;
   };
 
@@ -150,12 +154,15 @@ btnSpin.addEventListener('click', function () {
       let winnerParity = props.items[indiceGanador].paridad;
       let winnerDozen = props.items[indiceGanador].docena;
 
+      /*
       //Reiniciar las etiquetas y las opciones
       // numeroGanador.textContent = 'Numero ganador: ' + winnerLabel;
       colorGanador.textContent = 'Color Ganador: ' + winnerColor;
       parOImpar.textContent = 'Par o Impar: ' + winnerParity;
       docenaGanadora.textContent = 'Docena ganadora: ' + winnerDozen;
       // numeroElegido.value = '';
+
+       */
       
 
 
@@ -206,11 +213,15 @@ btnSpin.addEventListener('click', function () {
         checkboxPrimera.checked = false; 
         checkboxSegunda.checked = false; 
         checkboxTercera.checked = false; 
-    
+
+        /*
         //Resets cantidades
         // cantidadANumero.value = '';
         cantidadAColor.value = '';
         cantidadAParidad.value = '';
         cantidadADocena.value = '';
+      
+         */
+
     }, 6500);
 });

@@ -49,7 +49,7 @@
         </div>
     </header>
 
-    <div style="border-style: solid; display: flex; flex-direction: row; align-items: center; justify-content: center; height: 100vh;">
+    <div style=" display: flex; flex-direction: row; height: 100vh;">
 
         <aside id="side" class="h-full w-16 flex flex-col space-y-10 items-center justify-center relative  text-white ">
 
@@ -116,79 +116,148 @@
             </div>
         </aside>
 
-
         <div class="flex justify-between h-full w-full">
             <div  class="flex-col items-center h-full w-full">
 
-                <div >
-                    <br><br><br><br><br>
-
+                <div class="pt-28">
                     <div class="flex flex-col items-center ">
                         <i class="fa-solid fa-arrow-right fa-rotate-90 fa-lg" style="color: #ffffff;"></i>
                     </div>
-                    <div class="wheel-container " style="height: 80%;"></div>
+                    <div class="wheel-container"></div>
                 </div>
-
-                <div class="flex flex-col items-center">
-                    <button id="btnSpin" class="prof py-10" > Jugar </button><br>
-                    <p id="tagBalance" class="text-white">Balance: 0</p>
-                </div>
-            </div>
-            <div class=" flex-col" style=" display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: 5%;">
-                <!-- NUMERO GANADOR -->
-
-                <!-- <p class="inputTags">Numero Ganador: </p><input type="number" id="numeroElegido">
-                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadANumero"> -->
-                <!-- COLOR GANADOR -->
-                <p class="inputTags">Color Ganador: </p>
-                <div style="display: flex; flex-direction: row; margin-right: 15%;">
-                    <div style="margin-right: 50%;" class="divsCheckboxes">
-                        <p style="color: white;">Rojo</p><div class="btn-checkbox"><input type="checkbox" id="checkboxRojo" class="btn-switch" style="border-style: solid;"><label for="checkboxRojo" class="lbl-switch"></label></div>
-                    </div>
-                    <div class="divsCheckboxes">
-                        <p style="color: white;" >Negro</p><input type="checkbox" id="checkboxNegro">
-                    </div>
-                </div>
-                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAColor" class="cantidadesInput"
-                
-                <!-- PARIDAD GANADORA  -->
-                <p class="inputTags">Paridad Ganadora: </p>
-                <div style="display: flex; flex-direction: row; margin-right: 15%;">
-                    <div style="margin-right: 50%;" class="divsCheckboxes">
-                        <p style="color: white;">Par</p><input type="checkbox" id="checkboxPar">
-                    </div>
-                    <div class="divsCheckboxes">
-                        <p style="color: white;">Impar</p><input type="checkbox" id="checkboxImpar">
-                    </div>
-                </div>
-                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadAParidad" class="cantidadesInput">
-
-                <!-- DOCENA Ganadora -->
-                <p class="inputTags">Docena Ganadora: </p>
-                <div style="display: flex; flex-direction: row; margin-right: 50%;">
-                    <div style="margin-right: 50%;" class="divsCheckboxes">
-                        <p style="color: white;">1era</p><input type="checkbox" id="checkboxPrimera">
-                    </div>
-                    <div class="divsCheckboxes">
-                        <p style="color: white;">2da</p><input type="checkbox" id="checkboxSegunda">
-                    </div>
-                    <div style="margin-left: 50%;" class="divsCheckboxes">
-                        <p style="color: white;">3era</p><input type="checkbox" id="checkboxTercera">
-                    </div>
-                </div>
-                <p class="inputCantidadAApostar">Cantidad a apostar: </p> <input type="number" id="cantidadADocena" class="cantidadesInput">
-
-                <!-- RESULTADOS  -->
-                <br><br><br><br>
-                <div id="numeroGanador" style="color: white; font-size: large;">Numero ganador: </div>
-                <div id="colorGanador" style="color: white; font-size: large;">Color ganador: </div>
-                <div id="parOImpar" style="color: white; font-size: large;">Par o Impar: </div>
-                <div id="docenaGanadora" style="color: white; font-size: large;">Docena ganadora: </div>
 
             </div>
+
+
+            <!---
+                Tabla
+            --->
+            <div class="flex flex-col justify-center">
+                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="overflow-hidden">
+                            <table class="min-w-full text-center rounded-md border-2 border-white " >
+                                <thead class="border-b">
+                                    <tr>
+                                        <th scope="col" class="text-sm font-medium text-white px-12 py-4">
+                                            Seleccion
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="text-sm text-white font-medium px-6 py-4 whitespace-nowrap  ">
+                                            <div class="flex flex-row justify-evenly">
+                                                <div class="flex flex-col items-center">
+                                                    <p class="pb-2">Rojo</p>
+                                                    <div class="content">
+                                                        <label class="checkBoxR">
+                                                            <input id="checkboxRojo" type="checkbox">
+                                                            <div class="transition"></div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col items-center">
+                                                    <p class="pb-2">Negro</p>
+                                                    <div class="content ">
+                                                        <label class="checkBoxN">
+                                                            <input id="checkboxNegro" type="checkbox">
+                                                            <div class="transition"></div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b ">
+                                        <td class="text-sm text-white font-medium px-6 py-4 whitespace-nowrap  ">
+                                            <div class="flex flex-row justify-evenly">
+                                                <div class="flex flex-col items-center">
+                                                    <p class="pb-2">Par</p>
+                                                    <div class="content">
+                                                        <label class="checkBox">
+                                                            <input id="checkboxPar" type="checkbox">
+                                                            <div class="transition"></div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col items-center">
+                                                    <p class="pb-2">Impar</p>
+                                                    <div class="content ">
+                                                        <label class="checkBox">
+                                                            <input id="checkboxImpar" type="checkbox">
+                                                            <div class="transition"></div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b ">
+                                        <td class="text-sm text-white font-medium px-6 py-4 whitespace-nowrap  ">
+                                            <div class="flex flex-row justify-evenly">
+                                                <div class="flex flex-col items-center">
+                                                    <p class="pb-2">1era</p>
+                                                    <div class="content">
+                                                        <label class="checkBox">
+                                                            <input id="checkboxPrimera" type="checkbox">
+                                                            <div class="transition"></div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col items-center">
+                                                    <p class="pb-2">2da</p>
+                                                    <div class="content ">
+                                                        <label class="checkBox">
+                                                            <input id="checkboxSegunda" type="checkbox">
+                                                            <div class="transition"></div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col items-center">
+                                                    <p class="pb-2">3era</p>
+                                                    <div class="content ">
+                                                        <label class="checkBox">
+                                                            <input id="checkboxTercera" type="checkbox">
+                                                            <div class="transition"></div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b ">
+                                        <td class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                                            <div class="inputbox">
+                                                <input required="required" type="number" id="cantidadAColor">
+                                                <span>Cantidad</span>
+                                                <i></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b ">
+                                        <td class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                                            <div class="flex flex-col items-center">
+                                                <p id="tagBalance" class="text-white pb-2">Balance: 0</p>
+                                                <button id="btnSpin" class="prof" > Jugar </button><br>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!---
+                Fin de tabla
+            --->
         </div>
     </div>
-    <p class="invisible">hola</p>
+
 
 </body>
 <script src="../scripts/roulette.js" type="module"></script>
