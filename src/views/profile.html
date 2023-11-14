@@ -46,20 +46,27 @@
                         <span class="detail" style="font-weight: bold;">Correo</span>        
                         <input type="text" id="account-input-email" value="ron@email.com" disabled>
                         <div class="account-input-right-div">
-                            <span class="edit"><a href="javascript:edit('email')">Editar <i class="fa-regular fa-pen-to-square"></i></a></span>        
-                            <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff; display: none"></i>
-                            <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff; display: none"></i>
+                            <span id="account-input-email-span" class="edit"><a href="javascript:edit('email')">Editar <i class="fa-regular fa-pen-to-square"></i></a></span>        
+                            <button type="button" onclick="confirm('email')" id="account-input-email-confirm" style="display: none">
+                                <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                            <button type="button" onclick="cancel('email')" id="account-input-email-cancel" style="display: none">
+                                <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff;"></i>
+                            </button>
                         </div>
                     </div>
                     <hr>
                     <div class="account-input">
                         <span class="detail" style="font-weight: bold;">Contraseña</span>        
-                        <input type="text" id="account-input-password" value="***" disabled>
+                        <input type="password" id="account-input-password" value="***" disabled>
                         <div class="account-input-right-div">
-                            <span class="edit"><a href="javascript: edit('password')">Editar 
-                            <i class="fa-regular fa-pen-to-square"></i></a></span>        
-                            <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff; display: none"></i>
-                            <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff; display: none"></i>
+                            <span id="account-input-password-span" class="edit"><a href="javascript:edit('password')">Editar <i class="fa-regular fa-pen-to-square"></i></a></span>        
+                            <button type="button" onclick="confirm('password')" id="account-input-password-confirm" style="display: none">
+                                <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                            <button type="button" onclick="cancel('password')" id="account-input-password-cancel" style="display: none">
+                                <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff;"></i>
+                            </button>
                         </div>
                     </div>
                     <hr>

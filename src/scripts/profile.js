@@ -71,5 +71,6 @@ function getFields(component) {
     components.push(cancel);
     components.push(span);
 
+    console.log(components);
     return components;
 }

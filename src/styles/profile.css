@@ -160,3 +160,27 @@ body {
 	padding: .4em;
 	color: white;
 }
+
+.account-input input[type=password] {
+    text-align: center;
+	appearance: none;
+	border: none;
+	outline: none;
+    background-color: rgba(21, 37, 48, 0.933);
+    color: white;
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+}
+
+
+.account-input input[type=password].editing {
+    text-align: center;
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #346d86;
+    background-color: rgba(40, 44, 52, 0.479);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: white;
+}
