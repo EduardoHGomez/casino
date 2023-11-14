@@ -195,6 +195,44 @@ El nuevo check
     transition: 300ms ease;
 }
 
+.checkBoxV {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px #fdfdfd;
+}
+
+.checkBoxV div {
+    width: 60px;
+    height: 60px;
+    background-color: #51cd33;
+    top: -52px;
+    left: -52px;
+    position: absolute;
+    transform: rotateZ(45deg);
+    z-index: 100;
+}
+
+.checkBoxV input[type=checkbox]:checked + div {
+    left: -10px;
+    top: -10px;
+}
+
+.checkBoxV input[type=checkbox] {
+    position: absolute;
+    left: 50px;
+    visibility: hidden;
+}
+
+.transition {
+    transition: 300ms ease;
+}
+
 
 .inputbox {
     position: relative;
