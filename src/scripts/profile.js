@@ -74,3 +74,5 @@ function getFields(component) {
     console.log(components);
     return components;
 }
+
+
