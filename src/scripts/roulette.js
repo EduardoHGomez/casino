@@ -122,12 +122,12 @@ btnSpin.addEventListener('click', function () {
   };
 
   if (cantidadAParidad != '' && (checkboxPar.checked == true || checkboxImpar.checked == true)){
-    balance = balance - cantidadAColor.value;
+    balance = balance - cantidadAParidad.value;
     tagBalance.textContent = 'Balance: ' + balance;
   };
 
   if (cantidadADocena != '' && (checkboxPrimera.checked == true || checkboxSegunda.checked == true || checkboxTercera.checked == true)){
-    balance = balance - cantidadAColor.value;
+    balance = balance - cantidadADocena.value;
     tagBalance.textContent = 'Balance: ' + balance;
   };
 
@@ -220,7 +220,7 @@ btnSpin.addEventListener('click', function () {
         cantidadAColor.value = '';
         cantidadAParidad.value = '';
         cantidadADocena.value = '';
-      
+
          */
 
     }, 6500);
