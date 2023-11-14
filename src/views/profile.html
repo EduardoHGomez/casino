@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="/src/styles/profile.css">
     <script src="https://kit.fontawesome.com/fffb4aa0e0.js" crossorigin="anonymous"></script>
     <script src="/src/scripts/profile.js"></script>
+    <link rel="stylesheet" href="/src/styles/output.css">
+    <link rel="stylesheet" href="../styles/output.css">
 </head>
 <body>
     <div id="profile-container">
@@ -26,22 +28,39 @@
                     <h3><i class="fa-regular fa-file mr-8" style="margin-right: 10px"></i>Detalles de la cuenta</h3>
                     <div class="account-input">
                         <span class="detail" style="font-weight: bold;">Usuario</span>        
-                        <input type="text" id="account-input-username" class="info" value="Ron">
-                        <span class="edit"><a href="javascript:edit('username')">Editar
-                            <i class="fa-regular fa-pen-to-square"></i></a></span>        
+                        <input type="text" id="account-input-username" data-prev="Ron" value="Ron" disabled>
+                        <div class="account-input-right-div">
+                            <span id="account-input-username-span" class="edit"><a href="javascript:edit('username')">Editar
+                                <i class="fa-regular fa-pen-to-square"></i></a>
+                            </span>        
+                            <button type="button" onclick="confirm('username')" id="account-input-username-confirm" style="display: none">
+                                <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                            <button type="button" onclick="cancel('username')" id="account-input-username-cancel" style="display: none">
+                                <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff;"></i>
+                            </button>
+                        </div>
                     </div>
                     <hr>
                     <div class="account-input">
                         <span class="detail" style="font-weight: bold;">Correo</span>        
-                        <span id="account-input-email" class="info">ron@email.com</span>        
-                        <span class="edit"><a href="javascript:edit('email')">Editar <i class="fa-regular fa-pen-to-square"></i></a></span>        
+                        <input type="text" id="account-input-email" value="ron@email.com" disabled>
+                        <div class="account-input-right-div">
+                            <span class="edit"><a href="javascript:edit('email')">Editar <i class="fa-regular fa-pen-to-square"></i></a></span>        
+                            <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff; display: none"></i>
+                            <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff; display: none"></i>
+                        </div>
                     </div>
                     <hr>
                     <div class="account-input">
                         <span class="detail" style="font-weight: bold;">Contraseña</span>        
-                        <span id="account-input-password" class="info">*****</span>        
-                        <span class="edit"><a href="javascript: edit('password')">Editar 
+                        <input type="text" id="account-input-password" value="***" disabled>
+                        <div class="account-input-right-div">
+                            <span class="edit"><a href="javascript: edit('password')">Editar 
                             <i class="fa-regular fa-pen-to-square"></i></a></span>        
+                            <i class="fa-regular fa-square-check fa-xl" style="color: #ffffff; display: none"></i>
+                            <i class="fa-regular fa-rectangle-xmark fa-xl" style="color: #ffffff; display: none"></i>
+                        </div>
                     </div>
                     <hr>
                     <div class="account-input">

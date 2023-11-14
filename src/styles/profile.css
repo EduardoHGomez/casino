@@ -103,9 +103,20 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.account-input-right-div {
+    display: flex;;
+    justify-self: center;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
 .account-input .detail{
     /* color: #2b3342; */
     color: #eceef2;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
 .account-input .edit{
@@ -126,13 +137,26 @@ body {
     color: #eceef2;
 }
 
-.editing {
+.account-input input[type=text] {
+    text-align: center;
 	appearance: none;
 	border: none;
 	outline: none;
-	border-bottom: .2em solid #E91E63;
-	background: rgba(#E91E63, .2);
+    background-color: rgba(21, 37, 48, 0.933);
+    color: white;
 	border-radius: .2em .2em 0 0;
 	padding: .4em;
-	color: #E91E63;
+}
+
+
+.account-input input[type=text].editing {
+    text-align: center;
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #346d86;
+    background-color: rgba(40, 44, 52, 0.479);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: white;
 }
