@@ -1,0 +1,63 @@
+#contenedorGeneral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#divGanador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    width: 20%;
+    height: 100%;
+}
+
+#divRuleta{
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+
+}
+
+.credencialesTexto{
+    color: white;
+}
+
+.credencialesInput{
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+}
+
+.loginBtn{
+    margin-top: 10px;
+    height: 50px;
+    width: 250px;
+    border-radius: 20px;
+    background-color: #00BCB4;
+}
+
+.loginBtn:hover{
+    background-color: #00A69F;
+}
+
+.inputTags{
+    color: white;;
+}
+
+.inputCantidadAApostar{
+    color: white;
+}
+
+#tagBalance{
+    color: white;
+    font-size: 300%;
+}
