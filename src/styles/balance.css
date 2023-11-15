@@ -11,14 +11,12 @@
     display: flex;
     flex-direction: row;
     color: #f2f8fd;
-    background-color: #1c425e;
+    background-color: #1c435e50;
     border: 1px solid #1c425f;
     border-radius: 5px;
     margin-top: 2%;
-    padding: 2%;
     width: 175vh;
     height: 20vh;
-    margin-left: 60px;
 }
 
 .balance-container-header-wallet {
@@ -26,11 +24,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    margin-left: 3%;
 }
 
 .balance-container-header-amount {
     margin-left: 3%;
-    margin-top: 1px;
+    margin-top: 1%;
 
 }
 
@@ -43,8 +42,74 @@
 }
 
 
+.balance-container hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
 
 .balance-container-form {
-    display: flex;
+    padding: 20px;
+    width: 65%;
+    outline: 1px solid rgba(128, 128, 128, 0.336);
+    background-color: rgb(19, 35, 57);
+}
 
+.balance-container-form label {
+    color: #cccccc;
+    font-weight: bold;
+    font-size: large;
+}
+
+.balance-container-form input[type=number] {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 2px;
+    border: 2px solid #cccccc1e;
+    box-sizing: border-box;
+    background-color: rgba(41, 65, 82, 0.178);
+    color: white;
+}
+
+.balance-container-form input[type=number]:hover {
+    border: 2px solid #cccccc34;
+
+}
+
+.balance-container-form input[type=password] {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 2px;
+    border: 2px solid #cccccc1e;
+    box-sizing: border-box;
+    background-color: rgba(41, 65, 82, 0.178);
+    color: white;
+}
+
+.balance-container-form input[type=password]:hover {
+    border: 2px solid #cccccc34;
+
+}
+
+.balance-container-form [type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }
