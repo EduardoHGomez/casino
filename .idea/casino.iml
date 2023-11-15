@@ -8,7 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="549e1abe3e" level="application" />
     <orderEntry type="library" name="flickity" level="application" />
+    <orderEntry type="library" name="spin-wheel" level="application" />
+    <orderEntry type="library" name="spin-wheel" level="application" />
   </component>
 </module>
