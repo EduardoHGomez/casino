@@ -1,0 +1,7 @@
+.credencialesInput{
+    border-radius: 10px;
+}
+
+#btnRegistrarse :visited{
+    color: black;
+}
