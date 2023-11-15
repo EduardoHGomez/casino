@@ -1,0 +1,50 @@
+.balance-container{
+    border: 1px solid gray;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.balance-container-header {
+    display: flex;
+    flex-direction: row;
+    color: #f2f8fd;
+    background-color: #1c425e;
+    border: 1px solid #1c425f;
+    border-radius: 5px;
+    margin-top: 2%;
+    padding: 2%;
+    width: 175vh;
+    height: 20vh;
+    margin-left: 60px;
+}
+
+.balance-container-header-wallet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.balance-container-header-amount {
+    margin-left: 3%;
+    margin-top: 1px;
+
+}
+
+.balance-container-header h2{
+    font-size: large;
+}
+
+.balance-container-header h1{
+    font-size: 2.3rem;
+}
+
+
+
+.balance-container-form {
+    display: flex;
+
+}
