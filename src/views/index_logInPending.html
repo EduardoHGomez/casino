@@ -12,6 +12,7 @@
 <body>
 
 
+
 <div class="h-screen w-full bg-white relative flex overflow-hidden ">
 
     <aside id="side" class="h-full w-16 flex flex-col space-y-10 items-center justify-center relative  text-white ">
@@ -80,6 +81,10 @@
     </aside>
 
 
+    <!--- Modal -->
+
+
+
     <div class="w-full h-full flex flex-col justify-between">
         <!-- Header -->
         <header id="nav" class="h-20 w-full flex items-center relative justify-between px-5 space-x-10 dark:bg-[#1a2c38] ">
@@ -96,19 +101,21 @@
 
                 <div id="prof" class="flex px-3 space-x-3">
                     <!-- Simula el perfil -->
-                    <button class="btn">
+                    <button id="buttonSingIn" class="btn" onclick="goToInit()" >
                         Iniciar Sesion
                     </button>
                 </div>
 
                 <div id="reg" class="flex px-3 space-x-3">
                     <!-- Simula el perfil -->
-                    <button class="btn">
+                    <button id="buttonRegis" class="btn" onclick="goToReg()">
                         Registrarse
                     </button>
                 </div>
             </div>
         </header>
+
+
 
 
 
