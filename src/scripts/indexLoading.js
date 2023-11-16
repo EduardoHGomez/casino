@@ -18,3 +18,42 @@ function goPrev()
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
 prev.addEventListener("click", goPrev);
+
+function goToIndex()
+{
+    window.location.href = "index_logIn.html";
+}
+function goToIndexPending()
+{
+    window.location.href = "index_logInPending.html";
+}
+
+function goToInfo()
+{
+    window.location.href = "info.html";
+}
+
+function goToRules()
+{
+    window.location.href = "rules.html";
+}
+
+function goToProfile()
+{
+    window.location.href = "profile.html";
+}
+
+function goToExit()
+{
+    alert('Salido, aun no implementado')
+}
+
+function goToBalance()
+{
+    window.location.href = "balance.html";
+}
+
+function goToActivity()
+{
+    window.location.href = "activity.html";
+}
