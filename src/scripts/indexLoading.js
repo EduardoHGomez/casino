@@ -57,3 +57,15 @@ function goToActivity()
 {
     window.location.href = "activity.html";
 }
+
+function goToInit()
+{
+    window.location.href = "logIn.html";
+}
+
+function goToReg()
+{
+    window.location.href = "register.html";
+}
+
+
