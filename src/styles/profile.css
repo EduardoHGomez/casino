@@ -12,7 +12,6 @@ body {
 
 #left-sidebar {
     flex: 1;
-    background-color:#20232a; 
     color: white;
 }
 
@@ -23,7 +22,6 @@ body {
     flex-direction: column;
     padding: 10px;
 
-    background-color: #1A2C38;
 }
 
 #main hr {
@@ -67,7 +65,6 @@ body {
 
 #account-details-left {
     border-radius: 10px;
-    background-color: #172833;
     margin-top: 5px;
     padding: 15px;   
 }
