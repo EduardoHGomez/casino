@@ -9,7 +9,7 @@ function goNext()
     if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7) defaultTransform = 0;
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
-next.addEventListener("click", goNext);
+next.addEventListener('click', goNext);
 function goPrev()
 {
     var slider = document.getElementById("slider");

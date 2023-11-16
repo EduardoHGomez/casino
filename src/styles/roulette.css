@@ -234,6 +234,10 @@ El nuevo check
 }
 
 
+
+
+
+
 .inputbox {
     position: relative;
     width: 196px;
@@ -289,6 +293,8 @@ El nuevo check
 .inputbox input:focus ~i {
     height: 44px;
 }
+
+
 
 /*
 Para quitar las flechas feas

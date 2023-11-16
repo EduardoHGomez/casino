@@ -52,12 +52,7 @@ const container = document.querySelector('.wheel-container');
 const dropdownWinningItem = document.querySelector('select.winning-item');
 
 // Creacion y atributos de wheel
-const wheel = new Wheel(container, props);
-wheel.borderWidth = 12;
-wheel.isInteractive = false;
-wheel.lineColor = '#D4AF37';
 
-wheel.radius = 0.9;
 
 //ELEMENTOS
 let btnSpin = document.getElementById('btnSpin');
@@ -70,6 +65,7 @@ let numeroElegido = document.getElementById('numeroElegido');
 let cantidadANumero = document.getElementById('cantidadANumero');
 let checkboxRojo = document.getElementById('checkboxRojo');
 let checkboxNegro = document.getElementById('checkboxNegro');
+let checkboxVerde = document.getElementById('checkboxVerde');
 let cantidadAColor = document.getElementById('cantidadAColor');
 let checkboxPar = document.getElementById('checkboxPar');
 let checkboxImpar = document.getElementById('checkboxImpar');
@@ -83,7 +79,50 @@ let tagBalance = document.getElementById('tagBalance');
 
 let balance = 1000;
 tagBalance.textContent = 'Balance: ' + balance;
+const wheel = new Wheel(container, props);
 
+function init()
+{
+
+  wheel.borderWidth = 12;
+  wheel.isInteractive = false;
+  wheel.lineColor = '#D4AF37';
+
+  wheel.radius = 0.9;
+
+  cantidadAColor.style.display = "none";
+
+}
+
+
+
+checkboxRojo.addEventListener('click', () =>
+{
+
+  if(checkboxRojo.checked)
+  {
+    cantidadAColor.classList.add();
+    cantidadAColor.style.display = "block";
+  }
+  else
+  {
+    cantidadAColor.value = ""
+    cantidadAColor.classList.remove();
+    cantidadAColor.style.display = "none";
+  }
+
+
+});
+
+checkboxNegro.addEventListener('click', () =>
+{
+
+});
+
+checkboxNegro.addEventListener('click', () =>
+{
+
+});
 
 
 
@@ -114,6 +153,8 @@ btnSpin.addEventListener('click', function () {
   //   balance = balance - cantidadANumero.value;
   //   tagBalance.textContent = 'Balance: ' + balance;
   // };
+
+
 
   if (cantidadAColor != '' && (checkboxRojo.checked == true || checkboxNegro.checked == true)){
     balance = balance - cantidadAColor.value;
@@ -146,6 +187,7 @@ btnSpin.addEventListener('click', function () {
   wheel.spinToItem(numeroAleatorio, 6000, false, 2);
 
     setTimeout(() => {
+
 
       let indiceGanador = wheel.getCurrentIndex();
       let winnerLabel = props.items[indiceGanador].label;
@@ -223,4 +265,7 @@ btnSpin.addEventListener('click', function () {
          */
 
     }, 6500);
+    init()
 });
+
+init()
