@@ -1,12 +1,27 @@
+// ---------- Uso de paquetes para el servidor, cors y archivos -----------
 const express = require('express'); 
+const fs = require('node:fs');
+const cors = require('cors');
 
-
-
-// Ejecutar con npm run dev
-  
+// ---------- CONFIGURACIÓN DEL SERVIDOR ------------ Ejecutar con npm run dev
 const app = express(); 
 const PORT = 3000; 
+app.use(express.json())
+
+// --------- Archivos locales (Archivos HTML, CSS, JS) -------------
+app.use(express.static('app'));
+app.use('/views', express.static('views'));
+ 
+// -------- CORS -----------------
+app.use(cors({
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+}));
   
+// ------ Cargar el archivo router.js --------------
+const router = require('./casino/controllers/router.js'); 
+
+
+// ------------- Rutas iniciales ------------------
 app.listen(PORT, (error) =>{ 
     if(!error) 
         console.log("Server is Successfully Running, and App is listening on port "+ PORT) 
@@ -15,7 +30,9 @@ app.listen(PORT, (error) =>{
     } 
 ); 
 
-app.get('/', (req, res)=>{ 
-    res.status(200); 
-    res.send("Bienvenido FRIO &#129398;");
-}); 
+app.use('/', router);
+
+// Después de encender el servidor
+app.listen(port, () => {
+    console.log("Server running on port: " + port);
+});
