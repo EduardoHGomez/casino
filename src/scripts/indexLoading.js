@@ -21,26 +21,26 @@ prev.addEventListener("click", goPrev);
 
 function goToIndex()
 {
-    window.location.href = "index_logIn.html";
+    window.location.href = "http://localhost:3000/";
 }
 function goToIndexPending()
 {
-    window.location.href = "index_logInPending.html";
+    window.location.href = "http://localhost:3000/";
 }
 
 function goToInfo()
 {
-    window.location.href = "info.html";
+    window.location.href = "http://localhost:3000/information";
 }
 
 function goToRules()
 {
-    window.location.href = "rules.html";
+    window.location.href = "http://localhost:3000/rules";
 }
 
 function goToProfile()
 {
-    window.location.href = "profile.html";
+    window.location.href = "http://localhost:3000/profile";
 }
 
 function goToExit()
@@ -50,22 +50,22 @@ function goToExit()
 
 function goToBalance()
 {
-    window.location.href = "balance.html";
+    window.location.href = "http://localhost:3000/profile/balance";
 }
 
 function goToActivity()
 {
-    window.location.href = "activity.html";
+    window.location.href = "http://localhost:3000/profile/activity";
 }
 
 function goToInit()
 {
-    window.location.href = "logIn.html";
+    window.location.href = "http://localhost:3000/login";
 }
 
 function goToReg()
 {
-    window.location.href = "register.html";
+    window.location.href = "http://localhost:3000/register";
 }
 
 
