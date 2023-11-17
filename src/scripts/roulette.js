@@ -74,6 +74,9 @@ let checkboxPrimera = document.getElementById('checkboxPrimera');
 let checkboxSegunda = document.getElementById('checkboxSegunda');
 let checkboxTercera = document.getElementById('checkboxTercera');
 let cantidadADocena = document.getElementById('cantidadADocena');
+const ColorDivCantidad = document.getElementById('ColorDivCantidad');
+const ParImparDivCantidad = document.getElementById('ParImparDivCantidad');
+const decDivCantidad = document.getElementById('decDivCantidad');
 
 let tagBalance = document.getElementById('tagBalance');
 
@@ -90,39 +93,105 @@ function init()
 
   wheel.radius = 0.9;
 
-  cantidadAColor.style.display = "none";
-
+  ColorDivCantidad.style.display = "none";
+  ParImparDivCantidad.style.display = "none";
+  decDivCantidad.style.display = "none";
 }
 
 
-
-checkboxRojo.addEventListener('click', () =>
-{
-
-  if(checkboxRojo.checked)
-  {
-    cantidadAColor.classList.add();
-    cantidadAColor.style.display = "block";
+function actualizarVisibilidad() {
+  // Verifica si al menos uno de los checkboxes está marcado
+  if (checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked) {
+    ColorDivCantidad.style.display = "block";
+  } else {
+    ColorDivCantidad.style.display = "none";
   }
-  else
-  {
-    cantidadAColor.value = ""
-    cantidadAColor.classList.remove();
-    cantidadAColor.style.display = "none";
+}
+
+// Agrega eventos a los checkboxes
+checkboxRojo.addEventListener('click', () => {
+  if (!checkboxRojo.checked) {
+    cantidadAColor.value = "";
   }
-
-
+  actualizarVisibilidad();
 });
 
-checkboxNegro.addEventListener('click', () =>
-{
-
+checkboxNegro.addEventListener('click', () => {
+  if (!checkboxNegro.checked) {
+    cantidadAColor.value = "";
+  }
+  actualizarVisibilidad();
 });
 
-checkboxNegro.addEventListener('click', () =>
-{
-
+checkboxVerde.addEventListener('click', () => {
+  if (!checkboxVerde.checked) {
+    cantidadAColor.value = "";
+  }
+  actualizarVisibilidad();
 });
+
+
+
+function actualizarVisibilidadParidad() {
+  // Verifica si al menos uno de los checkboxes está marcado
+  if (checkboxImpar.checked || checkboxPar.checked) {
+    ParImparDivCantidad.style.display = "block";
+  } else {
+    cantidadAParidad.value = "";
+    ParImparDivCantidad.style.display = "none";
+  }
+}
+
+// Agrega eventos a los checkboxes
+
+checkboxImpar.addEventListener('click', () => {
+  if (!checkboxImpar.checked && !checkboxPar.checked) {
+    cantidadAParidad.value = "";
+  }
+  actualizarVisibilidadParidad();
+});
+
+checkboxPar.addEventListener('click', () => {
+  if (!checkboxPar.checked && !checkboxImpar.checked) {
+    cantidadAParidad.value = "";
+  }
+  actualizarVisibilidadParidad();
+});
+
+
+function actualizarVisibilidadDecena() {
+  // Verifica si al menos uno de los checkboxes está marcado
+  if (checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked) {
+    decDivCantidad.style.display = "block";
+  } else {
+    cantidadADocena.value = "";
+    decDivCantidad.style.display = "none";
+  }
+}
+
+// Agrega eventos a los checkboxes
+checkboxPrimera.addEventListener('click', () => {
+  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked) {
+    cantidadADocena.value = "";
+  }
+  actualizarVisibilidadDecena();
+});
+
+checkboxSegunda.addEventListener('click', () => {
+  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked) {
+    cantidadADocena.value = "";
+  }
+  actualizarVisibilidadDecena();
+});
+
+checkboxTercera.addEventListener('click', () => {
+  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked) {
+    cantidadADocena.value = "";
+  }
+  actualizarVisibilidadDecena();
+});
+
+
 
 
 

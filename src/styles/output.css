@@ -468,7 +468,7 @@ video {
   --tw-brightness:  ;
   --tw-contrast:  ;
   --tw-grayscale:  ;
-  --tw-hue-rotate: ;
+  --tw-hue-rotate:  ;
   --tw-invert:  ;
   --tw-saturate:  ;
   --tw-sepia:  ;
@@ -582,10 +582,6 @@ video {
 
 .invisible {
   visibility: hidden;
-}
-
-.static {
-  position: static;
 }
 
 .fixed {

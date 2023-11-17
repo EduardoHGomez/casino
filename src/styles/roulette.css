@@ -271,7 +271,7 @@ El nuevo check
 
 .inputbox input:valid ~span,
 .inputbox input:focus ~span {
-    color: #45f3ff;
+
     transform: translateX(-10px) translateY(-34px);
     font-size: 0.75em;
 }
