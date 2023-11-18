@@ -21,10 +21,18 @@ function goPrev()
 }
 prev.addEventListener("click", goPrev);
 
+/*
+function delete_cookie(name) {
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+ */
+
+
 function goToIndex()
 {
     window.location.href = "http://localhost:3000/index";
 }
+
 function goToIndexPending()
 {
     window.location.href = "http://localhost:3000/";
@@ -47,7 +55,12 @@ function goToProfile()
 
 function goToExit()
 {
-    alert('Salido, aun no implementado')
+    /*
+    console.log(document.cookie)
+    delete_cookie('token')
+     */
+    window.location.href = "http://localhost:3000/";
+
 }
 
 function goToBalance()

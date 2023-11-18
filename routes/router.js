@@ -11,23 +11,55 @@ const gamesRouter = require(path.resolve(__dirname + "/games.js"));
 const User = require("../src/controllers/login_connect");
 const bcrypt = require("bcrypt");
 
+
 // --------------- TOKEN -------------------------
+
+/*
 const verifyToken = (req, res, next) => {
     const token = req.header('Authorization');
+
+    if (!token)
+    {
+        return res.status(401).json({ message: 'Acceso no autorizado. Token no proporcionado.' });
+    }
+    try
+    {
+        const decoded = jwt.verify(token, 'clave_secreta');
+        req.userId = decoded.userId;
+        next();
+    }
+    catch (error)
+    {
+        goToInit()
+        res.status(401).json({ message: 'Acceso no autorizado. Token inválido.' });
+    }
+};
+ */
+
+/*
+const verifyToken = (req, res, next) => {
+    const token = req.cookies.token;
 
     if (!token) {
         return res.status(401).json({ message: 'Acceso no autorizado. Token no proporcionado.' });
     }
 
-    try {
+    try
+    {
         const decoded = jwt.verify(token, 'clave_secreta');
         req.userId = decoded.userId;
         next();
-    } catch (error) {
-        goToInit()
+    }
+    catch (error)
+    {
         res.status(401).json({ message: 'Acceso no autorizado. Token inválido.' });
     }
 };
+
+ */
+
+
+
 
 router.post('/login', async (req,res) =>{
     try
@@ -57,7 +89,14 @@ router.post('/login', async (req,res) =>{
     }
 })
 
-router.use(['/information', '/rules', '/index', '/profile', '/games', '/add'], verifyToken);
+/*
+router.use('/information', verifyToken);
+router.use('/rules', verifyToken);
+router.use('/index', verifyToken);
+router.use('/profile', verifyToken);
+router.use('/games', verifyToken);
+router.use('/add', verifyToken);
+ */
 
 
 // --------------- RUTAS -------------------------

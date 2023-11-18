@@ -1,6 +1,8 @@
 // ---------- Uso de paquetes para el servidor, cors y archivos -----------
 const express = require('express'); 
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+
 
 // ---------- CONFIGURACIÓN DEL SERVIDOR ------------ Ejecutar con npm run dev
 const app = express(); 
@@ -13,6 +15,8 @@ app.use('/styles', express.static('styles'))
 app.use('/scripts', express.static('scripts'))
 app.use('/assets', express.static('assets'))
 app.use('/controllers', express.static('controllers'))
+
+app.use(cookieParser());
  
 // -------- ......CORS -----------------
 app.use(cors({
