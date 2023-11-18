@@ -4,7 +4,7 @@ const cors = require('cors');
 
 // ---------- CONFIGURACIÓN DEL SERVIDOR ------------ Ejecutar con npm run dev
 const app = express(); 
-const port = 3000; 
+const port = 3000;
 app.use(express.json())
 
 // --------- Archivos locales (Archivos HTML, CSS, JS) -------------
@@ -12,6 +12,7 @@ app.use(express.static('./src')); // Ahorita está como ./src pero para tener to
 app.use('/styles', express.static('styles'))
 app.use('/scripts', express.static('scripts'))
 app.use('/assets', express.static('assets'))
+app.use('/controllers', express.static('controllers'))
  
 // -------- ......CORS -----------------
 app.use(cors({
