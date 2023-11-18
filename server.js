@@ -13,13 +13,19 @@ app.use('/styles', express.static('styles'))
 app.use('/scripts', express.static('scripts'))
 app.use('/assets', express.static('assets'))
  
-// -------- CORS -----------------
+// -------- ......CORS -----------------
 app.use(cors({
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 }));
-  
-// ------ Cargar el archivo router.js --------------
+
+
+// ------ Carga de MONGO --------------
+const mongoose = require('./routes/mongoose.js'); 
+
+// ------ Carga de ROUTER --------------
 const router = require('./routes/router.js'); 
+
+
 
 app.use('/', router);
 
