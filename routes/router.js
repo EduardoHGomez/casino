@@ -39,6 +39,10 @@ router.get("/login", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/../src/views/logIn.html"));
 });
 
+router.get("/register", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "/../src/views/register.html"));
+});
+
 // Profile
 router.use("/profile", profileRouter);
 
