@@ -1,5 +1,39 @@
 const next = document.getElementById('next');
 const prev = document.getElementById('prev')
+const text = document.getElementById('textProf')
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadName()
+});
+
+function loadName()
+{
+    const token = sessionStorage.getItem('token');
+
+
+    if (!token)
+    {
+        console.error('Token no encontrado.');
+        return;
+    }
+
+
+    fetch('http://localhost:3000/getUserName', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        },
+    }).then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener el nombre desde el servidor');
+            }
+            return response.json();
+        }).then(data => {
+            const textProf = document.getElementById('textProf');
+            textProf.innerText = data.name;
+        }).catch(error => console.error('Error en la solicitud al servidor:', error));
+}
 
 let defaultTransform = 0;
 function goNext()
@@ -20,8 +54,6 @@ function goPrev()
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
 prev.addEventListener("click", goPrev);
-
-
 
 
 function goToIndex()
@@ -88,5 +120,4 @@ function goToReg()
 {
     window.location.href = "http://localhost:3000/register";
 }
-
 

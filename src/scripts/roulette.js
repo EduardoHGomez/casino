@@ -1,4 +1,5 @@
 import {Wheel} from 'https://cdn.jsdelivr.net/npm/spin-wheel@4.3.0/dist/spin-wheel-esm.js';
+const xhr = new XMLHttpRequest();
 
 // 1. Configure the wheel's properties:
 const props = {
@@ -80,7 +81,65 @@ const decDivCantidad = document.getElementById('decDivCantidad');
 
 let tagBalance = document.getElementById('tagBalance');
 
-let balance = 1000;
+let balance = 0;
+let balanceActual = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  loadBalanceRoulette();
+});
+
+function loadBalanceRoulette()
+{
+  var id = sessionStorage.getItem('token');
+  var url = `/profile/balance?id=${id}`;
+
+  xhr.open('GET', url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function() {
+    if (xhr.status != 200) {
+      alert(xhr.status + ': ' + xhr.statusText);
+    } else {
+      if (xhr.status === 200) {
+
+        // Replace data from given status
+        let data = JSON.parse(xhr.responseText);
+        let balance = document.querySelector('#tagBalance');
+        balanceActual = data.balance;
+        tagBalance.innerHTML = "Balance: "  +  data.balance;
+      }
+    }
+  };
+  xhr.send();
+}
+
+function updateBalance(amount) {
+  const id = sessionStorage.getItem('token');
+  const url = '/balance';
+
+  const data = {
+    id: id,
+    amount: amount,
+  };
+
+  xhr.open('PUT', url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function () {
+    if (xhr.status !== 200) {
+      alert(xhr.status + ': ' + xhr.statusText);
+    } else {
+      if (xhr.status === 200) {
+        // Actualizar el saldo actual en la interfaz después de la actualización en el servidor
+        loadBalanceRoulette();
+      }
+    }
+  };
+  xhr.send(JSON.stringify(data));
+}
+
+
+
+
+
+
 tagBalance.textContent = 'Balance: ' + balance;
 const wheel = new Wheel(container, props);
 
@@ -202,8 +261,8 @@ btnSpin.addEventListener('click', function () {
   // let indiceValorElegido = props.items.findIndex(item => item.label === valorNumeroElegido);
   // console.log("Indice del numero elegido: " + indiceValorElegido);
 
-  console.log("Checkbox rojo status: " + checkboxRojo.checked);
-  console.log('Jalando');
+  // console.log("Checkbox rojo status: " + checkboxRojo.checked);
+  // console.log('Jalando');
   let numeroDecimalAleatorio = Math.random();
   let numeroAleatorio = Math.floor(numeroDecimalAleatorio * 37);
   console.log("Numero ganador: " + props.items[numeroAleatorio].label);
@@ -226,19 +285,21 @@ btnSpin.addEventListener('click', function () {
 
 
   if (cantidadAColor != '' && (checkboxRojo.checked == true || checkboxNegro.checked == true)){
-    balance = balance - cantidadAColor.value;
+    balance += cantidadAColor.value;
     tagBalance.textContent = 'Balance: ' + balance;
   };
 
   if (cantidadAParidad != '' && (checkboxPar.checked == true || checkboxImpar.checked == true)){
-    balance = balance - cantidadAParidad.value;
+    balance += cantidadAParidad.value;
     tagBalance.textContent = 'Balance: ' + balance;
   };
 
   if (cantidadADocena != '' && (checkboxPrimera.checked == true || checkboxSegunda.checked == true || checkboxTercera.checked == true)){
-    balance = balance - cantidadADocena.value;
+    balance += cantidadADocena.value;
     tagBalance.textContent = 'Balance: ' + balance;
   };
+
+
 
   //CONDICIONALES Y CONTROL DE RANGOS
   //Si no eligio ningun numero en especifico lo hace de manera aleatorio, si no lo manda a un numero despues del que eligio
@@ -253,10 +314,12 @@ btnSpin.addEventListener('click', function () {
   // }
 
   // console.log('Valor numero elegido: ' + numeroElegido.value);
+  tagBalance.innerHTML = "Balance: "  +  (balanceActual - balance);
+
   wheel.spinToItem(numeroAleatorio, 6000, false, 2);
 
-    setTimeout(() => {
 
+    setTimeout(() => {
 
       let indiceGanador = wheel.getCurrentIndex();
       let winnerLabel = props.items[indiceGanador].label;
@@ -332,9 +395,13 @@ btnSpin.addEventListener('click', function () {
         cantidadADocena.value = '';
 
          */
+      updateBalance(balance);
+
 
     }, 6500);
-    init()
+    init();
+
 });
 
-init()
+
+init();
