@@ -1,40 +1,39 @@
 const xhr = new XMLHttpRequest();
 
+document.addEventListener('DOMContentLoaded', () => {
+    loadProfile();
+});
 
 function loadProfile() {
-    xhr.open('GET', `/profile/user`, false);
+    var id = sessionStorage.getItem('token');
+    var url = `/profile?id=${id}`;
+
+    xhr.open('GET', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         if (xhr.status != 200) {
             alert(xhr.status + ': ' + xhr.statusText); 
         } else { 
             if (xhr.status === 200) {
-                console.log(xhr.responseText);
+                let usernameField = document.querySelector('#account-input-username');
+                let emailField = document.querySelector('#account-input-email');
+                let passwordField = document.querySelector('#account-input-password');
+                let ageField = document.querySelector('#account-input-age');
+                let usernameBoldField = document.querySelector('#account-bold-username');
+
+                let data = JSON.parse(xhr.responseText);
+                usernameField.value = data.name;
+                passwordField.value = data.password;
+                emailField.value = data.email;
+                ageField.innerHTML = data.age;
+                usernameBoldField.innerHTML = data.name;
+
             }
         }
     };
     xhr.send();
 }
 
-
-
-function edit(component) {
-    let components = getFields(component);
-    let field = components[0];
-    let confirm = components[1];
-    let cancel = components[2];
-    let span = components[3];
-
-    // Change styles
-    field.disabled = false;
-    field.classList.remove('account-input');
-    field.classList.add('editing');
-
-    // Add confirm and delete buttons
-    span.style.display = 'none';
-    confirm.style.display = 'block';
-    cancel.style.display = 'block';
-}
 
 function confirm(component) {
     let components = getFields(component);
@@ -55,7 +54,12 @@ function confirm(component) {
 
     // Update previous value
     field.dataset.prev = field.value;
+    updateField(component, field.value); 
 }
+
+function updateField(field, newValue) {
+}
+
 
 function cancel(component) {
     let components = getFields(component);
@@ -91,8 +95,23 @@ function getFields(component) {
     components.push(cancel);
     components.push(span);
 
-    console.log(components);
     return components;
 }
 
+function edit(component) {
+    let components = getFields(component);
+    let field = components[0];
+    let confirm = components[1];
+    let cancel = components[2];
+    let span = components[3];
 
+    // Change styles
+    field.disabled = false;
+    field.classList.remove('account-input');
+    field.classList.add('editing');
+
+    // Add confirm and delete buttons
+    span.style.display = 'none';
+    confirm.style.display = 'block';
+    cancel.style.display = 'block';
+}
