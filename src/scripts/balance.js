@@ -1,10 +1,11 @@
 const xhr = new XMLHttpRequest();
 
+
 function addBalance() {
     let amount = document.querySelector('#balance-form-deposit').value;
     amount = parseFloat(amount);
 
-    xhr.open('GET', `/balance`, false);
+    xhr.open('PUT', `/profile/balance`, false);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         if (xhr.status != 200) {
