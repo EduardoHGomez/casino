@@ -29,8 +29,8 @@ actionLogin.addEventListener('click', async () =>
             console.log(response)
             if (response.ok)
             {
-                //const { token } = await response.json();
-                //document.cookie = `token=${token}; path=/`;
+                const { token } = await response.json();
+                document.cookie = `token=${token};`;
                 goToIndex()
 
             }

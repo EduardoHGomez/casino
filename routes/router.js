@@ -36,7 +36,7 @@ const verifyToken = (req, res, next) => {
 };
  */
 
-/*
+
 const verifyToken = (req, res, next) => {
     const token = req.cookies.token;
 
@@ -56,7 +56,7 @@ const verifyToken = (req, res, next) => {
     }
 };
 
- */
+
 
 
 
@@ -89,14 +89,14 @@ router.post('/login', async (req,res) =>{
     }
 })
 
-/*
+
 router.use('/information', verifyToken);
 router.use('/rules', verifyToken);
 router.use('/index', verifyToken);
 router.use('/profile', verifyToken);
 router.use('/games', verifyToken);
 router.use('/add', verifyToken);
- */
+
 
 
 // --------------- RUTAS -------------------------

@@ -21,11 +21,7 @@ function goPrev()
 }
 prev.addEventListener("click", goPrev);
 
-/*
-function delete_cookie(name) {
-    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
- */
+
 
 
 function goToIndex()
@@ -51,14 +47,22 @@ function goToRules()
 function goToProfile()
 {
     window.location.href = "http://localhost:3000/profile";
+
+}
+
+function imprimirTodasLasCookies() {
+    const cookies = document.cookie.split(';');
+
+    console.log("Todas las cookies:");
+
+    for (let i = 0; i < cookies.length; i++) {
+        console.log(cookies[i].trim());
+    }
 }
 
 function goToExit()
 {
-    /*
-    console.log(document.cookie)
-    delete_cookie('token')
-     */
+    document.cookie = 'token=; Expires=0;';
     window.location.href = "http://localhost:3000/";
 
 }
