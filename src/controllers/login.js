@@ -26,13 +26,13 @@ actionLogin.addEventListener('click', async () =>
                 body: requestBody,
             });
 
-            console.log(response)
+
             if (response.ok)
             {
-                const { token } = await response.json();
+                const  token  = await response.json();
                 document.cookie = `token=${token};`;
+                sessionStorage.setItem('token',token)
                 goToIndex()
-
             }
             else
             {
