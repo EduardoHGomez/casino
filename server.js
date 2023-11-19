@@ -9,6 +9,7 @@ const app = express();
 const port = 3000;
 app.use(express.json())
 
+
 // --------- Archivos locales (Archivos HTML, CSS, JS) -------------
 app.use(express.static('./src')); // Ahorita está como ./src pero para tener todo el acceso al servidor deber ser './'
 app.use('/styles', express.static('styles'))
