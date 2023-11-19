@@ -141,21 +141,21 @@ router.use("/games", gamesRouter);
 
 
 // // ------------ Ruta de prueba para cargar usuario -------------
-router.get("/add", (req, res) => {
-    let userSchema = mongoose.Schema({
-        name: String,
-        edad: Number,
-        balance: Number
-    });
-    let User = mongoose.model('users', userSchema);
-    let newUser = {name: "Taylor", age: 29, balance: 288.89};
-    let user = User(newUser);
+// router.get("/add", (req, res) => {
+//     let userSchema = mongoose.Schema({
+//         name: String,
+//         edad: Number,
+//         balance: Number
+//     });
+//     let User = mongoose.model('users', userSchema);
+//     let newUser = {name: "Taylor", age: 29, balance: 288.89};
+//     let user = User(newUser);
 
 
-    user.save().then((doc) => {
-        console.log("USUARIO CARGADO");
-        res.send('Usuario Taylor cargado exitosamente');
-    });
-});
+//     user.save().then((doc) => {
+//         console.log("USUARIO CARGADO");
+//         res.send('Usuario Taylor cargado exitosamente');
+//     });
+// });
 
 module.exports = router;

@@ -1,3 +1,23 @@
+const xhr = new XMLHttpRequest();
+
+
+function loadProfile() {
+    xhr.open('GET', `/profile/user`, false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status != 200) {
+            alert(xhr.status + ': ' + xhr.statusText); 
+        } else { 
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        }
+    };
+    xhr.send();
+}
+
+
+
 function edit(component) {
     let components = getFields(component);
     let field = components[0];

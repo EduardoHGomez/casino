@@ -4,13 +4,14 @@ const jwt = require("jsonwebtoken");
 
 
 let expectedSchema = mongoose.Schema({
-    email:String,
-    password:String
+    name: String,
+    age: Number,
+    balance: Number,
+    email: String,
+    password: String
 });
 
 
 let User = mongoose.model('users',expectedSchema);
-
-
 
 module.exports = User;

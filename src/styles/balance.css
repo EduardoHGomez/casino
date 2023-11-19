@@ -99,7 +99,7 @@
 
 }
 
-.balance-container-form [type=submit] {
+.balance-container-form button {
   width: 100%;
   background-color: #4CAF50;
   color: white;
@@ -110,6 +110,6 @@
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+button:hover {
   background-color: #45a049;
 }
