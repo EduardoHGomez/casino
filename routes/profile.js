@@ -32,7 +32,39 @@ router.put("/", (req, res) => {
         }).then((docs) => {
             res.send(docs[0]);
         }).catch((err) => res.send("Error"));
-    } else {
+    } 
+    
+    else if (req.body) {
+        let id = req.body.id;
+        let field = req.body.field;
+        let newValue = req.body.newValue;
+
+        // Get old values
+        User.find({
+            _id: id
+        }).then((docs) => {
+            let currentData = docs[0];
+
+            // Update according to the field being edited
+            if(field === 'username') {
+                currentData.name = newValue
+            } else if(field === 'password') {
+                currentData.password = newValue;
+            } else if(field === 'email') {
+                currentData.email = newValue;
+            }
+
+            // Update values
+            User.findByIdAndUpdate(id, currentData, {new: true}).then((doc) => {
+                res.send(doc);
+            }).catch((err) => console.log(err));
+
+
+        }).catch((err) => res.send("Error"));
+
+    } 
+    
+    else {
         res.sendFile(path.resolve(__dirname + "/../src/views/profile.html"));
     }
 });
