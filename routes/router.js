@@ -58,6 +58,37 @@ const verifyToken = (req, res, next) => {
 };
 
 
+router.post('/register',async (req,res) =>
+{
+    try
+    {
+        const { name, age, email, password} = req.body;
+
+        const existingVerification = await User.findOne({email})
+        if(existingVerification)
+        {
+            return res.status(400).json({message: 'Ya existe el usuario'});
+        }
+        const hashedPass = await bcrypt.hash(password,10);
+        const newUser = new User(
+            {
+                name,
+                age,
+                balance: 0,
+                email,
+                password
+            }
+        );
+
+
+        await newUser.save();
+        res.status(201).json({ message: 'Usuario registrado con éxito.' });
+    }
+    catch (e)
+    {
+        res.status(500).json({ error: e.message });
+    }
+})
 
 
 
@@ -133,9 +164,10 @@ router.get("/register", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/../src/views/register.html"));
 });
 
+
+
 // Profile
 router.use("/profile", profileRouter);
-
 // Games
 router.use("/games", gamesRouter);
 
