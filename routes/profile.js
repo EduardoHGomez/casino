@@ -11,6 +11,7 @@ const User = require("../src/controllers/login_connect");
 // /profile/ => load HTML
 router.get("/", (req, res) => {
     let id = req.query.id;
+
     if(id) {
         User.find({
             _id: id
@@ -22,7 +23,19 @@ router.get("/", (req, res) => {
     }
 });
 
-// /profile/user => load current user's info
+// Update user's information
+router.put("/", (req, res) => {
+    let id = req.query.id;
+    if(id) {
+        User.find({
+            _id: id
+        }).then((docs) => {
+            res.send(docs[0]);
+        }).catch((err) => res.send("Error"));
+    } else {
+        res.sendFile(path.resolve(__dirname + "/../src/views/profile.html"));
+    }
+});
 
 
 // ------------------ BALANCE (/profile/balance) --------------------------
