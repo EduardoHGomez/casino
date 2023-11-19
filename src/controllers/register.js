@@ -28,6 +28,7 @@ actionRegister.addEventListener('click', async () => {
             password: userPassword,
         };
 
+
         const requestBody = JSON.stringify(userData);
 
         const response = await fetch('/register', {

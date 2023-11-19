@@ -14,29 +14,6 @@ const bcrypt = require("bcrypt");
 
 // --------------- TOKEN -------------------------
 
-/*
-const verifyToken = (req, res, next) => {
-    const token = req.header('Authorization');
-
-    if (!token)
-    {
-        return res.status(401).json({ message: 'Acceso no autorizado. Token no proporcionado.' });
-    }
-    try
-    {
-        const decoded = jwt.verify(token, 'clave_secreta');
-        req.userId = decoded.userId;
-        next();
-    }
-    catch (error)
-    {
-        goToInit()
-        res.status(401).json({ message: 'Acceso no autorizado. Token inválido.' });
-    }
-};
- */
-
-
 const verifyToken = (req, res, next) => {
     const token = req.cookies.token;
 
@@ -58,18 +35,34 @@ const verifyToken = (req, res, next) => {
 };
 
 
-router.post('/register',async (req,res) =>
-{
-    try
+router.get('/getUserName', verifyToken, async (req, res) => {
+    try {
+        const user = await User.findById(req.userId);
+
+        if (!user)
+        {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+
+        res.json({ name: user.name });
+    }
+    catch (error)
     {
-        const { name, age, email, password} = req.body;
+        console.error(error);
+        res.status(500).json({ error: 'Error al obtener el nombre desde la base de datos' });
+    }
+});
+
+
+router.post('/register',async (req,res,next) => {
+    try {
+        const {name, age, email, password} = req.body;
 
         const existingVerification = await User.findOne({email})
-        if(existingVerification)
-        {
+        if (existingVerification) {
             return res.status(400).json({message: 'Ya existe el usuario'});
         }
-        const hashedPass = await bcrypt.hash(password,10);
+        const hashedPass = await bcrypt.hash(password, 10);
         const newUser = new User(
             {
                 name,
@@ -82,14 +75,11 @@ router.post('/register',async (req,res) =>
 
 
         await newUser.save();
-        res.status(201).json({ message: 'Usuario registrado con éxito.' });
-    }
-    catch (e)
-    {
-        res.status(500).json({ error: e.message });
+        res.status(201).json({message: 'Usuario registrado con éxito.'});
+    } catch (e) {
+        res.status(500).json({error: e.message});
     }
 })
-
 
 
 
@@ -127,7 +117,7 @@ router.post('/login', async (req,res) =>{
 router.use('/information', verifyToken);
 router.use('/rules', verifyToken);
 router.use('/index', verifyToken);
-router.use('/profile', verifyToken);
+//router.use('/profile', verifyToken);
 router.use('/games', verifyToken);
 router.use('/add', verifyToken);
 
@@ -170,6 +160,7 @@ router.get("/register", (req, res) => {
 router.use("/profile", profileRouter);
 // Games
 router.use("/games", gamesRouter);
+
 
 
 // // ------------ Ruta de prueba para cargar usuario -------------
