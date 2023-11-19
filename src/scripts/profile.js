@@ -58,6 +58,27 @@ function confirm(component) {
 }
 
 function updateField(field, newValue) {
+    var id = sessionStorage.getItem('token');
+
+    let data = {
+        id: id,
+        field: field,
+        newValue: newValue
+    }
+    data = JSON.stringify(data);
+
+    xhr.open('PUT', `/profile`, false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status != 200) {
+            alert(xhr.status + ': ' + xhr.statusText); 
+        } else { 
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        }
+    };
+    xhr.send(data);
 }
 
 
