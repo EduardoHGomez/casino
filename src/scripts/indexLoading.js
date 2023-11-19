@@ -9,7 +9,9 @@ function goNext()
     if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7) defaultTransform = 0;
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
+
 next.addEventListener('click', goNext);
+
 function goPrev()
 {
     var slider = document.getElementById("slider");
@@ -19,10 +21,14 @@ function goPrev()
 }
 prev.addEventListener("click", goPrev);
 
+
+
+
 function goToIndex()
 {
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "http://localhost:3000/index";
 }
+
 function goToIndexPending()
 {
     window.location.href = "http://localhost:3000/";
@@ -41,11 +47,24 @@ function goToRules()
 function goToProfile()
 {
     window.location.href = "http://localhost:3000/profile";
+
+}
+
+function imprimirTodasLasCookies() {
+    const cookies = document.cookie.split(';');
+
+    console.log("Todas las cookies:");
+
+    for (let i = 0; i < cookies.length; i++) {
+        console.log(cookies[i].trim());
+    }
 }
 
 function goToExit()
 {
-    alert('Salido, aun no implementado')
+    document.cookie = 'token=; Expires=0;';
+    window.location.href = "http://localhost:3000/";
+
 }
 
 function goToBalance()
