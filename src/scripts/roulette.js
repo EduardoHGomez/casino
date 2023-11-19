@@ -111,13 +111,14 @@ function loadBalanceRoulette()
   xhr.send();
 }
 
+
 function updateBalance(amount) {
   const id = sessionStorage.getItem('token');
   const url = '/balance';
 
   const data = {
     id: id,
-    amount: amount,
+    balance: amount,
   };
 
   xhr.open('PUT', url, true);
