@@ -10,8 +10,16 @@ const User = require("../src/controllers/login_connect");
 
 // /profile/ => load HTML
 router.get("/", (req, res) => {
-
-    res.sendFile(path.resolve(__dirname + "/../src/views/profile.html"));
+    let id = req.query.id;
+    if(id) {
+        User.find({
+            _id: id
+        }).then((docs) => {
+            res.send(docs[0]);
+        }).catch((err) => res.send("Error"));
+    } else {
+        res.sendFile(path.resolve(__dirname + "/../src/views/profile.html"));
+    }
 });
 
 // /profile/user => load current user's info
