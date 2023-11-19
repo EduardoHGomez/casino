@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadBalanceRoulette();
 });
 
+
 function loadBalanceRoulette()
 {
   var id = sessionStorage.getItem('token');
@@ -100,7 +101,6 @@ function loadBalanceRoulette()
     } else {
       if (xhr.status === 200) {
 
-        // Replace data from given status
         let data = JSON.parse(xhr.responseText);
         let balance = document.querySelector('#tagBalance');
         balanceActual = data.balance;
@@ -111,23 +111,27 @@ function loadBalanceRoulette()
   xhr.send();
 }
 
+
 function updateBalance(amount) {
   const id = sessionStorage.getItem('token');
   const url = '/balance';
 
   const data = {
     id: id,
-    amount: amount,
+    balance: amount,
   };
 
   xhr.open('PUT', url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = function () {
-    if (xhr.status !== 200) {
+    if (xhr.status !== 200)
+    {
       alert(xhr.status + ': ' + xhr.statusText);
-    } else {
-      if (xhr.status === 200) {
-        // Actualizar el saldo actual en la interfaz después de la actualización en el servidor
+    }
+    else
+    {
+      if (xhr.status === 200)
+      {
         loadBalanceRoulette();
       }
     }
@@ -318,7 +322,6 @@ btnSpin.addEventListener('click', function () {
 
   wheel.spinToItem(numeroAleatorio, 6000, false, 2);
 
-
     setTimeout(() => {
 
       let indiceGanador = wheel.getCurrentIndex();
@@ -342,40 +345,30 @@ btnSpin.addEventListener('click', function () {
       console.log('Color ganador: ' + winnerColor);
       if(winnerColor == 'Rojo' && checkboxRojo.checked == true){
         balance = balance + (cantidadAColor.value*2);
-        tagBalance.textContent = 'Balance: ' + balance;
       };
 
       if(winnerColor == 'Negro' && checkboxNegro.checked == true){
         balance = balance + (cantidadAColor.value*2);
-        tagBalance.textContent = 'Balance: ' + balance;
       };
 
       if(winnerParity == 'par' && checkboxPar.checked == true){
-        balance = balance + (cantidadAParidad.value*2);
-        tagBalance.textContent = 'Balance: ' + balance;
+        balance = balance + (cantidadAParidad.value*2);;
       };
 
       if(winnerParity == 'impar' && checkboxImpar.checked == true){
         balance = balance + (cantidadAParidad.value*2);
-        tagBalance.textContent = 'Balance: ' + balance;
       };
 
       if(winnerDozen == '1' && checkboxPrimera.checked == true){
         balance = balance + (cantidadADocena.value*3);
-        tagBalance.textContent = 'Balance: ' + balance;
       };
 
       if(winnerDozen == '2' && checkboxSegunda.checked == true){
         balance = balance + (cantidadADocena.value*3);
-        tagBalance.textContent = 'Balance: ' + balance;
       };
 
       if(winnerDozen == '3' && checkboxTercera.checked == true){
-        console.log('Gano');
-        console.log('balance 1: ' + balance);
         balance = balance + (cantidadADocena.value*3);
-        console.log('balance 2: ' + balance);
-        tagBalance.textContent = 'Balance: ' + balance;
       };
 
         //Resets checkboxes
