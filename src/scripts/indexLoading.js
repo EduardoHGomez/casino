@@ -50,6 +50,7 @@ function goToProfile()
 
 }
 
+/*
 function imprimirTodasLasCookies() {
     const cookies = document.cookie.split(';');
 
@@ -59,12 +60,13 @@ function imprimirTodasLasCookies() {
         console.log(cookies[i].trim());
     }
 }
+ */
 
 function goToExit()
 {
+    sessionStorage.removeItem('token')
     document.cookie = 'token=; Expires=0;';
     window.location.href = "http://localhost:3000/";
-
 }
 
 function goToBalance()

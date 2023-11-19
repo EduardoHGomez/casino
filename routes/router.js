@@ -46,8 +46,9 @@ const verifyToken = (req, res, next) => {
 
     try
     {
-        const decoded = jwt.verify(token, 'clave_secreta');
-        req.userId = decoded.userId;
+        //const decoded = jwt.verify(token, 'clave_secreta');
+        //req.userId = decoded.userId;
+        req.userId = token;
         next();
     }
     catch (error)
@@ -80,8 +81,10 @@ router.post('/login', async (req,res) =>{
             return res.status(401).json('Error invalido 2');
         }
 
-        const token = jwt.sign({ userId: user._id }, 'clave_secreta', { expiresIn: '2h' });
-        res.status(200).json({ token });
+        //const token = jwt.sign({ userId: user._id }, 'clave_secreta', { expiresIn: '2h' });
+        const token = user.id;
+
+        res.status(200).json(token);
     }
     catch (ex)
     {
