@@ -13,7 +13,7 @@ let expectedSchema = mongoose.Schema({
 });
  */
 
-let expectedSchema = mongoose.Schema({
+let mySchema = mongoose.Schema({
     BetStatus: {
         type: Boolean,
         required: true,
@@ -38,6 +38,6 @@ let expectedSchema = mongoose.Schema({
 
 
 
-let Activity = mongoose.model('activity',expectedSchema);
+let Activity = mongoose.model('activities', mySchema);
 
 module.exports = Activity;
