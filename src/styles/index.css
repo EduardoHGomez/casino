@@ -5,30 +5,7 @@
 
 }
 
-#gamesTitle{
-    font-family: Khand;
-}
 
-
-
-@font-face {
-    font-family: 'Switzer-Variable';
-    src:
-            url('src/assets/fonts/Switzer-Variable.ttf') format('woff2'),
-            url('src/assets/fonts/Switzer-Variable.woff') format('woff'),
-            url('src/assets/fonts/Switzer-Variable.ttf') format('truetype');
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: normal;
-
-    font-family: 'Khand';
-    src: url('src/assets/fonts/Khand-Medium.woff2') format('woff2'),
-    url('src/assets/fonts/Khand-Medium.woff') format('woff'),
-    url('src/assets/fonts/Khand-Medium.ttf') format('truetype');
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: normal;
-}
 
 
 
