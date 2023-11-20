@@ -114,11 +114,12 @@ function loadBalanceRoulette()
 
 function updateBalance(amount) {
   const id = sessionStorage.getItem('token');
-  const url = '/balance';
+  const url = '/profile/balance';
+  
 
-  const data = {
+  let data = {
     id: id,
-    balance: amount,
+    amount: amount,
   };
 
   xhr.open('PUT', url, true);
@@ -321,9 +322,11 @@ btnSpin.addEventListener('click', function () {
   tagBalance.innerHTML = "Balance: "  +  (balanceActual - balance);
 
   wheel.spinToItem(numeroAleatorio, 6000, false, 2);
+  document.querySelector('#btnSpin').style.display = 'none';
 
     setTimeout(() => {
 
+      document.querySelector('#btnSpin').style.display = 'block';
       let indiceGanador = wheel.getCurrentIndex();
       let winnerLabel = props.items[indiceGanador].label;
       let winnerColor = props.items[indiceGanador].color;
@@ -344,10 +347,12 @@ btnSpin.addEventListener('click', function () {
 
       console.log('Color ganador: ' + winnerColor);
       if(winnerColor == 'Rojo' && checkboxRojo.checked == true){
-        balance = balance + (cantidadAColor.value*2);
+        console.log("Here1");
+        balance = parseFloat(cantidadAColor.value)*2;
       };
 
       if(winnerColor == 'Negro' && checkboxNegro.checked == true){
+        console.log("Here2");
         balance = balance + (cantidadAColor.value*2);
       };
 
