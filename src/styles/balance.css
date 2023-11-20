@@ -1,5 +1,49 @@
+
+#main {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex: 4;
+}
+
+#main hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+#main h1 {
+    font-size: x-large;
+    margin-bottom: 10px;
+}
+
+#main-header{
+    display: flex;
+    direction: column;
+    color: white;
+    align-items: center;
+}
+
+#main-header span {
+    color: #d6dae1;
+    margin-right: 10px;
+}
+
+#main-header .badge {
+  background-color: white;
+  color: #2b414e;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
 .balance-container{
-    border: 1px solid gray;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -14,9 +58,8 @@
     background-color: #1c435e50;
     border: 1px solid #1c425f;
     border-radius: 5px;
-    margin-top: 2%;
-    width: 175vh;
-    height: 20vh;
+    width: 140vh;
+    height: 15vh;
 }
 
 .balance-container-header-wallet {

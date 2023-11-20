@@ -33,6 +33,11 @@ body {
     padding: 0;
 }
 
+#main h1 {
+    font-size: x-large;
+    margin-bottom: 10px;
+}
+
 #main-header{
     display: flex;
     direction: column;
@@ -139,7 +144,7 @@ body {
 	appearance: none;
 	border: none;
 	outline: none;
-    background-color: rgba(21, 37, 48, 0.933);
+    background-color: rgba(21, 37, 48, 0.226);
     color: white;
 	border-radius: .2em .2em 0 0;
 	padding: .4em;
@@ -163,7 +168,7 @@ body {
 	appearance: none;
 	border: none;
 	outline: none;
-    background-color: rgba(21, 37, 48, 0.933);
+    background-color: rgba(21, 37, 48, 0.226);
     color: white;
 	border-radius: .2em .2em 0 0;
 	padding: .4em;
