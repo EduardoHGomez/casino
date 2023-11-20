@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const User = require("../src/controllers/login_connect");
+const Activity = require("../src/controllers/activity");
 // const User = require('../routes/user_schema.js');
 
 
@@ -121,7 +122,13 @@ router.put("/balance", (req, res) => {
 // ----------------- ACTIVITY -------------------
 // /profile/activity
 router.get("/activity", (req, res) => {
-    res.sendFile(path.resolve(__dirname + "/../src/views/activity.html"));
+    let id = req.query.id;
+
+    if (id) {
+        res.send("Hola");
+    } else {
+        res.sendFile(path.resolve(__dirname + "/../src/views/activity.html"));
+    }
 });
 
 module.exports = router;
