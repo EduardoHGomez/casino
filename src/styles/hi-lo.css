@@ -1,0 +1,94 @@
+#contenedorGeneralHiLo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorHiLo{
+    height: 1200px;
+    width: 100%;
+    border: solid 1px black;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 5% 5%;
+    grid-template-rows: 65% 10%;
+    justify-content: center;
+    padding-top: 2%;
+}
+
+.deck{
+    height: 100%;
+    width: 100%;
+    border: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    border-radius: .5rem;
+    color: white;
+    user-select: none;
+}
+
+.computer-card-slot{
+    grid-column: span 2;
+}
+
+.text{
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    position: relative;
+    height: 100%;
+    width: 200%;
+    border: 1px solid black;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12rem;
+    background-color: white;
+}
+
+.card.red{
+    color: red;
+}
+
+.card.black{
+    color: black;
+}
+
+.card::before, .card::after{
+    position: absolute;
+    content: attr(data-value);
+    font-size: 5rem;
+}
+
+.card::before{
+    top: .5rem;
+    left: .5rem;
+}
+
+.card::after{
+    bottom: .5rem;
+    right: .5rem;
+    transform: rotate(180deg);
+}
+
+#contenedorBotonesHiLo{
+    padding-top: 25px;
+    width: 400%;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 10%;
+}
+
+.btnHiLo{
+    color: white;
+    border: 1px solid white;
+    border-radius: 1rem;
+}
