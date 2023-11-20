@@ -1,5 +1,4 @@
-const next = document.getElementById('next');
-const prev = document.getElementById('prev')
+
 const text = document.getElementById('textProf')
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,13 +9,11 @@ function loadName()
 {
     const token = sessionStorage.getItem('token');
 
-
     if (!token)
     {
         console.error('Token no encontrado.');
         return;
     }
-
 
     fetch('http://localhost:3000/getUserName', {
         method: 'GET',
@@ -36,24 +33,6 @@ function loadName()
 }
 
 let defaultTransform = 0;
-function goNext()
-{
-    defaultTransform = defaultTransform - 398;
-    var slider = document.getElementById("slider");
-    if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7) defaultTransform = 0;
-    slider.style.transform = "translateX(" + defaultTransform + "px)";
-}
-
-next.addEventListener('click', goNext);
-
-function goPrev()
-{
-    var slider = document.getElementById("slider");
-    if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
-    else defaultTransform = defaultTransform + 398;
-    slider.style.transform = "translateX(" + defaultTransform + "px)";
-}
-prev.addEventListener("click", goPrev);
 
 
 function goToIndex()
