@@ -1,7 +1,7 @@
 import {Wheel} from 'https://cdn.jsdelivr.net/npm/spin-wheel@4.3.0/dist/spin-wheel-esm.js';
 const xhr = new XMLHttpRequest();
 
-// 1. Configure the wheel's properties:
+
 const props = {
     items: [
       {label: '0', backgroundColor:'#008000',labelColor : '#fff', color : 'Verde'},
@@ -83,10 +83,10 @@ let tagBalance = document.getElementById('tagBalance');
 
 let balance = 0;
 let balanceActual = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
   loadBalanceRoulette();
 });
-
 
 function loadBalanceRoulette()
 {
@@ -96,7 +96,7 @@ function loadBalanceRoulette()
   xhr.open('GET', url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = function() {
-    if (xhr.status != 200) {
+    if (xhr.status !== 200) {
       alert(xhr.status + ': ' + xhr.statusText);
     } else {
       if (xhr.status === 200) {
@@ -110,7 +110,6 @@ function loadBalanceRoulette()
   };
   xhr.send();
 }
-
 
 function updateBalance(amount) {
   const id = sessionStorage.getItem('token');
@@ -142,9 +141,6 @@ function updateBalance(amount) {
 
 
 
-
-
-
 tagBalance.textContent = 'Balance: ' + balance;
 const wheel = new Wheel(container, props);
 
@@ -163,32 +159,42 @@ function init()
 }
 
 
-function actualizarVisibilidad() {
+function actualizarVisibilidad()
+{
   // Verifica si al menos uno de los checkboxes está marcado
-  if (checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked) {
+  if (checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked)
+  {
     ColorDivCantidad.style.display = "block";
-  } else {
+  }
+  else
+  {
     ColorDivCantidad.style.display = "none";
   }
 }
 
 // Agrega eventos a los checkboxes
-checkboxRojo.addEventListener('click', () => {
-  if (!checkboxRojo.checked) {
+checkboxRojo.addEventListener('click', () =>
+{
+  if (!checkboxRojo.checked)
+  {
     cantidadAColor.value = "";
   }
   actualizarVisibilidad();
 });
 
-checkboxNegro.addEventListener('click', () => {
-  if (!checkboxNegro.checked) {
+checkboxNegro.addEventListener('click', () =>
+{
+  if (!checkboxNegro.checked)
+  {
     cantidadAColor.value = "";
   }
   actualizarVisibilidad();
 });
 
-checkboxVerde.addEventListener('click', () => {
-  if (!checkboxVerde.checked) {
+checkboxVerde.addEventListener('click', () =>
+{
+  if (!checkboxVerde.checked)
+  {
     cantidadAColor.value = "";
   }
   actualizarVisibilidad();
@@ -196,11 +202,15 @@ checkboxVerde.addEventListener('click', () => {
 
 
 
-function actualizarVisibilidadParidad() {
+function actualizarVisibilidadParidad()
+{
   // Verifica si al menos uno de los checkboxes está marcado
-  if (checkboxImpar.checked || checkboxPar.checked) {
+  if (checkboxImpar.checked || checkboxPar.checked)
+  {
     ParImparDivCantidad.style.display = "block";
-  } else {
+  }
+  else
+  {
     cantidadAParidad.value = "";
     ParImparDivCantidad.style.display = "none";
   }
@@ -208,198 +218,232 @@ function actualizarVisibilidadParidad() {
 
 // Agrega eventos a los checkboxes
 
-checkboxImpar.addEventListener('click', () => {
-  if (!checkboxImpar.checked && !checkboxPar.checked) {
+checkboxImpar.addEventListener('click', () =>
+{
+  if (!checkboxImpar.checked && !checkboxPar.checked)
+  {
     cantidadAParidad.value = "";
   }
   actualizarVisibilidadParidad();
 });
 
-checkboxPar.addEventListener('click', () => {
-  if (!checkboxPar.checked && !checkboxImpar.checked) {
+checkboxPar.addEventListener('click', () =>
+{
+  if (!checkboxPar.checked && !checkboxImpar.checked)
+  {
     cantidadAParidad.value = "";
   }
   actualizarVisibilidadParidad();
 });
 
 
-function actualizarVisibilidadDecena() {
+function actualizarVisibilidadDecena()
+{
   // Verifica si al menos uno de los checkboxes está marcado
-  if (checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked) {
+  if (checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked)
+  {
     decDivCantidad.style.display = "block";
-  } else {
+  }
+  else
+  {
     cantidadADocena.value = "";
     decDivCantidad.style.display = "none";
   }
 }
 
 // Agrega eventos a los checkboxes
-checkboxPrimera.addEventListener('click', () => {
-  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked) {
+checkboxPrimera.addEventListener('click', () =>
+{
+  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked)
+  {
     cantidadADocena.value = "";
   }
   actualizarVisibilidadDecena();
 });
 
-checkboxSegunda.addEventListener('click', () => {
-  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked) {
+checkboxSegunda.addEventListener('click', () =>
+{
+  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked)
+  {
     cantidadADocena.value = "";
   }
   actualizarVisibilidadDecena();
 });
 
-checkboxTercera.addEventListener('click', () => {
-  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked) {
+checkboxTercera.addEventListener('click', () =>
+{
+  if (!checkboxPrimera.checked && !checkboxSegunda.checked && !checkboxTercera.checked)
+  {
     cantidadADocena.value = "";
   }
   actualizarVisibilidadDecena();
 });
-
 
 
 
 
 btnSpin.addEventListener('click', function () {
-  //Checar valores
-  // let valorNumeroElegido = numeroElegido.value;
-  // console.log("Valor numero elegido: " + valorNumeroElegido);
-  // let indiceValorElegido = props.items.findIndex(item => item.label === valorNumeroElegido);
-  // console.log("Indice del numero elegido: " + indiceValorElegido);
+    if(checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked || checkboxPar.checked || checkboxImpar.checked || checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked)
+    {
 
-  // console.log("Checkbox rojo status: " + checkboxRojo.checked);
-  // console.log('Jalando');
-  let numeroDecimalAleatorio = Math.random();
-  let numeroAleatorio = Math.floor(numeroDecimalAleatorio * 37);
-  console.log("Numero ganador: " + props.items[numeroAleatorio].label);
-
-  /*
-  //RESETS
-  //numeroGanador.textContent = 'Numero ganador: ';
-  colorGanador.textContent = 'Color ganador: ';
-  parOImpar.textContent = 'Par o Impar: ';
-  docenaGanadora.textContent = 'Docena ganadora: ';
-
-   */
-
-  //Restar lo apostado 
-  // if (cantidadANumero != '' && numeroElegido.value  != ''){
-  //   balance = balance - cantidadANumero.value;
-  //   tagBalance.textContent = 'Balance: ' + balance;
-  // };
+        let numeroDecimalAleatorio = Math.random();
+        let numeroAleatorio = Math.floor(numeroDecimalAleatorio * 37);
+        console.log("Numero ganador: " + props.items[numeroAleatorio].label);
 
 
+        if (cantidadAColor !== '' && (checkboxRojo.checked === true || checkboxNegro.checked === true || checkboxVerde.checked === true))
+        {
+          balance += cantidadAColor.value;
+          tagBalance.textContent = 'Balance: ' + balance;
+        }
 
-  if (cantidadAColor != '' && (checkboxRojo.checked == true || checkboxNegro.checked == true)){
-    balance += cantidadAColor.value;
-    tagBalance.textContent = 'Balance: ' + balance;
-  };
+        if (cantidadAParidad !== '' && (checkboxPar.checked === true || checkboxImpar.checked === true))
+        {
+          balance += cantidadAParidad.value;
+          tagBalance.textContent = 'Balance: ' + balance;
+        }
 
-  if (cantidadAParidad != '' && (checkboxPar.checked == true || checkboxImpar.checked == true)){
-    balance += cantidadAParidad.value;
-    tagBalance.textContent = 'Balance: ' + balance;
-  };
+        if (cantidadADocena !== '' && (checkboxPrimera.checked === true || checkboxSegunda.checked === true || checkboxTercera.checked === true))
+        {
+          balance += cantidadADocena.value;
+          tagBalance.textContent = 'Balance: ' + balance;
+        }
 
-  if (cantidadADocena != '' && (checkboxPrimera.checked == true || checkboxSegunda.checked == true || checkboxTercera.checked == true)){
-    balance += cantidadADocena.value;
-    tagBalance.textContent = 'Balance: ' + balance;
-  };
+
+        tagBalance.innerHTML = "Balance: "  +  (balanceActual - balance);
+
+        wheel.spinToItem(numeroAleatorio, 6000, false, 2);
+        document.querySelector('#btnSpin').style.display = 'none';
+
+        setTimeout(() => {
+
+            document.querySelector('#btnSpin').style.display = 'block';
+            let indiceGanador = wheel.getCurrentIndex();
+            let winnerLabel = props.items[indiceGanador].label;
+            let winnerColor = props.items[indiceGanador].color;
+            let winnerParity = props.items[indiceGanador].paridad;
+            let winnerDozen = props.items[indiceGanador].docena;
 
 
 
-  //CONDICIONALES Y CONTROL DE RANGOS
-  //Si no eligio ningun numero en especifico lo hace de manera aleatorio, si no lo manda a un numero despues del que eligio
-  //numeroAleatorio o indiceValorElegido+1
-  // if(indiceValorElegido == -1){
-  //   indiceValorElegido = numeroAleatorio;
-  // }
-  // indiceValorElegido = numeroAleatorio;
-  // if (valorNumeroElegido > 36){
-    
-  //   return alert("Numero fuera de rango");
-  // }
 
-  // console.log('Valor numero elegido: ' + numeroElegido.value);
-  tagBalance.innerHTML = "Balance: "  +  (balanceActual - balance);
+            console.log('Color ganador: ' + winnerColor);
+            if(winnerColor === 'Rojo' && checkboxRojo.checked === true)
+            {
+              console.log("Here1");
+              balance = parseFloat(cantidadAColor.value)*2;
+            }
 
-  wheel.spinToItem(numeroAleatorio, 6000, false, 2);
-  document.querySelector('#btnSpin').style.display = 'none';
+            if(winnerColor === 'Negro' && checkboxNegro.checked === true)
+            {
+              console.log("Here2");
+              balance = balance + (cantidadAColor.value*2);
+            }
 
-    setTimeout(() => {
+          if(winnerColor === 'Verde' && checkboxVerde.checked === true)
+          {
+            console.log("Here2");
+            balance = balance + (cantidadAColor.value*2);
+          }
 
-      document.querySelector('#btnSpin').style.display = 'block';
-      let indiceGanador = wheel.getCurrentIndex();
-      let winnerLabel = props.items[indiceGanador].label;
-      let winnerColor = props.items[indiceGanador].color;
-      let winnerParity = props.items[indiceGanador].paridad;
-      let winnerDozen = props.items[indiceGanador].docena;
+            if(winnerParity === 'par' && checkboxPar.checked === true)
+            {
+              balance = balance + (cantidadAParidad.value*2);
+            }
 
-      /*
-      //Reiniciar las etiquetas y las opciones
-      // numeroGanador.textContent = 'Numero ganador: ' + winnerLabel;
-      colorGanador.textContent = 'Color Ganador: ' + winnerColor;
-      parOImpar.textContent = 'Par o Impar: ' + winnerParity;
-      docenaGanadora.textContent = 'Docena ganadora: ' + winnerDozen;
-      // numeroElegido.value = '';
+            if(winnerParity === 'impar' && checkboxImpar.checked === true)
+            {
+              balance = balance + (cantidadAParidad.value*2);
+            }
 
-       */
-      
+            if(winnerDozen === '1' && checkboxPrimera.checked === true)
+            {
+              balance = balance + (cantidadADocena.value*3);
+            }
 
+            if(winnerDozen === '2' && checkboxSegunda.checked === true)
+            {
+              balance = balance + (cantidadADocena.value*3);
+            }
 
-      console.log('Color ganador: ' + winnerColor);
-      if(winnerColor == 'Rojo' && checkboxRojo.checked == true){
-        console.log("Here1");
-        balance = parseFloat(cantidadAColor.value)*2;
-      };
+            if(winnerDozen === '3' && checkboxTercera.checked === true)
+            {
+              balance = balance + (cantidadADocena.value*3);
+            }
 
-      if(winnerColor == 'Negro' && checkboxNegro.checked == true){
-        console.log("Here2");
-        balance = balance + (cantidadAColor.value*2);
-      };
+            //Resets checkboxes
+            checkboxRojo.checked = false;
+            checkboxNegro.checked = false;
+            checkboxPar.checked = false;
+            checkboxImpar.checked = false;
+            checkboxPrimera.checked = false;
+            checkboxSegunda.checked = false;
+            checkboxTercera.checked = false;
+            updateBalance(balance);
 
-      if(winnerParity == 'par' && checkboxPar.checked == true){
-        balance = balance + (cantidadAParidad.value*2);;
-      };
+        }, 6500);
+        init();
 
-      if(winnerParity == 'impar' && checkboxImpar.checked == true){
-        balance = balance + (cantidadAParidad.value*2);
-      };
-
-      if(winnerDozen == '1' && checkboxPrimera.checked == true){
-        balance = balance + (cantidadADocena.value*3);
-      };
-
-      if(winnerDozen == '2' && checkboxSegunda.checked == true){
-        balance = balance + (cantidadADocena.value*3);
-      };
-
-      if(winnerDozen == '3' && checkboxTercera.checked == true){
-        balance = balance + (cantidadADocena.value*3);
-      };
-
-        //Resets checkboxes
-        checkboxRojo.checked = false;
-        checkboxNegro.checked = false; 
-        checkboxPar.checked = false; 
-        checkboxImpar.checked = false; 
-        checkboxPrimera.checked = false; 
-        checkboxSegunda.checked = false; 
-        checkboxTercera.checked = false; 
-
-        /*
-        //Resets cantidades
-        // cantidadANumero.value = '';
-        cantidadAColor.value = '';
-        cantidadAParidad.value = '';
-        cantidadADocena.value = '';
-
-         */
-      updateBalance(balance);
-
-
-    }, 6500);
-    init();
-
+    }
 });
 
 
 init();
+
+
+//Checar valores
+// let valorNumeroElegido = numeroElegido.value;
+// console.log("Valor numero elegido: " + valorNumeroElegido);
+// let indiceValorElegido = props.items.findIndex(item => item.label === valorNumeroElegido);
+// console.log("Indice del numero elegido: " + indiceValorElegido);
+
+// console.log("Checkbox rojo status: " + checkboxRojo.checked);
+// console.log('Jalando');
+
+/*
+//RESETS
+//numeroGanador.textContent = 'Numero ganador: ';
+colorGanador.textContent = 'Color ganador: ';
+parOImpar.textContent = 'Par o Impar: ';
+docenaGanadora.textContent = 'Docena ganadora: ';
+
+ */
+
+//Restar lo apostado
+// if (cantidadANumero != '' && numeroElegido.value  != ''){
+//   balance = balance - cantidadANumero.value;
+//   tagBalance.textContent = 'Balance: ' + balance;
+// };
+
+//CONDICIONALES Y CONTROL DE RANGOS
+//Si no eligio ningun numero en especifico lo hace de manera aleatorio, si no lo manda a un numero despues del que eligio
+//numeroAleatorio o indiceValorElegido+1
+// if(indiceValorElegido == -1){
+//   indiceValorElegido = numeroAleatorio;
+// }
+// indiceValorElegido = numeroAleatorio;
+// if (valorNumeroElegido > 36){
+
+//   return alert("Numero fuera de rango");
+// }
+
+// console.log('Valor numero elegido: ' + numeroElegido.value);
+
+/*
+//Reiniciar las etiquetas y las opciones
+// numeroGanador.textContent = 'Numero ganador: ' + winnerLabel;
+colorGanador.textContent = 'Color Ganador: ' + winnerColor;
+parOImpar.textContent = 'Par o Impar: ' + winnerParity;
+docenaGanadora.textContent = 'Docena ganadora: ' + winnerDozen;
+// numeroElegido.value = '';
+
+ */
+
+/*
+//Resets cantidades
+// cantidadANumero.value = '';
+cantidadAColor.value = '';
+cantidadAParidad.value = '';
+cantidadADocena.value = '';
+
+ */

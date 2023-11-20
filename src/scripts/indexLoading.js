@@ -9,13 +9,11 @@ function loadName()
 {
     const token = sessionStorage.getItem('token');
 
-
     if (!token)
     {
         console.error('Token no encontrado.');
         return;
     }
-
 
     fetch('http://localhost:3000/getUserName', {
         method: 'GET',
