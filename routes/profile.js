@@ -102,6 +102,7 @@ router.put("/balance", (req, res) => {
     }).then((docs) => {
 
         // Update values old + new
+
         let oldAmount = docs[0].balance;
         newAmount = oldAmount + newAmount;
 
