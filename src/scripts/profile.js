@@ -23,8 +23,14 @@ function loadProfile() {
 
                 let data = JSON.parse(xhr.responseText);
                 usernameField.value = data.name;
+                usernameField.dataset.prev = data.name;
+
                 passwordField.value = data.password;
+                passwordField.dataset.prev = data.password;
+
                 emailField.value = data.email;
+                emailField.dataset.prev = data.email;
+
                 ageField.innerHTML = data.age;
                 usernameBoldField.innerHTML = data.name;
 
