@@ -102,14 +102,14 @@ function loadBalanceRoulette()
         if (xhr.status === 200) {
 
           let data = JSON.parse(xhr.responseText);
-          let balance = document.querySelector('#tagBalance');
           balanceActual = data.balance;
-          tagBalance.innerHTML = "Balance: "  +  data.balance;
+          tagBalance.innerHTML = data.balance;
         }
       }
     };
     xhr.send();
 }
+
 
 function updateBalance(amount) {
     const id = sessionStorage.getItem('token');
@@ -297,25 +297,25 @@ btnSpin.addEventListener('click', function () {
             console.log('1')
             balance += cantidadAColor.value;
             //balance -= cantidadAColor.value;
-            tagBalance.textContent = 'Balance: ' + balance;
+            tagBalance.textContent -= balance;
         }
 
         if ((checkboxPar.checked === true || checkboxImpar.checked === true))
         {
           console.log('2')
           balance += cantidadAParidad.value;
-          tagBalance.textContent = 'Balance: ' + balance;
+          tagBalance.textContent -= balance;
         }
 
         if ((checkboxPrimera.checked === true || checkboxSegunda.checked === true || checkboxTercera.checked === true))
         {
           console.log('3')
           balance += cantidadADocena.value;
-          tagBalance.textContent = 'Balance: ' + balance;
+          tagBalance.textContent -= balance;
         }
 
 
-        tagBalance.innerHTML =  (balanceActual - balance);
+        //tagBalance.innerHTML =  (balanceActual - balance);
 
         wheel.spinToItem(numeroAleatorio, 6000, false, 2);
         //document.querySelector('#btnSpin').style.display = 'none';
@@ -333,59 +333,63 @@ btnSpin.addEventListener('click', function () {
             let winnerDozen = props.items[indiceGanador].docena;
 
 
+
             console.log('Color ganador: ' + winnerColor);
             if(winnerColor === 'Rojo' && checkboxRojo.checked === true)
             {
               console.log("Here1");
               console.log(parseFloat(cantidadAColor.value))
-              balance += parseFloat(cantidadAColor.value) * 2;
-              console.log(balance)
+              balanceActual = parseFloat(cantidadAColor.value);
 
+                updateBalance(balanceActual);
             }
-
-            if(winnerColor === 'Negro' && checkboxNegro.checked === true)
+            else if(winnerColor === 'Negro' && checkboxNegro.checked === true)
             {
               console.log("Here2");
-              balance += parseFloat(cantidadAColor.value) * 2;
-
+              balanceActual = parseFloat(cantidadAColor.value);
+                updateBalance(balanceActual);
             }
-
-            if(winnerColor === 'Verde' && checkboxVerde.checked === true)
+            else if(winnerColor === 'Verde' && checkboxVerde.checked === true)
             {
               console.log("Here3");
-              balance += parseFloat(cantidadAColor.value) * 2;
-
+              balanceActual = parseFloat(cantidadAColor.value);
+                updateBalance(balanceActual);
             }
-
-            if(winnerParity === 'par' && checkboxPar.checked === true)
+            else if(winnerParity === 'par' && checkboxPar.checked === true)
             {
               console.log("Here4");
-              balance += parseFloat(cantidadAParidad.value) * 2;
+              balanceActual = parseFloat(cantidadAParidad.value);
+                updateBalance(balanceActual);
 
             }
-
-            if(winnerParity === 'impar' && checkboxImpar.checked === true)
+            else if(winnerParity === 'impar' && checkboxImpar.checked === true)
             {
               console.log("Here5");
-              balance += parseFloat(cantidadAParidad.value) * 2;
+              balanceActual = parseFloat(cantidadAParidad.value);
+                updateBalance(balanceActual);
             }
-
-            if(winnerDozen === '1' && checkboxPrimera.checked === true)
+            else if(winnerDozen === '1' && checkboxPrimera.checked === true)
             {
               console.log("Here6");
-              balance += parseFloat(cantidadADocena.value) * 3;
+              balanceActual = parseFloat(cantidadADocena.value) * 2;
+                updateBalance(balanceActual);
             }
-
-            if(winnerDozen === '2' && checkboxSegunda.checked === true)
+            else if(winnerDozen === '2' && checkboxSegunda.checked === true)
             {
               console.log("Here7");
-              balance += parseFloat(cantidadADocena.value) * 3;
+              balanceActual = parseFloat(cantidadADocena.value) * 2;
+                updateBalance(balanceActual);
             }
-
-            if(winnerDozen === '3' && checkboxTercera.checked === true)
+            else if(winnerDozen === '3' && checkboxTercera.checked === true)
             {
               console.log("Here8");
-              balance += parseFloat(cantidadADocena.value) * 3;
+              balanceActual = parseFloat(cantidadADocena.value) * 2;
+                updateBalance(balanceActual);
+            }
+            else
+            {
+                const diff = balance * -1;
+                updateBalance(diff);
             }
 
 
@@ -398,9 +402,11 @@ btnSpin.addEventListener('click', function () {
             checkboxPrimera.checked = false;
             checkboxSegunda.checked = false;
             checkboxTercera.checked = false;
-            updateBalance(balance);
+            balance = 0;
 
         }, 6500);
+
+
         init();
 
     }
