@@ -85,119 +85,119 @@ let balance = 0;
 let balanceActual = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadBalanceRoulette();
+    loadBalanceRoulette();
 });
 
 function loadBalanceRoulette()
 {
-  var id = sessionStorage.getItem('token');
-  var url = `/profile/balance?id=${id}`;
+    var id = sessionStorage.getItem('token');
+    var url = `/profile/balance?id=${id}`;
 
-  xhr.open('GET', url, true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onload = function() {
-    if (xhr.status !== 200) {
-      alert(xhr.status + ': ' + xhr.statusText);
-    } else {
-      if (xhr.status === 200) {
+    xhr.open('GET', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      if (xhr.status !== 200) {
+        alert(xhr.status + ': ' + xhr.statusText);
+      } else {
+        if (xhr.status === 200) {
 
-        let data = JSON.parse(xhr.responseText);
-        let balance = document.querySelector('#tagBalance');
-        balanceActual = data.balance;
-        tagBalance.innerHTML = "Balance: "  +  data.balance;
+          let data = JSON.parse(xhr.responseText);
+          let balance = document.querySelector('#tagBalance');
+          balanceActual = data.balance;
+          tagBalance.innerHTML = "Balance: "  +  data.balance;
+        }
       }
-    }
-  };
-  xhr.send();
+    };
+    xhr.send();
 }
 
 function updateBalance(amount) {
-  const id = sessionStorage.getItem('token');
-  const url = '/profile/balance';
-  
+    const id = sessionStorage.getItem('token');
+    const url = '/profile/balance';
 
-  let data = {
-    id: id,
-    amount: amount,
-  };
 
-  xhr.open('PUT', url, true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onload = function () {
-    if (xhr.status !== 200)
-    {
-      alert(xhr.status + ': ' + xhr.statusText);
-    }
-    else
-    {
-      if (xhr.status === 200)
+    let data = {
+      id: id,
+      amount: amount,
+    };
+
+    xhr.open('PUT', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+      if (xhr.status !== 200)
       {
-        loadBalanceRoulette();
+        alert(xhr.status + ': ' + xhr.statusText);
       }
-    }
-  };
-  xhr.send(JSON.stringify(data));
+      else
+      {
+        if (xhr.status === 200)
+        {
+          loadBalanceRoulette();
+        }
+      }
+    };
+    xhr.send(JSON.stringify(data));
 }
 
 
 
-tagBalance.textContent = 'Balance: ' + balance;
+//tagBalance.textContent = 'Balance: ' + balance;
 const wheel = new Wheel(container, props);
 
 function init()
 {
 
-  wheel.borderWidth = 12;
-  wheel.isInteractive = false;
-  wheel.lineColor = '#D4AF37';
+    wheel.borderWidth = 12;
+    wheel.isInteractive = false;
+    wheel.lineColor = '#D4AF37';
 
-  wheel.radius = 0.9;
+    wheel.radius = 0.9;
 
-  ColorDivCantidad.style.display = "none";
-  ParImparDivCantidad.style.display = "none";
-  decDivCantidad.style.display = "none";
+    ColorDivCantidad.style.display = "none";
+    ParImparDivCantidad.style.display = "none";
+    decDivCantidad.style.display = "none";
 }
 
 
 function actualizarVisibilidad()
 {
   // Verifica si al menos uno de los checkboxes está marcado
-  if (checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked)
-  {
-    ColorDivCantidad.style.display = "block";
-  }
-  else
-  {
-    ColorDivCantidad.style.display = "none";
-  }
+    if (checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked)
+    {
+      ColorDivCantidad.style.display = "block";
+    }
+    else
+    {
+      ColorDivCantidad.style.display = "none";
+    }
 }
 
 // Agrega eventos a los checkboxes
 checkboxRojo.addEventListener('click', () =>
 {
-  if (!checkboxRojo.checked)
-  {
-    cantidadAColor.value = "";
-  }
-  actualizarVisibilidad();
+    if (!checkboxRojo.checked)
+    {
+      cantidadAColor.value = "";
+    }
+    actualizarVisibilidad();
 });
 
 checkboxNegro.addEventListener('click', () =>
 {
-  if (!checkboxNegro.checked)
-  {
-    cantidadAColor.value = "";
-  }
-  actualizarVisibilidad();
+    if (!checkboxNegro.checked)
+    {
+      cantidadAColor.value = "";
+    }
+    actualizarVisibilidad();
 });
 
 checkboxVerde.addEventListener('click', () =>
 {
-  if (!checkboxVerde.checked)
-  {
-    cantidadAColor.value = "";
-  }
-  actualizarVisibilidad();
+    if (!checkboxVerde.checked)
+    {
+      cantidadAColor.value = "";
+    }
+    actualizarVisibilidad();
 });
 
 
@@ -283,7 +283,7 @@ checkboxTercera.addEventListener('click', () =>
 
 
 btnSpin.addEventListener('click', function () {
-    if(checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked || checkboxPar.checked || checkboxImpar.checked || checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked)
+    if((checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked || checkboxPar.checked || checkboxImpar.checked || checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked) && (cantidadAColor.value !== '' || cantidadAParidad.value !== '' || cantidadADocena.value !== ''))
     {
 
         let numeroDecimalAleatorio = Math.random();
@@ -291,33 +291,41 @@ btnSpin.addEventListener('click', function () {
         console.log("Numero ganador: " + props.items[numeroAleatorio].label);
 
 
-        if (cantidadAColor !== '' && (checkboxRojo.checked === true || checkboxNegro.checked === true || checkboxVerde.checked === true))
+
+        if ((checkboxRojo.checked === true || checkboxNegro.checked === true || checkboxVerde.checked === true))
         {
-          balance += cantidadAColor.value;
-          tagBalance.textContent = 'Balance: ' + balance;
+            console.log('1')
+            balance += cantidadAColor.value;
+            //balance -= cantidadAColor.value;
+            tagBalance.textContent = 'Balance: ' + balance;
         }
 
-        if (cantidadAParidad !== '' && (checkboxPar.checked === true || checkboxImpar.checked === true))
+        if ((checkboxPar.checked === true || checkboxImpar.checked === true))
         {
+          console.log('2')
           balance += cantidadAParidad.value;
           tagBalance.textContent = 'Balance: ' + balance;
         }
 
-        if (cantidadADocena !== '' && (checkboxPrimera.checked === true || checkboxSegunda.checked === true || checkboxTercera.checked === true))
+        if ((checkboxPrimera.checked === true || checkboxSegunda.checked === true || checkboxTercera.checked === true))
         {
+          console.log('3')
           balance += cantidadADocena.value;
           tagBalance.textContent = 'Balance: ' + balance;
         }
 
 
-        tagBalance.innerHTML = "Balance: "  +  (balanceActual - balance);
+        tagBalance.innerHTML =  (balanceActual - balance);
 
         wheel.spinToItem(numeroAleatorio, 6000, false, 2);
-        document.querySelector('#btnSpin').style.display = 'none';
+        //document.querySelector('#btnSpin').style.display = 'none';
+        btnSpin.disabled = true;
+
 
         setTimeout(() => {
 
-            document.querySelector('#btnSpin').style.display = 'block';
+            //document.querySelector('#btnSpin').style.display = 'block';
+            btnSpin.disabled = false;
             let indiceGanador = wheel.getCurrentIndex();
             let winnerLabel = props.items[indiceGanador].label;
             let winnerColor = props.items[indiceGanador].color;
@@ -325,51 +333,62 @@ btnSpin.addEventListener('click', function () {
             let winnerDozen = props.items[indiceGanador].docena;
 
 
-
-
             console.log('Color ganador: ' + winnerColor);
             if(winnerColor === 'Rojo' && checkboxRojo.checked === true)
             {
               console.log("Here1");
-              balance = parseFloat(cantidadAColor.value)*2;
+              console.log(parseFloat(cantidadAColor.value))
+              balance += parseFloat(cantidadAColor.value) * 2;
+              console.log(balance)
+
             }
 
             if(winnerColor === 'Negro' && checkboxNegro.checked === true)
             {
               console.log("Here2");
-              balance = balance + (cantidadAColor.value*2);
+              balance += parseFloat(cantidadAColor.value) * 2;
+
             }
 
-          if(winnerColor === 'Verde' && checkboxVerde.checked === true)
-          {
-            console.log("Here2");
-            balance = balance + (cantidadAColor.value*2);
-          }
+            if(winnerColor === 'Verde' && checkboxVerde.checked === true)
+            {
+              console.log("Here3");
+              balance += parseFloat(cantidadAColor.value) * 2;
+
+            }
 
             if(winnerParity === 'par' && checkboxPar.checked === true)
             {
-              balance = balance + (cantidadAParidad.value*2);
+              console.log("Here4");
+              balance += parseFloat(cantidadAParidad.value) * 2;
+
             }
 
             if(winnerParity === 'impar' && checkboxImpar.checked === true)
             {
-              balance = balance + (cantidadAParidad.value*2);
+              console.log("Here5");
+              balance += parseFloat(cantidadAParidad.value) * 2;
             }
 
             if(winnerDozen === '1' && checkboxPrimera.checked === true)
             {
-              balance = balance + (cantidadADocena.value*3);
+              console.log("Here6");
+              balance += parseFloat(cantidadADocena.value) * 3;
             }
 
             if(winnerDozen === '2' && checkboxSegunda.checked === true)
             {
-              balance = balance + (cantidadADocena.value*3);
+              console.log("Here7");
+              balance += parseFloat(cantidadADocena.value) * 3;
             }
 
             if(winnerDozen === '3' && checkboxTercera.checked === true)
             {
-              balance = balance + (cantidadADocena.value*3);
+              console.log("Here8");
+              balance += parseFloat(cantidadADocena.value) * 3;
             }
+
+
 
             //Resets checkboxes
             checkboxRojo.checked = false;
