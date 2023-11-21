@@ -1,5 +1,17 @@
 
 const text = document.getElementById('textProf')
+const loader = document.getElementById('preloader')
+
+window.addEventListener('load', () =>{
+    setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 5000);
+    }, 3000);
+})
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     loadName()

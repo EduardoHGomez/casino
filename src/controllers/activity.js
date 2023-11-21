@@ -13,6 +13,7 @@ let expectedSchema = mongoose.Schema({
 });
  */
 
+
 let mySchema = mongoose.Schema({
     BetStatus: {
         type: Boolean,
