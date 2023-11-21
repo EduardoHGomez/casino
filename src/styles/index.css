@@ -608,3 +608,116 @@ el negro bueno: #252525
     0 0 50px rgb(0, 89, 255),
     0 0 100px rgb(0, 89, 255);
 }
+
+/*
+#preloader {
+    background-image: linear-gradient(to bottom, #0d1e2b, #0e1f2f, #0f2132, #112236, #132339, #132339, #132339, #132339, #112236, #0f2132, #0e1f2f, #0d1e2b);
+
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+*/
+
+#preloader {
+    background-image: linear-gradient(to bottom, #0d1e2b, #0e1f2f, #0f2132, #112236, #132339, #132339, #132339, #132339, #112236, #0f2132, #0e1f2f, #0d1e2b);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+}
+
+.card {
+    padding: 2rem 4rem;
+    border-radius: 1.25rem;
+}
+.loader {
+    color: rgb(215, 206, 206);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 60px;
+    padding: 20px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 12px;
+}
+
+
+.words {
+    overflow: hidden;
+    position: relative;
+}
+
+.words::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            var(--bg-color) 10%,
+            transparent 30%,
+            transparent 70%,
+            var(--bg-color) 90%
+    );
+    z-index: 20;
+}
+
+.word {
+    display: block;
+    height: 100%;
+    padding-left: 6px;
+    color: #b79ef6;
+    animation: spin_4991 4s infinite;
+}
+
+@keyframes spin_4991 {
+    10% {
+        -webkit-transform: translateY(-102%);
+        transform: translateY(-102%);
+    }
+
+    25% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    35% {
+        -webkit-transform: translateY(-202%);
+        transform: translateY(-202%);
+    }
+
+    50% {
+        -webkit-transform: translateY(-200%);
+        transform: translateY(-200%);
+    }
+
+    60% {
+        -webkit-transform: translateY(-302%);
+        transform: translateY(-302%);
+    }
+
+    75% {
+        -webkit-transform: translateY(-300%);
+        transform: translateY(-300%);
+    }
+
+    85% {
+        -webkit-transform: translateY(-402%);
+        transform: translateY(-402%);
+    }
+
+    100% {
+        -webkit-transform: translateY(-400%);
+        transform: translateY(-400%);
+    }
+}
+
