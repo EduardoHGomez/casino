@@ -201,7 +201,6 @@ checkboxVerde.addEventListener('click', () =>
 });
 
 
-
 function actualizarVisibilidadParidad()
 {
   // Verifica si al menos uno de los checkboxes está marcado

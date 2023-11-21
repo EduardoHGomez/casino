@@ -17,8 +17,9 @@ const bcrypt = require("bcrypt");
 const verifyToken = (req, res, next) => {
     const token = req.cookies.token;
 
-    if (!token) {
-        return res.status(401).json({ message: 'Acceso no autorizado. Token no proporcionado.' });
+    if (!token)
+    {
+        res.sendFile(path.resolve(__dirname + "/../src/views/logIn.html"));
     }
 
     try
