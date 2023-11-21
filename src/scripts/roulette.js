@@ -216,6 +216,7 @@ function actualizarVisibilidadParidad()
   }
 }
 
+
 // Agrega eventos a los checkboxes
 
 checkboxImpar.addEventListener('click', () =>

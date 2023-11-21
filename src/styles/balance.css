@@ -153,6 +153,6 @@
   cursor: pointer;
 }
 
-button:hover {
+#balanceButton:hover {
   background-color: #45a049;
 }
