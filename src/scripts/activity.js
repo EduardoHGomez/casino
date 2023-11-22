@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-
 function loadActivity() {
     var id = sessionStorage.getItem('token');
     var url = `/profile/activity?id=${id}`;
