@@ -280,6 +280,41 @@ checkboxTercera.addEventListener('click', () =>
 });
 
 
+function storeActivity(balance, nameGame) {
+  const id = sessionStorage.getItem('token');
+  const url = '/profile/activity';
+
+  var BetStatus = false;
+  if (nameGame > 0) {
+    BetStatus = true;
+  }
+
+  let data = {
+    userID: id,
+    balance: balance,
+    dateGame: new Date().toISOString(),
+    nameGame: nameGame,
+    BetStatus: BetStatus
+  };
+
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function () {
+    if (xhr.status !== 200)
+    {
+      alert(xhr.status + ': ' + xhr.statusText);
+    }
+    else
+    {
+      if (xhr.status === 200)
+      {
+        console.log(xhr.responseText);
+      }
+    }
+  };
+  xhr.send(JSON.stringify(data));
+}
+
 
 
 btnSpin.addEventListener('click', function () {
@@ -389,6 +424,11 @@ btnSpin.addEventListener('click', function () {
               amountToAdd -= parseFloat(cantidadADocena.value);
             }
 
+            cantidadAColor.value = '';
+            cantidadAParidad.value = '';
+            cantidadADocena.value = '';
+
+            storeActivity(amountToAdd, 'Ruleta');
             updateBalance(amountToAdd);
 
 
