@@ -280,6 +280,41 @@ checkboxTercera.addEventListener('click', () =>
 });
 
 
+function storeActivity(balance, nameGame) {
+  const id = sessionStorage.getItem('token');
+  const url = '/profile/activity';
+
+  var BetStatus = false;
+  if (nameGame > 0) {
+    BetStatus = true;
+  }
+
+  let data = {
+    userID: id,
+    balance: balance,
+    dateGame: new Date().toISOString(),
+    nameGame: nameGame,
+    BetStatus: BetStatus
+  };
+
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function () {
+    if (xhr.status !== 200)
+    {
+      alert(xhr.status + ': ' + xhr.statusText);
+    }
+    else
+    {
+      if (xhr.status === 200)
+      {
+        console.log(xhr.responseText);
+      }
+    }
+  };
+  xhr.send(JSON.stringify(data));
+}
+
 
 
 btnSpin.addEventListener('click', function () {
@@ -292,27 +327,27 @@ btnSpin.addEventListener('click', function () {
 
 
 
-        if ((checkboxRojo.checked === true || checkboxNegro.checked === true || checkboxVerde.checked === true))
-        {
-            console.log('1')
-            balance += cantidadAColor.value;
-            //balance -= cantidadAColor.value;
-            tagBalance.textContent -= balance;
-        }
+        // if ((checkboxRojo.checked === true || checkboxNegro.checked === true || checkboxVerde.checked === true))
+        // {
+        //     console.log('1')
+        //     balance += cantidadAColor.value;
+        //     //balance -= cantidadAColor.value;
+        //     tagBalance.textContent -= balance;
+        // }
 
-        if ((checkboxPar.checked === true || checkboxImpar.checked === true))
-        {
-          console.log('2')
-          balance += cantidadAParidad.value;
-          tagBalance.textContent -= balance;
-        }
+        // if ((checkboxPar.checked === true || checkboxImpar.checked === true))
+        // {
+        //   console.log('2')
+        //   balance += cantidadAParidad.value;
+        //   tagBalance.textContent -= balance;
+        // }
 
-        if ((checkboxPrimera.checked === true || checkboxSegunda.checked === true || checkboxTercera.checked === true))
-        {
-          console.log('3')
-          balance += cantidadADocena.value;
-          tagBalance.textContent -= balance;
-        }
+        // if ((checkboxPrimera.checked === true || checkboxSegunda.checked === true || checkboxTercera.checked === true))
+        // {
+        //   console.log('3')
+        //   balance += cantidadADocena.value;
+        //   tagBalance.textContent -= balance;
+        // }
 
 
         //tagBalance.innerHTML =  (balanceActual - balance);
@@ -332,65 +367,149 @@ btnSpin.addEventListener('click', function () {
             let winnerParity = props.items[indiceGanador].paridad;
             let winnerDozen = props.items[indiceGanador].docena;
 
-
+            // Amount to Add pueden ser valores negativos o positivos
+            let amountToAdd = 0;
 
             console.log('Color ganador: ' + winnerColor);
-            if(winnerColor === 'Rojo' && checkboxRojo.checked === true)
-            {
-              console.log("Here1");
-              console.log(parseFloat(cantidadAColor.value))
-              balanceActual = parseFloat(cantidadAColor.value);
+            // ---------- Lógica 2 -------------
+            console.log("Variable ganadora: " + winnerColor + " " + winnerParity + " " + winnerDozen);
 
-                updateBalance(balanceActual);
-            }
-            else if(winnerColor === 'Negro' && checkboxNegro.checked === true)
-            {
-              console.log("Here2");
-              balanceActual = parseFloat(cantidadAColor.value);
-                updateBalance(balanceActual);
-            }
-            else if(winnerColor === 'Verde' && checkboxVerde.checked === true)
-            {
-              console.log("Here3");
-              balanceActual = parseFloat(cantidadAColor.value);
-                updateBalance(balanceActual);
-            }
-            else if(winnerParity === 'par' && checkboxPar.checked === true)
-            {
-              console.log("Here4");
-              balanceActual = parseFloat(cantidadAParidad.value);
-                updateBalance(balanceActual);
+            let checkedColors = [];
+            let checkedParities = [];
+            let checkedDozens = [];
 
+            // Obtener las casillas de color marcadas
+            if (checkboxRojo.checked) checkedColors.push('Rojo');
+            if (checkboxNegro.checked) checkedColors.push('Negro');
+            if (checkboxVerde.checked) checkedColors.push('Verde');
+
+            // Obtener las casillas de paridad marcadas
+            if (checkboxPar.checked) checkedParities.push('par');
+            if (checkboxImpar.checked) checkedParities.push('impar');
+
+            // Obtener las casillas de docenas marcadas
+            if (checkboxPrimera.checked) checkedDozens.push('1');
+            if (checkboxSegunda.checked) checkedDozens.push('2');
+            if (checkboxTercera.checked) checkedDozens.push('3');
+
+            console.log(checkedColors);
+            console.log(checkedParities);
+            console.log(checkedDozens);
+
+            // ----------- Condiciones que compara propiedad ganadora con arreglos checked ---------
+            
+            // Comprobación de color
+            // 1. Comprobar que se haya escrito como checked y el input no esté vacío
+            // 2. El resultado de color está en checkedColors?
+            // 3. Si es así, entonces sumar la cantidad
+            // 4. De lo contrario, restarlo
+            if ((checkedColors.length > 0 && cantidadAColor.value.length > 0) && checkedColors.includes(winnerColor)) {
+              amountToAdd += parseFloat(cantidadAColor.value);
+            } else if (checkedColors.length > 0 && cantidadAColor.value.length > 0) {
+              amountToAdd -= parseFloat(cantidadAColor.value);
             }
-            else if(winnerParity === 'impar' && checkboxImpar.checked === true)
-            {
-              console.log("Here5");
-              balanceActual = parseFloat(cantidadAParidad.value);
-                updateBalance(balanceActual);
+
+            // Lo mismo para par e impar
+            if ((checkedParities.length && cantidadAParidad.value.length > 0) > 0 && checkedParities.includes(winnerParity)) {
+              amountToAdd += parseFloat(cantidadAParidad.value);
+            } else if (checkedParities.length > 0 && cantidadAParidad.value.length > 0) {
+
+              amountToAdd -= parseFloat(cantidadAParidad.value);
             }
-            else if(winnerDozen === '1' && checkboxPrimera.checked === true)
-            {
-              console.log("Here6");
-              balanceActual = parseFloat(cantidadADocena.value) * 2;
-                updateBalance(balanceActual);
+
+            // Docenas
+            if ((checkedDozens.length > 0 && cantidadADocena.value.length > 0) && checkedDozens.includes(winnerDozen)) {
+              amountToAdd += parseFloat(cantidadADocena.value);
+            } else if (checkedDozens.length > 0 && cantidadADocena.value.length > 0) {
+              amountToAdd -= parseFloat(cantidadADocena.value);
             }
-            else if(winnerDozen === '2' && checkboxSegunda.checked === true)
-            {
-              console.log("Here7");
-              balanceActual = parseFloat(cantidadADocena.value) * 2;
-                updateBalance(balanceActual);
-            }
-            else if(winnerDozen === '3' && checkboxTercera.checked === true)
-            {
-              console.log("Here8");
-              balanceActual = parseFloat(cantidadADocena.value) * 2;
-                updateBalance(balanceActual);
-            }
-            else
-            {
-                const diff = balance * -1;
-                updateBalance(diff);
-            }
+
+            cantidadAColor.value = '';
+            cantidadAParidad.value = '';
+            cantidadADocena.value = '';
+
+            storeActivity(amountToAdd, 'Ruleta');
+            updateBalance(amountToAdd);
+
+
+
+            //----------- Lógica 1 ----------
+            // if(winnerColor === 'Rojo' && checkboxRojo.checked === true)
+            // {
+            //   console.log("Here1");
+            //   console.log(parseFloat(cantidadAColor.value))
+            //   balanceActual += parseFloat(cantidadAColor.value);
+
+            //     //updateBalance(balanceActual);
+            //     amountToAdd += parseFloat(cantidadAColor.value); 
+            // }
+            // else if(winnerColor === 'Negro' && checkboxNegro.checked === true)
+            // {
+            //   console.log("Here2");
+            //   balanceActual = parseFloat(cantidadAColor.value);
+            //     // updateBalance(balanceActual);
+            //     amountToAdd += parseFloat(cantidadAColor.value); 
+            // }
+            // else if(winnerColor === 'Verde' && checkboxVerde.checked === true)
+            // {
+            //   console.log("Here3");
+            //   balanceActual = parseFloat(cantidadAColor.value);
+            //   // updateBalance(balanceActual);
+            //     amountToAdd += parseFloat(cantidadAColor.value); 
+            // }
+            // else if(winnerParity === 'par' && checkboxPar.checked === true)
+            // {
+            //   console.log("Here4");
+            //   balanceActual = parseFloat(cantidadAParidad.value);
+            //     // updateBalance(balanceActual);
+
+            //     amountToAdd += parseFloat(cantidadAColor.value); 
+            // }
+            // else if(winnerParity === 'impar' && checkboxImpar.checked === true)
+            // {
+            //   console.log("Here5");
+            //   balanceActual = parseFloat(cantidadAParidad.value);
+            //     // updateBalance(balanceActual);
+            //     amountToAdd += parseFloat(cantidadAColor.value); 
+            // }
+            // else if(winnerDozen === '1' && checkboxPrimera.checked === true)
+            // {
+            //   console.log("Here6");
+            //   balanceActual = parseFloat(cantidadADocena.value) * 2;
+            //     // updateBalance(balanceActual);
+            //     amountToAdd += parseFloat(cantidadAColor.value); 
+            // }
+            // else if(winnerDozen === '2' && checkboxSegunda.checked === true)
+            // {
+            //   console.log("Here7");
+            //   balanceActual = parseFloat(cantidadADocena.value) * 2;
+            //     // updateBalance(balanceActual);
+            //     amountToAdd += parseFloat(cantidadAColor.value); 
+            // }
+            // else if(winnerDozen === '3' && checkboxTercera.checked === true)
+            // {
+            //   console.log("Here8");
+            //   balanceActual = parseFloat(cantidadADocena.value) * 2;
+            //     // updateBalance(balanceActual);
+            //     amountToAdd += parseFloat(cantidadAColor.value); 
+            // }
+            // else
+            // {
+            //     const diff = balance * -1;
+            //     // updateBalance(diff);
+
+            //     // var cantidadApostadaColor = (cantidadAColor.value === '') ? 0: parseFloat(cantidadAColor.value);
+            //     // var cantidadApostadaDocena = (cantidadADocena.value === '') ? 0: parseFloat(cantidadADocena.value);
+            //     // var cantidadApostadaParidad = (cantidadAParidad.value === '') ? 0: parseFloat(cantidadAParidad.value);
+
+            //     // console.log("----");
+            //     // console.log(cantidadApostadaColor);
+            //     // console.log(cantidadApostadaParidad);
+            //     // console.log(cantidadApostadaDocena);
+                
+            // }
+
+            console.log("Valor de variable amountToAdd: " + amountToAdd);
 
 
 
