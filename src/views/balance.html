@@ -134,7 +134,7 @@
                 <h1>Cuenta</h1>
                 <div id="main-header">
                     <span>
-                        <button onclick="goToProfile()">
+                        <button class="changeButtons" onclick="goToProfile()">
                             <a>Detalles</a>
                         </button>
                     </span>
@@ -144,7 +144,7 @@
                         </button>
                     </span>
                     <span >
-                        <button onclick="goToActivity()">
+                        <button class="changeButtons" onclick="goToActivity()">
                             <a>Historial</a>
                         </button>
                     </span>
@@ -160,20 +160,33 @@
                         <div class="balance-container-header-amount">
                             <div>
                                 <p><h2>Balance total en USD</h2></p>
-                                <p><h1><span>$<span id="balanceField">00.00</span></span></h1></p>
+                                <p><h1><span>$<span id="balanceField" ></span></span></h1></p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Form para ingresar cantidad -->
                     <hr>
+                    <div class="flex flex-row pb-5">
+                        <div class="radio-input">
+                            <input value="value-1" name="value-radio" id="value-1" type="radio" checked>
+                            <label for="value-1">Depositar</label>
+                            <input value="value-2" name="value-radio" id="value-2" type="radio">
+                            <label for="value-2">Retirar</label>
+                        </div>
+                    </div>
+
 
                     <div class="balance-container-form">
                         <label for="balance-form-deposit">Cantidad</label>
-                        <input type="number" id="balance-form-deposit" value="0.00">
-                        <label for="balance-form-password">Contraseña</label>
-                        <input type="password" id="balance-form-password" value="0.00">
-                        <Button id="balanceButton" onclick="addBalance()">Depositar</Button>
+                        <input type="number" id="balance-form-deposit"  placeholder="Ingrese la cantidad a depositar" required>
+                        <Button id="balanceButton" onclick="addBalance()">Añadir</Button>
+                    </div>
+
+                    <div class="balance-container-form-withdraw" style="display: none;">
+                        <label for="balance-form-withdraw">Cantidad a retirar</label>
+                        <input type="number" id="balance-form-withdraw"  placeholder="Ingrese la cantidad a retirar" required>
+                        <Button id="withdrawButton" onclick="withdrawBalance()">Retirar</Button>
                     </div>
                 </div>
 
