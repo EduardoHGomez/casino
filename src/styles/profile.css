@@ -186,3 +186,15 @@ body {
 	padding: .4em;
 	color: white;
 }
+
+.changeButtons {
+    padding: 4px 8px;
+}
+
+.changeButtons:hover {
+    background-color: lightgray;
+    color: #2b414e;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 5px;
+}

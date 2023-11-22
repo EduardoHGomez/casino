@@ -191,6 +191,7 @@ checkboxNegro.addEventListener('click', () =>
     actualizarVisibilidad();
 });
 
+
 checkboxVerde.addEventListener('click', () =>
 {
     if (!checkboxVerde.checked)
