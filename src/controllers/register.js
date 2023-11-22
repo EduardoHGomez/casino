@@ -4,11 +4,12 @@ const emailR = document.getElementById('email');
 const passwordR = document.getElementById('password');
 const passwordRepit = document.getElementById('Repitpassword');
 const actionRegister = document.getElementById('regiteering')
-
+const favDialog = document.getElementById('favDialog');
 
 
 actionRegister.addEventListener('click', async () => {
-    try {
+    try
+    {
         // Obtener los valores del formulario
         const userName = nameR.value;
         const userAge = ageR.value;
@@ -16,7 +17,8 @@ actionRegister.addEventListener('click', async () => {
         const userPassword = passwordR.value;
         const userPasswordRepeat = passwordRepit.value;
 
-        if (userPassword !== userPasswordRepeat) {
+        if (userPassword !== userPasswordRepeat)
+        {
             console.log('Las contraseñas no coinciden');
             return;
         }
@@ -41,7 +43,27 @@ actionRegister.addEventListener('click', async () => {
 
         if (response.ok)
         {
-            goToInit();
+            const modal = document.getElementById('myModal');
+            const acceptButton = document.getElementById('acceptButton');
+
+            modal.style.display = 'block';
+
+
+            function closeModalHandler() {
+                modal.style.display = 'none';
+                goToInit();
+            }
+
+            acceptButton.onclick = closeModalHandler;
+
+            window.onclick = function (event)
+            {
+                if (event.target === modal)
+                {
+                    closeModalHandler();
+                }
+            };
+
         }
         else
         {
@@ -50,4 +72,6 @@ actionRegister.addEventListener('click', async () => {
     } catch (error) {
         console.error('Error:', error);
     }
+
+
 });
