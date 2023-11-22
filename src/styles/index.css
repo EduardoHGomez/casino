@@ -633,7 +633,7 @@ el negro bueno: #252525
     transition: opacity 2s ease-in-out;
 }
 
-.card {
+.cardL {
     padding: 2rem 4rem;
     border-radius: 1.25rem;
 }

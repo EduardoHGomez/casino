@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadBalanceRoulette();
 });
 
+
 function loadBalanceRoulette()
 {
     var id = sessionStorage.getItem('token');
