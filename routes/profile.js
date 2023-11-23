@@ -142,7 +142,7 @@ router.post("/activity", (req, res) => {
     let activity = Activity(req.body);
     activity.save().then((doc) => {
         res.statusCode = 200;
-        res.send("Cargadoooo");
+        res.send(req.body);
     });
 
 });
