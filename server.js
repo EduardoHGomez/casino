@@ -2,7 +2,7 @@
 const express = require('express'); 
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-
+const Swal = require('sweetalert2')
 
 // ---------- CONFIGURACIÓN DEL SERVIDOR ------------ Ejecutar con npm run dev
 const app = express(); 

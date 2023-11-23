@@ -26,6 +26,55 @@ actionLogin.addEventListener('click', async () =>
                 body: requestBody,
             });
 
+
+            if (response.ok)
+            {
+                const  token  = await response.json();
+                document.cookie = `token=${token};`;
+                sessionStorage.setItem('token',token)
+                goToIndex()
+            }
+            else
+            {
+                Swal.fire({
+                    icon: "error",
+                    title: "Salio algo mal",
+                    text: "Contraseña o correo incorrecto!",
+                });
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+
+
+/*
+actionLogin.addEventListener('click', async () =>
+{
+    try
+    {
+        let email = emailLogin.value;
+        let password = passLogin.value;
+
+        if (email === "" || password === "") {
+            console.log('Ingresar algo');
+        } else {
+            let credentials = { email, password };
+
+
+            let requestBody = JSON.stringify(credentials);
+
+
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: requestBody,
+            });
+
             const modal = document.getElementById('myModal');
             const acceptButton = document.getElementById('acceptButton');
 
@@ -62,3 +111,5 @@ actionLogin.addEventListener('click', async () =>
     }
 });
 
+
+ */
