@@ -6,8 +6,8 @@ window.addEventListener('load', () =>{
         loader.style.opacity = '0';
         setTimeout(() => {
             loader.style.display = 'none';
-        }, 5000);
-    }, 3000);
+        }, 1500);
+    }, 1000);
 })
 
 
