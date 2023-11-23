@@ -7,6 +7,35 @@ const actionRegister = document.getElementById('regiteering')
 const favDialog = document.getElementById('favDialog');
 
 
+
+/*
+// TESTER
+
+actionRegister.addEventListener('click', async () => {
+    const modal = document.getElementById('myModal');
+    const acceptButton = document.getElementById('acceptButton');
+
+    modal.style.display = 'block';
+
+    function closeModalHandler() {
+        modal.style.display = 'none';
+        //goToInit();
+    }
+
+    acceptButton.onclick = closeModalHandler;
+
+    window.onclick = function (event)
+    {
+        if (event.target === modal)
+        {
+            closeModalHandler();
+        }
+    };
+    })
+ */
+
+
+
 actionRegister.addEventListener('click', async () => {
     try
     {
@@ -72,6 +101,4 @@ actionRegister.addEventListener('click', async () => {
     } catch (error) {
         console.error('Error:', error);
     }
-
-
 });
