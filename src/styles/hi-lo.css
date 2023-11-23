@@ -8,7 +8,7 @@
 .contenedorHiLo{
     height: 1200px;
     width: 100%;
-    border: solid 1px black;
+    /* border: solid 1px black; */
     margin: 0;
     display: grid;
     grid-template-columns: 5% 5%;
@@ -43,8 +43,9 @@
 
 .card{
     position: relative;
-    height: 100%;
+    height: 70%;
     width: 200%;
+    margin-top: 120%;
     border: 1px solid black;
     border-radius: 2rem;
     display: flex;
