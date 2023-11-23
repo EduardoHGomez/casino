@@ -1,4 +1,6 @@
 const xhr = new XMLHttpRequest();
+let tat;
+
 
 document.addEventListener('DOMContentLoaded', () => {
     loadBalance();
@@ -30,6 +32,7 @@ function loadBalance() {
                 // Replace data from given status
                 let data = JSON.parse(xhr.responseText);
                 let balanceField = document.querySelector('#balanceField');
+                tat = data.balance;
                 balanceField.innerHTML = data.balance;
             }
         }
@@ -44,8 +47,13 @@ function addBalance() {
     var amount = document.querySelector('#balance-form-deposit').value;
     amount = parseFloat(amount);
 
+
     if (isNaN(amount) || amount <= 0) {
-        alert('Ingrese un monto válido para retirar.');
+        Swal.fire({
+            icon: "error",
+            title: "Salio un error",
+            text: "Ingrese un monto válido para retirar.",
+        });
         return;
     }
 
@@ -59,8 +67,8 @@ function addBalance() {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         if (xhr.status != 200) {
-            alert(xhr.status + ': ' + xhr.statusText); 
-        } else { 
+            alert(xhr.status + ': ' + xhr.statusText);
+        } else {
             if (xhr.status === 200) {
                 let data = JSON.parse(xhr.responseText);
                 let balanceField = document.querySelector('#balanceField');
@@ -79,37 +87,57 @@ function withdrawBalance() {
     var amount = document.querySelector('#balance-form-withdraw').value;
     amount = parseFloat(amount);
 
-    if (isNaN(amount) || amount <= 0) {
-        alert('Ingrese un monto válido para retirar.');
-        return;
-    }
 
-    amount = -amount;
+    if(!(amount > tat))
+    {
 
-    let data = {
-        id: id,
-        amount: amount
-    }
-
-    data = JSON.stringify(data);
-
-    xhr.open('PUT', `/profile/balance`, false);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = function() {
-        if (xhr.status != 200) {
-            alert(xhr.status + ': ' + xhr.statusText);
-        } else {
-            if (xhr.status === 200) {
-                let data = JSON.parse(xhr.responseText);
-                let balanceField = document.querySelector('#balanceField');
-                balanceField.innerHTML = data.balance;
-
-                document.querySelector('#balance-form-withdraw').value = '';
-            }
+        if (isNaN(amount) || amount <= 0) {
+            Swal.fire({
+                icon: "error",
+                title: "Salio un error",
+                text: "Ingrese un monto válido para retirar.",
+            });
+            return;
         }
-    };
-    xhr.send(data);
 
-    showDepositForm();
+        amount = -amount;
+
+        let data = {
+            id: id,
+            amount: amount
+        }
+
+        data = JSON.stringify(data);
+
+        xhr.open('PUT', `/profile/balance`, false);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function() {
+            if (xhr.status != 200) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            } else {
+                if (xhr.status === 200) {
+                    let data = JSON.parse(xhr.responseText);
+                    let balanceField = document.querySelector('#balanceField');
+                    balanceField.innerHTML = data.balance;
+
+                    document.querySelector('#balance-form-withdraw').value = '';
+                }
+            }
+        };
+        xhr.send(data);
+
+        showDepositForm();
+    }
+    else
+    {
+        Swal.fire({
+            icon: "error",
+            title: "Salio un error",
+            text: "No puedes retirar mas de lo que tienes.",
+        });
+        document.querySelector('#balance-form-withdraw').value = '';
+    }
+
+
 }
 
