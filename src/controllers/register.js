@@ -35,7 +35,7 @@ actionRegister.addEventListener('click', async () => {
  */
 
 
-
+/*
 actionRegister.addEventListener('click', async () => {
     try
     {
@@ -97,6 +97,68 @@ actionRegister.addEventListener('click', async () => {
         else
         {
             console.log('Error en el registro');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+ */
+
+
+actionRegister.addEventListener('click', async () => {
+    try
+    {
+        // Obtener los valores del formulario
+        const userName = nameR.value;
+        const userAge = ageR.value;
+        const userEmail = emailR.value;
+        const userPassword = passwordR.value;
+        const userPasswordRepeat = passwordRepit.value;
+
+        if (userPassword !== userPasswordRepeat)
+        {
+            console.log('Las contraseñas no coinciden');
+            return;
+        }
+
+        const userData = {
+            name: userName,
+            age: userAge,
+            email: userEmail,
+            password: userPassword,
+        };
+
+
+        const requestBody = JSON.stringify(userData);
+
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: requestBody,
+        });
+
+        if (response.ok)
+        {
+            Swal.fire({
+                icon: "success",
+                title: "Se ha registrado con exito",
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+            setTimeout(function() {
+                goToInit();
+            }, 1500);
+        }
+        else
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Sucedio un error.",
+                text: "No se completo el registro, vuelve a intentarlo!",
+            });
         }
     } catch (error) {
         console.error('Error:', error);
