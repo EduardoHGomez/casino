@@ -1,7 +1,6 @@
 
 const text = document.getElementById('textProf')
 const loader = document.getElementById('preloader')
-
 window.addEventListener('load', () =>{
     setTimeout(() => {
         loader.style.opacity = '0';
@@ -10,6 +9,7 @@ window.addEventListener('load', () =>{
         }, 5000);
     }, 3000);
 })
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -83,6 +83,7 @@ function imprimirTodasLasCookies() {
     }
 }
  */
+
 
 function goToExit()
 {

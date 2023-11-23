@@ -732,7 +732,7 @@ el negro bueno: #252525
 }
 
 .modal-content {
-    background-color: rgba(65, 91, 134, 0.5);
+    background-image: linear-gradient(to right top, rgba(46, 73, 90, 0.8), rgba(45, 80, 104, 0.8), rgba(45, 86, 119, 0.8), rgba(47, 92, 133, 0.8), rgba(53, 98, 148, 0.8));
     border-radius: 10px;
     margin: 15% auto;
     padding: 20px;
@@ -742,9 +742,17 @@ el negro bueno: #252525
 
 #acceptButton
 {
-    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to right top, rgba(52, 92, 64, 0.8), rgba(55, 106, 72, 0.8), rgba(56, 120, 81, 0.8), rgba(56, 135, 90, 0.8), rgba(55, 150, 100, 0.8));
     border-radius: 10px;
     padding: 5px;
-    color: black;
+    color: white;
+}
+#cancelButton
+{
+    background-image: linear-gradient(to right top, rgba(170, 49, 70, 0.8), rgba(165, 41, 58, 0.8), rgba(159, 33, 45, 0.8), rgba(153, 25, 32, 0.8), rgba(146, 18, 18, 0.8));
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+
 }
 

@@ -160,6 +160,7 @@ function showHasLost() {
 }
 
 
+
 //tagBalance.textContent = 'Balance: ' + balance;
 const wheel = new Wheel(container, props);
 
