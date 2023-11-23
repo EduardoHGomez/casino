@@ -5,10 +5,6 @@
 
 }
 
-
-
-
-
 #mains{
     background-image: linear-gradient(to bottom, #0d1e2b, #0e1f2f, #0f2132, #112236, #132339, #132339, #132339, #132339, #112236, #0f2132, #0e1f2f, #0d1e2b);
 
@@ -633,7 +629,7 @@ el negro bueno: #252525
     transition: opacity 2s ease-in-out;
 }
 
-.card {
+.cardL {
     padding: 2rem 4rem;
     border-radius: 1.25rem;
 }
@@ -719,5 +715,44 @@ el negro bueno: #252525
         -webkit-transform: translateY(-400%);
         transform: translateY(-400%);
     }
+}
+
+
+/* Modal Styles */
+.modal
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal-content {
+    background-image: linear-gradient(to right top, rgba(46, 73, 90, 0.8), rgba(45, 80, 104, 0.8), rgba(45, 86, 119, 0.8), rgba(47, 92, 133, 0.8), rgba(53, 98, 148, 0.8));
+    border-radius: 10px;
+    margin: 15% auto;
+    padding: 20px;
+    width: 30%;
+    border: 2px solid rgba(68, 119, 193, 0.5);
+}
+
+#acceptButton
+{
+    background-image: linear-gradient(to right top, rgba(52, 92, 64, 0.8), rgba(55, 106, 72, 0.8), rgba(56, 120, 81, 0.8), rgba(56, 135, 90, 0.8), rgba(55, 150, 100, 0.8));
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+}
+#cancelButton
+{
+    background-image: linear-gradient(to right top, rgba(170, 49, 70, 0.8), rgba(165, 41, 58, 0.8), rgba(159, 33, 45, 0.8), rgba(153, 25, 32, 0.8), rgba(146, 18, 18, 0.8));
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+
 }
 

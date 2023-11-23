@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/styles/roulette.css">
     <script src="/scripts/indexLoading.js"></script>
 </head>
-<body style="background-image: linear-gradient(to bottom, #0d1e2b, #0e1f2f, #0f2132, #112236, #132339, #132339, #132339, #132339, #112236, #0f2132, #0e1f2f, #0d1e2b);">
+<body style="overflow: hidden; background-image: linear-gradient(to bottom, #0d1e2b, #0e1f2f, #0f2132, #112236, #132339, #132339, #132339, #132339, #112236, #0f2132, #0e1f2f, #0d1e2b);">
 
     <header id="nav" class="h-20 w-full flex items-center relative justify-between px-5 space-x-10 dark:bg-[#1a2c38] ">
         <div id="mainText" class="invisible px-3 dark:text-white text-6xl ">
@@ -23,13 +23,11 @@
         </div>
 
         <div class="flex flex-shrink-0 items-center space-x-4 text-white">
-
-
             <div id="name" class="flex px-3 space-x-3">
 
             </div>
-
-
+            <div></div>
+            <div></div>
             <div id="reg" class="invisible flex px-3 space-x-3">
                 <!-- Simula el perfil -->
                 <button class="btn">
@@ -38,9 +36,6 @@
             </div>
 
             <div class="flex flex-shrink-0 items-center justify-center space-x-4 text-white">
-                <div>
-
-                </div>
                 <div id="btnProf" class="flex px-3 space-x-3">
                     <!-- Simula el perfil -->
                     <button class="btn" onclick="goToProfile()">
@@ -54,7 +49,7 @@
         </div>
     </header>
 
-    <div style=" display: flex; flex-direction: row; height: 100vh;">
+    <div style=" display: flex; flex-direction: row; height: 100vh; width: 100vw;" >
 
         <aside id="side" class="h-full w-16 flex flex-col space-y-10 items-center justify-center relative  text-white ">
 
@@ -121,36 +116,69 @@
             </div>
         </aside>
 
+        <!---
+            <i class="fa-solid fa-arrow-up-long fa-rotate-180 fa-2xl" style="color: #ffffff;"></i>
+
+
+
+        --->
+
+
         <div class="flex justify-between h-full w-full">
-            <div  class="flex-col items-center h-full w-full">
 
-                <div class="pt-28">
-                    <div class="flex flex-col items-center ">
-                        <i class="fa-solid fa-arrow-up-long fa-rotate-180 fa-2xl" style="color: #ffffff;"></i>
+
+            <div class="flex-col items-center h-full w-full">
+                <div class="relative">
+
+                    <div class="relative flex flex-col items-center">
+                        <svg fill="#FFFFFF" width="120px" height="90px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M202.82812,146.82812l-72,72a3.99853,3.99853,0,0,1-5.65625,0l-72-72a3.99957,3.99957,0,0,1,5.65625-5.65625L124,206.34277V40a4,4,0,0,1,8,0V206.34277l65.17187-65.1709a3.99957,3.99957,0,0,1,5.65625,5.65625Z"/>
+                        </svg>
                     </div>
-                    <div class="wheel-container"></div>
-                </div>
 
+                    <div class="wheel-container flex flex-col items-center"></div>
+                </div>
             </div>
+
 
 
             <!---
                 Tabla
             --->
             <div class="flex flex-col justify-center">
+
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                         <div class="overflow-hidden">
+                            <div>
+
+
+                            </div>
                             <table class="min-w-full text-center rounded-md border-2 border-white " >
-                                <thead class="border-b">
-                                    <tr>
+                                <thead >
+                                        <tr>
+                                            <div id="hasWon" class="flex flex-col items-center pb-2" style="display: none">
+                                                <div class='flex flex-row bg-gray-900 h-10 w-[246px] rounded-[30px]'>
+                                                    <span class='flex flex-col justify-center text-white font-bold grow-[1] max-w-[90%] text-center'>Has ganado</span>
+                                                    <div class='w-[10%] bg-green-400 rounded-r-2xl shadow-[0_0_20px_#00C85177]'></div>
+                                                </div>
+                                            </div>
+                                            <div id="hasLost" class="flex flex-col items-center pb-2" style="display: none">
+                                                <div class='flex flex-row bg-gray-900 h-10 w-[246px] rounded-[30px]'>
+                                                    <span class='flex flex-col justify-center text-white font-bold grow-[1] max-w-[90%] text-center'>Has perdido</span>
+                                                    <div class='w-[10%] bg-red-400 rounded-r-2xl shadow-[0_0_20px_#ff444477]'></div>
+                                                </div>
+                                            </div>
+                                        </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr class="border-b ">
                                         <th scope="col" class="text-sm font-medium text-white px-12 py-4">
                                             Seleccion
                                         </th>
 
                                     </tr>
-                                </thead>
-                                <tbody>
                                     <tr >
                                         <td class="text-sm text-white font-medium px-6 py-4 whitespace-nowrap  ">
                                             <div class="flex flex-row justify-evenly">
@@ -292,6 +320,8 @@
 
                                 </tbody>
                             </table>
+
+
                         </div>
                     </div>
                 </div>
@@ -303,6 +333,8 @@
             --->
         </div>
     </div>
+
+
 
 
 </body>

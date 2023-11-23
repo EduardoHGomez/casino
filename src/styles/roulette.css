@@ -1,29 +1,4 @@
-#contenedorGeneral {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-}
-
-#divGanador{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-style: solid;
-
-}
-
-#divRuleta{
-    border-style: solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    height: 100%;
-
-}
 
 .credencialesTexto{
     color: white;
@@ -282,7 +257,7 @@ El nuevo check
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #45f3ff;
+    background: #24969d;
     border-radius: 4px;
     transition: 0.5s;
     pointer-events: none;

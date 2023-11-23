@@ -26,6 +26,13 @@ actionLogin.addEventListener('click', async () =>
                 body: requestBody,
             });
 
+            const modal = document.getElementById('myModal');
+            const acceptButton = document.getElementById('acceptButton');
+
+            function closeModalHandler() {
+                modal.style.display = 'none';
+                goToInit();
+            }
 
 
             if (response.ok)
@@ -37,7 +44,17 @@ actionLogin.addEventListener('click', async () =>
             }
             else
             {
-                console.log('Error de login 101');
+
+                acceptButton.onclick = closeModalHandler;
+
+                modal.style.display = 'block';
+                window.onclick = function (event)
+                {
+                    if (event.target === modal)
+                    {
+                        closeModalHandler();
+                    }
+                };
             }
         }
     } catch (error) {

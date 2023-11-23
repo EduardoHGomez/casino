@@ -78,6 +78,9 @@ let cantidadADocena = document.getElementById('cantidadADocena');
 const ColorDivCantidad = document.getElementById('ColorDivCantidad');
 const ParImparDivCantidad = document.getElementById('ParImparDivCantidad');
 const decDivCantidad = document.getElementById('decDivCantidad');
+const hasWon = document.getElementById('hasWon');
+const hasLost = document.getElementById('hasLost');
+
 
 let tagBalance = document.getElementById('tagBalance');
 
@@ -87,6 +90,7 @@ let balanceActual = 0;
 document.addEventListener('DOMContentLoaded', () => {
     loadBalanceRoulette();
 });
+
 
 function loadBalanceRoulette()
 {
@@ -140,6 +144,22 @@ function updateBalance(amount) {
 }
 
 
+function showHasWon() {
+    document.getElementById('hasWon').style.display = 'flex';
+    setTimeout(function () {
+        document.getElementById('hasWon').style.display = 'none';
+    }, 2000);
+}
+
+
+function showHasLost() {
+    document.getElementById('hasLost').style.display = 'flex';
+    setTimeout(function () {
+        document.getElementById('hasLost').style.display = 'none';
+    }, 2000);
+}
+
+
 
 //tagBalance.textContent = 'Balance: ' + balance;
 const wheel = new Wheel(container, props);
@@ -150,6 +170,7 @@ function init()
     wheel.borderWidth = 12;
     wheel.isInteractive = false;
     wheel.lineColor = '#D4AF37';
+
 
     wheel.radius = 0.9;
 
@@ -406,23 +427,29 @@ btnSpin.addEventListener('click', function () {
             // 4. De lo contrario, restarlo
             if ((checkedColors.length > 0 && cantidadAColor.value.length > 0) && checkedColors.includes(winnerColor)) {
               amountToAdd += parseFloat(cantidadAColor.value);
+                showHasWon();
             } else if (checkedColors.length > 0 && cantidadAColor.value.length > 0) {
               amountToAdd -= parseFloat(cantidadAColor.value);
+              showHasLost();
             }
 
             // Lo mismo para par e impar
             if ((checkedParities.length && cantidadAParidad.value.length > 0) > 0 && checkedParities.includes(winnerParity)) {
               amountToAdd += parseFloat(cantidadAParidad.value);
+                showHasWon();
             } else if (checkedParities.length > 0 && cantidadAParidad.value.length > 0) {
 
               amountToAdd -= parseFloat(cantidadAParidad.value);
+                showHasLost();
             }
 
             // Docenas
             if ((checkedDozens.length > 0 && cantidadADocena.value.length > 0) && checkedDozens.includes(winnerDozen)) {
               amountToAdd += parseFloat(cantidadADocena.value);
+                showHasWon();
             } else if (checkedDozens.length > 0 && cantidadADocena.value.length > 0) {
               amountToAdd -= parseFloat(cantidadADocena.value);
+              showHasLost();
             }
 
             cantidadAColor.value = '';
