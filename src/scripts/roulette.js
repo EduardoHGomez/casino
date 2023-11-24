@@ -107,7 +107,7 @@ function loadBalanceRoulette()
 
           let data = JSON.parse(xhr.responseText);
           balanceActual = data.balance;
-          tagBalance.innerHTML = data.balance;
+          tagBalance.innerHTML = parseFloat(data.balance).toFixed(2);
         }
       }
     };
@@ -340,7 +340,15 @@ function storeActivity(balance, nameGame) {
 
 
 btnSpin.addEventListener('click', function () {
-    if((checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked || checkboxPar.checked || checkboxImpar.checked || checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked) && (cantidadAColor.value !== '' || cantidadAParidad.value !== '' || cantidadADocena.value !== ''))
+
+    let currentBalance = parseFloat(document.querySelector('#tagBalance').innerHTML).toFixed(2);
+
+    // Revisar por las condiciones que sean inválidas para salir de la función y mostrar la alerta
+    if (true) {
+
+      console.log(currentBalance);
+    }
+    else if((checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked || checkboxPar.checked || checkboxImpar.checked || checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked) && (cantidadAColor.value !== '' || cantidadAParidad.value !== '' || cantidadADocena.value !== ''))
     {
 
         let numeroDecimalAleatorio = Math.random();
