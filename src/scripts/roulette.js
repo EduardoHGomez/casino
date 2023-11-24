@@ -351,12 +351,21 @@ btnSpin.addEventListener('click', function () {
         let valueAParidad = cantidadAParidad.value === '' ? 0 : parseFloat(cantidadAParidad.value);
         let valueADocena = cantidadADocena.value === '' ? 0 : parseFloat(cantidadADocena.value);
 
-        if ((valueAColor + valueAParidad + valueADocena) > currentBalance) {
-            Swal.fire({
-                icon: "error",
-                title: "Salio un error",
-                text: "Ingrese un monto válido para retirar.",
-            });
+        if (valueAColor < 0 || valueAParidad < 0 || valueADocena < 0) {
+          Swal.fire({
+              icon: "error",
+              title: "No puedes apostar una cantidad negativa",
+          });
+
+          return;
+        }
+        else if ((valueAColor + valueAParidad + valueADocena) > currentBalance) {
+        
+          Swal.fire({
+              icon: "error",
+              title: "No puedes apostar más de balance",
+          });
+
           return;
         }
 
