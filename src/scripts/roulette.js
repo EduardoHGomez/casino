@@ -341,15 +341,22 @@ function storeActivity(balance, nameGame) {
 
 btnSpin.addEventListener('click', function () {
 
-    let currentBalance = parseFloat(document.querySelector('#tagBalance').innerHTML).toFixed(2);
 
-    // Revisar por las condiciones que sean inválidas para salir de la función y mostrar la alerta
-    if (true) {
-
-      console.log(currentBalance);
-    }
-    else if((checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked || checkboxPar.checked || checkboxImpar.checked || checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked) && (cantidadAColor.value !== '' || cantidadAParidad.value !== '' || cantidadADocena.value !== ''))
+    if((checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked || checkboxPar.checked || checkboxImpar.checked || checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked) && (cantidadAColor.value !== '' || cantidadAParidad.value !== '' || cantidadADocena.value !== ''))
     {
+
+        // Revisar por las condiciones que sean inválidas para salir de la función y mostrar la alerta
+        let currentBalance = parseFloat(document.querySelector('#tagBalance').innerHTML);
+        let valueAColor = cantidadAColor.value === '' ? 0 : parseFloat(cantidadAColor.value);
+        let valueAParidad = cantidadAParidad.value === '' ? 0 : parseFloat(cantidadAParidad.value);
+        let valueADocena = cantidadADocena.value === '' ? 0 : parseFloat(cantidadADocena.value);
+
+        if ((valueAColor + valueAParidad + valueADocena) > currentBalance) {
+          alert('No puedes apostar más de tu balance!');
+          return;
+        }
+
+
 
         let numeroDecimalAleatorio = Math.random();
         let numeroAleatorio = Math.floor(numeroDecimalAleatorio * 37);
