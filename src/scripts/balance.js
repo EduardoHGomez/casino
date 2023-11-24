@@ -32,8 +32,8 @@ function loadBalance() {
                 // Replace data from given status
                 let data = JSON.parse(xhr.responseText);
                 let balanceField = document.querySelector('#balanceField');
-                tat = data.balance;
-                balanceField.innerHTML = data.balance;
+                tat = parseFloat(data.balance).toFixed(2);
+                balanceField.innerHTML = tat;
             }
         }
     };
