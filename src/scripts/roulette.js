@@ -352,7 +352,11 @@ btnSpin.addEventListener('click', function () {
         let valueADocena = cantidadADocena.value === '' ? 0 : parseFloat(cantidadADocena.value);
 
         if ((valueAColor + valueAParidad + valueADocena) > currentBalance) {
-          alert('No puedes apostar más de tu balance!');
+            Swal.fire({
+                icon: "error",
+                title: "Salio un error",
+                text: "Ingrese un monto válido para retirar.",
+            });
           return;
         }
 
