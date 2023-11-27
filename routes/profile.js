@@ -128,9 +128,9 @@ router.get("/activity", (req, res) => {
 
         Activity.find({
             userID: id,
-        }).then((docs) => {
+        }).sort({date: 'desc'}).exec((err, docs) => {
             res.send(docs);
-        }).catch((err) => res.send("Error"));
+        });
 
     } else {
         res.sendFile(path.resolve(__dirname + "/../src/views/activity.html"));
