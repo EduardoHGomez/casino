@@ -128,7 +128,7 @@ router.get("/activity", (req, res) => {
 
         Activity.find({
             userID: id,
-        }).sort({date: 'desc'}).then((err, docs) => {
+        }).sort({date: -1}).exec((err, docs) => {
 
             res.send(docs);
         });
