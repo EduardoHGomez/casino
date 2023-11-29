@@ -128,10 +128,10 @@ router.get("/activity", (req, res) => {
 
         Activity.find({
             userID: id,
-        }).sort({date: -1}).exec((err, docs) => {
-
+        }).then((docs) => {
             res.send(docs);
-        });
+        }).catch((err) => res.send("Error"));
+
 
     } else {
         res.sendFile(path.resolve(__dirname + "/../src/views/activity.html"));
