@@ -22,7 +22,6 @@ function loadName()
 
     if (!token)
     {
-        console.error('Token no encontrado.');
         return;
     }
 

@@ -79,6 +79,13 @@ function addBalance() {
         }
     };
     xhr.send(data);
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Se ha hecho el deposito.",
+        showConfirmButton: false,
+        timer: 1500
+    });
     showDepositForm();
 }
 
@@ -125,6 +132,13 @@ function withdrawBalance() {
             }
         };
         xhr.send(data);
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Se ha hecho el retiro.",
+            showConfirmButton: false,
+            timer: 1500
+        });
 
         showDepositForm();
     }
