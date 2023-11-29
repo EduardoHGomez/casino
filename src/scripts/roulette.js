@@ -107,7 +107,7 @@ function loadBalanceRoulette()
 
           let data = JSON.parse(xhr.responseText);
           balanceActual = data.balance;
-          tagBalance.innerHTML = data.balance;
+          tagBalance.innerHTML = parseFloat(data.balance).toFixed(2);
         }
       }
     };
@@ -340,8 +340,36 @@ function storeActivity(balance, nameGame) {
 
 
 btnSpin.addEventListener('click', function () {
+
+
     if((checkboxRojo.checked || checkboxNegro.checked || checkboxVerde.checked || checkboxPar.checked || checkboxImpar.checked || checkboxPrimera.checked || checkboxSegunda.checked || checkboxTercera.checked) && (cantidadAColor.value !== '' || cantidadAParidad.value !== '' || cantidadADocena.value !== ''))
     {
+
+        // Revisar por las condiciones que sean inválidas para salir de la función y mostrar la alerta
+        let currentBalance = parseFloat(document.querySelector('#tagBalance').innerHTML);
+        let valueAColor = cantidadAColor.value === '' ? 0 : parseFloat(cantidadAColor.value);
+        let valueAParidad = cantidadAParidad.value === '' ? 0 : parseFloat(cantidadAParidad.value);
+        let valueADocena = cantidadADocena.value === '' ? 0 : parseFloat(cantidadADocena.value);
+
+        if (valueAColor < 0 || valueAParidad < 0 || valueADocena < 0) {
+          Swal.fire({
+              icon: "error",
+              title: "No puedes apostar una cantidad negativa",
+          });
+
+          return;
+        }
+        else if ((valueAColor + valueAParidad + valueADocena) > currentBalance) {
+        
+          Swal.fire({
+              icon: "error",
+              title: "No puedes apostar más de balance",
+          });
+
+          return;
+        }
+
+
 
         let numeroDecimalAleatorio = Math.random();
         let numeroAleatorio = Math.floor(numeroDecimalAleatorio * 37);

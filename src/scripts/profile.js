@@ -31,7 +31,7 @@ function loadProfile() {
                 emailField.value = data.email;
                 emailField.dataset.prev = data.email;
 
-                ageField.innerHTML = data.age;
+                ageField.innerHTML = data.age + " " + "años";
                 usernameBoldField.innerHTML = data.name;
 
             }
@@ -80,7 +80,10 @@ function updateField(field, newValue) {
             alert(xhr.status + ': ' + xhr.statusText); 
         } else { 
             if (xhr.status === 200) {
-                console.log(xhr.responseText);
+                data = JSON.parse(xhr.responseText);
+                console.log(data);
+                document.querySelector('#account-bold-username').innerHTML = data.name;
+                document.querySelector('#textProf').innerHTML = data.name;
             }
         }
     };
