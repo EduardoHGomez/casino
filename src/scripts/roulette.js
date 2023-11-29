@@ -371,9 +371,10 @@ btnSpin.addEventListener('click', function () {
 
 
 
+
         let numeroDecimalAleatorio = Math.random();
         let numeroAleatorio = Math.floor(numeroDecimalAleatorio * 37);
-        console.log("Numero ganador: " + props.items[numeroAleatorio].label);
+        //console.log("Numero ganador: " + props.items[numeroAleatorio].label);
 
 
 
@@ -586,6 +587,14 @@ btnSpin.addEventListener('click', function () {
 
         init();
 
+    }
+    else
+    {
+        Swal.fire({
+            icon: "error",
+            title: "Salio algo mal",
+            text: "Ingresa una cantidad y seleccion!",
+        })
     }
 });
 
