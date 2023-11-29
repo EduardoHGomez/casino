@@ -1190,6 +1190,10 @@ video {
   padding-left: 0.125rem;
 }
 
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
 .pt-20 {
   padding-top: 5rem;
 }

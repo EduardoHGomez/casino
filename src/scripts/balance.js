@@ -89,6 +89,7 @@ function addBalance() {
     showDepositForm();
 }
 
+
 function withdrawBalance() {
     var id = sessionStorage.getItem('token');
     var amount = document.querySelector('#balance-form-withdraw').value;

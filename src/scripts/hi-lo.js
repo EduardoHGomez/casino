@@ -118,162 +118,235 @@ console.log(deck.cards);
 
 const tagGanador = document.getElementById('tagBalance');
 const btnMayor = document.getElementById('btnMayor');
-btnMayor.addEventListener('click', function () {   
 
-    let cantidadValue = (cantidadHiLo.value === '') ? 0 : parseFloat(cantidadHiLo.value); 
-    let balanceValue = document.querySelector('#tagBalance').innerHTML;
-    
-    if (balanceValue < cantidadValue){
-        alert('Fondos insuficientes');
-        cantidadHiLo.value = '';
-        return;
-    } 
-    if (cantidadValue < 0){
-        alert('Cantidad invalida');
-        cantidadHiLo.value = '';
-        return;
-    } 
-    balance = balance-cantidadHiLo.value;
-    if(deck.cards.length === 1){
-        alert('Ya no hay cartas');
-        return;
+function showHasWon() {
+    document.getElementById('hasWon').style.display = 'flex';
+    setTimeout(function () {
+        document.getElementById('hasWon').style.display = 'none';
+    }, 2000);
+}
+
+
+function showHasLost() {
+    document.getElementById('hasLost').style.display = 'flex';
+    setTimeout(function () {
+        document.getElementById('hasLost').style.display = 'none';
+    }, 2000);
+}
+
+
+btnMayor.addEventListener('click', function () {
+
+    if(cantidadHiLo.value === '')
+    {
+        Swal.fire({
+            icon: "error",
+            title: "Salio algo mal",
+            text: "Ingresa una cantidad!",
+        });
     }
-    let cartaVieja = deck.pop().value;
-    while (deck.cards[0].value === 'K' || deck.cards[0].value == 'A'){
-        deck.pop();
-    }
-    let cartaNueva = deck.cards[0].value;
-    if (cartaVieja == 'J' || cartaVieja == 'Q' || cartaVieja == 'K' || cartaVieja == 'A'){
-        switch (cartaVieja){
-            case 'J':
-                cartaVieja = 11;
-                break;
-            case 'Q':
-                cartaVieja = 12;
-                break;
-            case 'K':
-                cartaVieja = 13;
-                break;
-            case 'A':
-                cartaVieja = 1;
-                break
+    else
+    {
+
+        let cantidadValue = (cantidadHiLo.value === '') ? 0 : parseFloat(cantidadHiLo.value);
+        let balanceValue = document.querySelector('#tagBalance').innerHTML;
+
+        if (balanceValue < cantidadValue){
+            Swal.fire({
+                icon: "error",
+                title: "Salio algo mal",
+                text: "Fondos insuficientes!",
+            });
+            cantidadHiLo.value = '';
+            return;
         }
-    }
-    if (cartaNueva == 'J' || cartaNueva == 'Q' || cartaNueva == 'K' || cartaNueva == 'A'){
-        switch (cartaNueva){
-            case 'J':
-                cartaNueva = 11;
-                break;
-            case 'Q':
-                cartaNueva = 12;
-                break;
-            case 'K':
-                cartaNueva = 13;
-                break;
-            case 'A':
-                cartaNueva = 1;
-                break
+        if (cantidadValue <= 0 ){
+            Swal.fire({
+                icon: "error",
+                title: "Salio algo mal",
+                text: "Cantidad invalida!",
+            });
+            cantidadHiLo.value = '';
+            return;
         }
+        balance = balance-cantidadHiLo.value;
+        if(deck.cards.length === 1){
+            Swal.fire({
+                icon: "error",
+                title: "Salio algo mal",
+                text: "Se han acabado las cartas!",
+            });
+            return;
+        }
+        let cartaVieja = deck.pop().value;
+        while (deck.cards[0].value === 'K' || deck.cards[0].value == 'A'){
+            deck.pop();
+        }
+        let cartaNueva = deck.cards[0].value;
+        if (cartaVieja == 'J' || cartaVieja == 'Q' || cartaVieja == 'K' || cartaVieja == 'A'){
+            switch (cartaVieja){
+                case 'J':
+                    cartaVieja = 11;
+                    break;
+                case 'Q':
+                    cartaVieja = 12;
+                    break;
+                case 'K':
+                    cartaVieja = 13;
+                    break;
+                case 'A':
+                    cartaVieja = 1;
+                    break
+            }
+        }
+        if (cartaNueva == 'J' || cartaNueva == 'Q' || cartaNueva == 'K' || cartaNueva == 'A'){
+            switch (cartaNueva){
+                case 'J':
+                    cartaNueva = 11;
+                    break;
+                case 'Q':
+                    cartaNueva = 12;
+                    break;
+                case 'K':
+                    cartaNueva = 13;
+                    break;
+                case 'A':
+                    cartaNueva = 1;
+                    break
+            }
+        }
+        if(cartaNueva>=cartaVieja){
+            let posibilidadesArriba = (cartaVieja/13)+1;
+            balance = balance + (cantidadHiLo.value * posibilidadesArriba);
+            balance = balance.toFixed(2);
+            storeActivity(balance, "Hi-Lo");
+            updateBalance(parseFloat(balance));
+            showHasWon();
+            //console.log("Gana");
+        }else{
+            balance = parseFloat(cantidadHiLo.value).toFixed(2);
+            console.log(balance);
+            var negativeValue = balance * -1;
+            //console.log("Pierde" + negativeValue);
+            storeActivity(negativeValue, "Hi-Lo");
+            updateBalance(negativeValue);
+            showHasLost();
+
+
+        }
+        computerCardSlot.removeChild(cartaDinamica);
+        computerCardSlot.appendChild(deck.cards[0].getHTML());
+        cantidadHiLo.value = '';
     }
-    if(cartaNueva>=cartaVieja){
-        let posibilidadesArriba = (cartaVieja/13)+1;
-        balance = balance + (cantidadHiLo.value * posibilidadesArriba);
-        balance = balance.toFixed(2);
-        storeActivity(balance, "Hi-Lo");
-        updateBalance(parseFloat(balance));
-        console.log("Gana");
-    }else{
-        balance = parseFloat(cantidadHiLo.value).toFixed(2);
-        console.log(balance);
-        var negativeValue = balance * -1;
-        console.log("Pierde" + negativeValue);
-        storeActivity(negativeValue, "Hi-Lo");
-        updateBalance(negativeValue);
-    }
-    computerCardSlot.removeChild(cartaDinamica);
-    computerCardSlot.appendChild(deck.cards[0].getHTML());
-    cantidadHiLo.value = '';
+
 });
 
 const btnMenor = document.getElementById('btnMenor');
 btnMenor.addEventListener('click', function () {
 
-    // Obtener la cantidad
-    let cantidadValue = (cantidadHiLo.value === '') ? 0 : parseFloat(cantidadHiLo.value); 
-    let balanceValue = document.querySelector('#tagBalance').innerHTML;
+    if(cantidadHiLo.value === '')
+    {
+        Swal.fire({
+            icon: "error",
+            title: "Salio algo mal",
+            text: "Ingresa una cantidad!",
+        });
+    }
+    else
+    {
+        let cantidadValue = (cantidadHiLo.value === '') ? 0  : parseFloat(cantidadHiLo.value);
+        let balanceValue = document.querySelector('#tagBalance').innerHTML;
 
-    if (balanceValue < cantidadValue){
-        alert('Fondos insuficientes');
-        cantidadHiLo.value = '';
-        return;
-    } 
-    if (cantidadValue < 0){
-        alert('Cantidad invalida');
-        cantidadHiLo.value = '';
-        return;
-    } 
-    balance = balance-cantidadHiLo.value;
-    if(deck.cards.length === 1){
-        alert('Ya no hay cartas');
-        return;
-    }
-    let cartaVieja = deck.pop().value;
-    while (deck.cards[0].value === 'K' || deck.cards[0].value == 'A'){
-        deck.pop();
-    }
-    let cartaNueva = deck.cards[0].value;
-    if (cartaVieja == 'J' || cartaVieja == 'Q' || cartaVieja == 'K' || cartaVieja == 'A'){
-        switch (cartaVieja){
-            case 'J':
-                cartaVieja = 11;
-                break;
-            case 'Q':
-                cartaVieja = 12;
-                break;
-            case 'K':
-                cartaVieja = 13;
-                break;
-            case 'A':
-                cartaVieja = 1;
-                break
+        if (balanceValue < cantidadValue){
+            Swal.fire({
+                icon: "error",
+                title: "Salio algo mal",
+                text: "Fondos insuficientes!",
+            });
+            cantidadHiLo.value = '';
+            return;
         }
-    }
-    if (cartaNueva == 'J' || cartaNueva == 'Q' || cartaNueva == 'K' || cartaNueva == 'A'){
-        switch (cartaNueva){
-            case 'J':
-                cartaNueva = 11;
-                break;
-            case 'Q':
-                cartaNueva = 12;
-                break;
-            case 'K':
-                cartaNueva = 13;
-                break;
-            case 'A':
-                cartaNueva = 1;
-                break
+        if (cantidadValue <= 0){
+            Swal.fire({
+                icon: "error",
+                title: "Salio algo mal",
+                text: "Cantidad invalida!",
+            });
+            cantidadHiLo.value = '';
+            return;
         }
+        balance = balance-cantidadHiLo.value;
+        if(deck.cards.length === 1){
+            Swal.fire({
+                icon: "error",
+                title: "Salio algo mal",
+                text: "Se han acabado las cartas!",
+            });
+            return;
+        }
+        let cartaVieja = deck.pop().value;
+        while (deck.cards[0].value === 'K' || deck.cards[0].value == 'A'){
+            deck.pop();
+        }
+        let cartaNueva = deck.cards[0].value;
+        if (cartaVieja == 'J' || cartaVieja == 'Q' || cartaVieja == 'K' || cartaVieja == 'A'){
+            switch (cartaVieja){
+                case 'J':
+                    cartaVieja = 11;
+                    break;
+                case 'Q':
+                    cartaVieja = 12;
+                    break;
+                case 'K':
+                    cartaVieja = 13;
+                    break;
+                case 'A':
+                    cartaVieja = 1;
+                    break
+            }
+        }
+        if (cartaNueva == 'J' || cartaNueva == 'Q' || cartaNueva == 'K' || cartaNueva == 'A'){
+            switch (cartaNueva){
+                case 'J':
+                    cartaNueva = 11;
+                    break;
+                case 'Q':
+                    cartaNueva = 12;
+                    break;
+                case 'K':
+                    cartaNueva = 13;
+                    break;
+                case 'A':
+                    cartaNueva = 1;
+                    break
+            }
+        }
+        if(cartaNueva<=cartaVieja){
+            //console.log("Gana");
+            let posibilidadesAbajo = ((13-(cartaVieja-1))/13)+1;
+            balance = balance + (cantidadHiLo.value * posibilidadesAbajo);
+            balance = balance.toFixed(2);
+            storeActivity(balance, "Hi-Lo");
+            updateBalance(parseFloat(balance));
+            showHasWon();
+        }else{
+            // balance = balance - cantidadHiLo.value;
+            balance = parseFloat(cantidadHiLo.value).toFixed(2);
+            console.log(balance);
+            var negativeValue = balance * -1;
+            //console.log("Pierde" + negativeValue);
+            storeActivity(negativeValue, "Hi-Lo");
+            updateBalance(negativeValue);
+            showHasLost();
+        }
+
+        computerCardSlot.removeChild(cartaDinamica);
+        computerCardSlot.appendChild(deck.cards[0].getHTML());
+        cantidadHiLo.value = '';
     }
-    if(cartaNueva<=cartaVieja){
-        console.log("Gana");
-        let posibilidadesAbajo = ((13-(cartaVieja-1))/13)+1;
-        balance = balance + (cantidadHiLo.value * posibilidadesAbajo);
-        balance = balance.toFixed(2);
-        storeActivity(balance, "Hi-Lo");
-        updateBalance(parseFloat(balance));
-    }else{
-        // balance = balance - cantidadHiLo.value;
-        balance = parseFloat(cantidadHiLo.value).toFixed(2);
-        console.log(balance);
-        var negativeValue = balance * -1;
-        console.log("Pierde" + negativeValue);
-        storeActivity(negativeValue, "Hi-Lo");
-        updateBalance(negativeValue);
-    }
-    
-    computerCardSlot.removeChild(cartaDinamica);
-    computerCardSlot.appendChild(deck.cards[0].getHTML());
-    cantidadHiLo.value = '';
+
+    // Obtener la cantidad
+
 });
 
 
