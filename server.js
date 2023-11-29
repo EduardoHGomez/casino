@@ -18,7 +18,8 @@ app.use('/assets', express.static('assets'))
 app.use('/controllers', express.static('controllers'))
 
 app.use(cookieParser());
- 
+
+
 // -------- ......CORS -----------------
 app.use(cors({
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
