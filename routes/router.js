@@ -17,6 +17,7 @@ const bcrypt = require("bcrypt");
 const verifyToken = (req, res, next) => {
     const token = req.cookies.token;
 
+
     if (!token)
     {
         res.sendFile(path.resolve(__dirname + "/../src/views/logIn.html"));
@@ -39,6 +40,7 @@ const verifyToken = (req, res, next) => {
 router.get('/getUserName', verifyToken, async (req, res) => {
     try {
         const user = await User.findById(req.userId);
+
 
         if (!user)
         {
@@ -95,7 +97,6 @@ router.post('/login', async (req,res) =>{
         }
         // teoricamente deberia ser con el compare pero no esta funcionando
         //const passwordCredit = await bcrypt.compare(password,user.password);
-
         const passwordCredit = password === user.password;
 
         if(!passwordCredit)
@@ -119,7 +120,6 @@ router.use('/information', verifyToken);
 router.use('/rules', verifyToken);
 router.use('/index', verifyToken);
 //router.use('/profile', verifyToken);
-router.use('/games', verifyToken);
 router.use('/add', verifyToken);
 
 
@@ -129,7 +129,7 @@ router.use('/add', verifyToken);
 // Envía a la página de juegos
 router.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/../src/views/index_logInpending.html"));
-});
+})
 
 // Info
 router.get("/information", (req, res) => {

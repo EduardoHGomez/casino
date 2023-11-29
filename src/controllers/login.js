@@ -10,7 +10,7 @@ actionLogin.addEventListener('click', async () =>
         let password = passLogin.value;
 
         if (email === "" || password === "") {
-            console.log('Ingresar algo');
+
         } else {
             let credentials = { email, password };
 

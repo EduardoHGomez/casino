@@ -117,7 +117,11 @@ actionRegister.addEventListener('click', async () => {
 
         if (userPassword !== userPasswordRepeat)
         {
-            console.log('Las contraseñas no coinciden');
+            Swal.fire({
+                icon: "error",
+                title: "Sucedio un error.",
+                text: "Las contraseñas no coinciden!",
+            });
             return;
         }
 
