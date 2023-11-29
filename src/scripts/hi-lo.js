@@ -116,20 +116,19 @@ if (deck.cards[0].value === 'K' || deck.cards[0].value == 'A'){
 computerCardSlot.appendChild(deck.cards[0].getHTML());
 console.log(deck.cards);
 
-const tagGanador = document.getElementById('tagGanador');
-tagGanador.textContent = 'Balance: ';
+const tagGanador = document.getElementById('tagBalance');
 const btnMayor = document.getElementById('btnMayor');
 btnMayor.addEventListener('click', function () {   
 
     let cantidadValue = (cantidadHiLo.value === '') ? 0 : parseFloat(cantidadHiLo.value); 
     let balanceValue = document.querySelector('#tagBalance').innerHTML;
     
-    if (balance < cantidadHiLo.value){
+    if (balanceValue < cantidadValue){
         alert('Fondos insuficientes');
         cantidadHiLo.value = '';
         return;
     } 
-    if (cantidadHiLo.value < 0){
+    if (cantidadValue < 0){
         alert('Cantidad invalida');
         cantidadHiLo.value = '';
         return;
@@ -180,9 +179,16 @@ btnMayor.addEventListener('click', function () {
         let posibilidadesArriba = (cartaVieja/13)+1;
         balance = balance + (cantidadHiLo.value * posibilidadesArriba);
         balance = balance.toFixed(2);
-        tagGanador.textContent = 'Balance: ' + balance;
+        storeActivity(balance, "Hi-Lo");
+        updateBalance(parseFloat(balance));
+        console.log("Gana");
     }else{
-        tagGanador.textContent = 'Balance: ' + balance;
+        balance = parseFloat(cantidadHiLo.value).toFixed(2);
+        console.log(balance);
+        var negativeValue = balance * -1;
+        console.log("Pierde" + negativeValue);
+        storeActivity(negativeValue, "Hi-Lo");
+        updateBalance(negativeValue);
     }
     computerCardSlot.removeChild(cartaDinamica);
     computerCardSlot.appendChild(deck.cards[0].getHTML());
@@ -249,16 +255,87 @@ btnMenor.addEventListener('click', function () {
         }
     }
     if(cartaNueva<=cartaVieja){
+        console.log("Gana");
         let posibilidadesAbajo = ((13-(cartaVieja-1))/13)+1;
         balance = balance + (cantidadHiLo.value * posibilidadesAbajo);
         balance = balance.toFixed(2);
-        tagGanador.textContent = 'Balance: ' + balance;
+        storeActivity(balance, "Hi-Lo");
+        updateBalance(parseFloat(balance));
     }else{
         // balance = balance - cantidadHiLo.value;
-        tagGanador.textContent = 'Balance: ' + balance;
+        balance = parseFloat(cantidadHiLo.value).toFixed(2);
+        console.log(balance);
+        var negativeValue = balance * -1;
+        console.log("Pierde" + negativeValue);
+        storeActivity(negativeValue, "Hi-Lo");
+        updateBalance(negativeValue);
     }
     
     computerCardSlot.removeChild(cartaDinamica);
     computerCardSlot.appendChild(deck.cards[0].getHTML());
     cantidadHiLo.value = '';
 });
+
+
+function updateBalance(amount) {
+    const id = sessionStorage.getItem('token');
+    const url = '/profile/balance';
+
+    let data = {
+      id: id,
+      amount: amount,
+    };
+
+    xhr.open('PUT', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+      if (xhr.status !== 200)
+      {
+        alert(xhr.status + ': ' + xhr.statusText);
+      }
+      else
+      {
+        if (xhr.status === 200)
+        {
+            var data = JSON.parse(xhr.responseText);
+            tagGanador.innerHTML = data.balance.toFixed(2);
+        }
+      }
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+function storeActivity(balance, nameGame) {
+  const id = sessionStorage.getItem('token');
+  const url = '/profile/activity';
+
+  var BetStatus = false;
+  if (nameGame > 0) {
+    BetStatus = true;
+  }
+
+  let data = {
+    userID: id,
+    balance: balance,
+    dateGame: new Date().toISOString(),
+    nameGame: nameGame,
+    BetStatus: BetStatus
+  };
+
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function () {
+    if (xhr.status !== 200)
+    {
+      alert(xhr.status + ': ' + xhr.statusText);
+    }
+    else
+    {
+      if (xhr.status === 200)
+      {
+      }
+    }
+  };
+  xhr.send(JSON.stringify(data));
+}
