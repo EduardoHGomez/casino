@@ -54,6 +54,7 @@ class Card {
         cardDiv.classList.add('card', this.color);
         cardDiv.dataset.value = `${this.value} ${this.suit}`;
         cardDiv.id = 'cartaDinamica';
+        
         return cardDiv;
     }
 }
@@ -73,24 +74,42 @@ function freshDeck (){
 
 const computerCardSlot = document.querySelector('.computer-card-slot');
 const cantidadHiLo = document.getElementById('cantidadHiLo');
-// const valorCantidadHiLo = cantidadHiLo.value;
 
 
 const deck = new Deck ();
 deck.shuffle();
+
+//AS Y REY NO JUEGAN
+if (deck.cards[0].value === 'K' || deck.cards[0].value == 'A'){
+    deck.pop();
+}
 computerCardSlot.appendChild(deck.cards[0].getHTML());
 console.log(deck.cards);
 
 const tagGanador = document.getElementById('tagGanador');
 tagGanador.textContent = 'Balance: ' + balance;
 const btnMayor = document.getElementById('btnMayor');
-btnMayor.addEventListener('click', function () {    
+btnMayor.addEventListener('click', function () {   
+    
+    if (balance < cantidadHiLo.value){
+        alert('Fondos insuficientes');
+        cantidadHiLo.value = '';
+        return;
+    } 
+    if (cantidadHiLo.value < 0){
+        alert('Cantidad invalida');
+        cantidadHiLo.value = '';
+        return;
+    } 
     balance = balance-cantidadHiLo.value;
     if(deck.cards.length === 1){
         alert('Ya no hay cartas');
         return;
     }
     let cartaVieja = deck.pop().value;
+    while (deck.cards[0].value === 'K' || deck.cards[0].value == 'A'){
+        deck.pop();
+    }
     let cartaNueva = deck.cards[0].value;
     if (cartaVieja == 'J' || cartaVieja == 'Q' || cartaVieja == 'K' || cartaVieja == 'A'){
         switch (cartaVieja){
@@ -139,12 +158,25 @@ btnMayor.addEventListener('click', function () {
 
 const btnMenor = document.getElementById('btnMenor');
 btnMenor.addEventListener('click', function () {
+    if (balance < cantidadHiLo.value){
+        alert('Fondos insuficientes');
+        cantidadHiLo.value = '';
+        return;
+    } 
+    if (cantidadHiLo.value < 0){
+        alert('Cantidad invalida');
+        cantidadHiLo.value = '';
+        return;
+    } 
     balance = balance-cantidadHiLo.value;
     if(deck.cards.length === 1){
         alert('Ya no hay cartas');
         return;
     }
     let cartaVieja = deck.pop().value;
+    while (deck.cards[0].value === 'K' || deck.cards[0].value == 'A'){
+        deck.pop();
+    }
     let cartaNueva = deck.cards[0].value;
     if (cartaVieja == 'J' || cartaVieja == 'Q' || cartaVieja == 'K' || cartaVieja == 'A'){
         switch (cartaVieja){
