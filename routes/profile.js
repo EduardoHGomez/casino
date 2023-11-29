@@ -132,6 +132,7 @@ router.get("/activity", (req, res) => {
             res.send(docs);
         }).catch((err) => res.send("Error"));
 
+
     } else {
         res.sendFile(path.resolve(__dirname + "/../src/views/activity.html"));
     }

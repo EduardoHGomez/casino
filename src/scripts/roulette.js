@@ -455,6 +455,8 @@ btnSpin.addEventListener('click', function () {
             // 4. De lo contrario, restarlo
             if ((checkedColors.length > 0 && cantidadAColor.value.length > 0) && checkedColors.includes(winnerColor)) {
               amountToAdd += parseFloat(cantidadAColor.value);
+
+
                 showHasWon();
             } else if (checkedColors.length > 0 && cantidadAColor.value.length > 0) {
               amountToAdd -= parseFloat(cantidadAColor.value);
