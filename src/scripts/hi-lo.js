@@ -1,3 +1,33 @@
+const xhr = new XMLHttpRequest();
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    loadBalance();
+
+});
+
+function loadBalance() {
+
+    var id = sessionStorage.getItem('token');
+    var url = `/profile/balance?id=${id}`;
+
+    xhr.open('GET', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      if (xhr.status !== 200) {
+        alert(xhr.status + ': ' + xhr.statusText);
+      } else {
+        if (xhr.status === 200) {
+            let data = JSON.parse(xhr.responseText);
+            let balanceTag = document.querySelector('#tagBalance');
+            balanceTag.innerHTML = parseFloat(data.balance).toFixed(2);
+        }
+      }
+    };
+    xhr.send();
+}
+
+
 const SUITS = ["♠", "♣", "♥", "♦"]
 const VALUES = [
   "A",
@@ -87,9 +117,12 @@ computerCardSlot.appendChild(deck.cards[0].getHTML());
 console.log(deck.cards);
 
 const tagGanador = document.getElementById('tagGanador');
-tagGanador.textContent = 'Balance: ' + balance;
+tagGanador.textContent = 'Balance: ';
 const btnMayor = document.getElementById('btnMayor');
 btnMayor.addEventListener('click', function () {   
+
+    let cantidadValue = (cantidadHiLo.value === '') ? 0 : parseFloat(cantidadHiLo.value); 
+    let balanceValue = document.querySelector('#tagBalance').innerHTML;
     
     if (balance < cantidadHiLo.value){
         alert('Fondos insuficientes');
@@ -158,12 +191,17 @@ btnMayor.addEventListener('click', function () {
 
 const btnMenor = document.getElementById('btnMenor');
 btnMenor.addEventListener('click', function () {
-    if (balance < cantidadHiLo.value){
+
+    // Obtener la cantidad
+    let cantidadValue = (cantidadHiLo.value === '') ? 0 : parseFloat(cantidadHiLo.value); 
+    let balanceValue = document.querySelector('#tagBalance').innerHTML;
+
+    if (balanceValue < cantidadValue){
         alert('Fondos insuficientes');
         cantidadHiLo.value = '';
         return;
     } 
-    if (cantidadHiLo.value < 0){
+    if (cantidadValue < 0){
         alert('Cantidad invalida');
         cantidadHiLo.value = '';
         return;
