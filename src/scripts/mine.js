@@ -311,6 +311,7 @@ function updateBalance(amount) {
             {
                 var data = JSON.parse(xhr.responseText);
                 cantidadMine.innerHTML = data.balance.toFixed(2);
+                document.querySelector('#tagBalance').innerHTML = parseFloat(data.balance).toFixed(2);
             }
         }
     };
