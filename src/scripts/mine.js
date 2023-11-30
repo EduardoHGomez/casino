@@ -60,13 +60,11 @@ function loadBalance() {
     xhr.send();
 }
 const cantidadMine = document.getElementById('cantidadMine');
-let isPlaying = false;
+
 
 
 btnPlay.addEventListener('click', () => {
-    if (isPlaying) {
-        return;
-    }
+
 
     resetGame();
 
@@ -88,7 +86,7 @@ btnPlay.addEventListener('click', () => {
     }
     else
     {
-        isPlaying = true;
+
         board.forEach((row) => {
             row.forEach((tile) => {
                 boardElement.append(tile.element);
@@ -106,7 +104,7 @@ btnPlay.addEventListener('click', () => {
         minesLCount.textContent = NumberMines;
     }
 
-    btnPlay.disabled = true;
+
 
 });
 
@@ -221,8 +219,7 @@ function checkGameEnd()
     {
         boardElement.addEventListener('click',stopProp,{capture:true})
         boardElement.addEventListener('contextmenu',stopProp,{capture:true})
-        btnPlay.disabled = false;
-        isPlaying = false;
+
     }
 
     if(win)
