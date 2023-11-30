@@ -27,6 +27,7 @@ function loadActivity() {
         } else { 
             if (xhr.status === 200) {
                 let activities = JSON.parse(xhr.responseText);
+                console.log(activities);
 
                 // Set up container
                 let container = document.querySelector('.activity-container-content');

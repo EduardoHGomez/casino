@@ -443,9 +443,9 @@ btnSpin.addEventListener('click', function () {
             if (checkboxSegunda.checked) checkedDozens.push('2');
             if (checkboxTercera.checked) checkedDozens.push('3');
 
-            console.log(checkedColors);
-            console.log(checkedParities);
-            console.log(checkedDozens);
+            console.log(checkedColors.length);
+            console.log(checkedParities.length);
+            console.log(checkedDozens.length);
 
             // ----------- Condiciones que compara propiedad ganadora con arreglos checked ---------
             
@@ -455,9 +455,14 @@ btnSpin.addEventListener('click', function () {
             // 3. Si es así, entonces sumar la cantidad
             // 4. De lo contrario, restarlo
             if ((checkedColors.length > 0 && cantidadAColor.value.length > 0) && checkedColors.includes(winnerColor)) {
-              amountToAdd += parseFloat(cantidadAColor.value);
-
-
+              localamountToAdd += parseFloat(cantidadAColor.value);
+                if (checkedColors.length === 1) {
+                  amountToAdd + localamountToAdd;
+                } else if (checkedColors.length === 2) {
+                  amountToAdd + localamountToAdd * 0.166; 
+                } else if (checkedColors.length === 3) {
+                  amountToAdd + localamountToAdd * 0.1;
+                }
                 showHasWon();
             } else if (checkedColors.length > 0 && cantidadAColor.value.length > 0) {
               amountToAdd -= parseFloat(cantidadAColor.value);
@@ -466,8 +471,13 @@ btnSpin.addEventListener('click', function () {
 
             // Lo mismo para par e impar
             if ((checkedParities.length && cantidadAParidad.value.length > 0) > 0 && checkedParities.includes(winnerParity)) {
-              amountToAdd += parseFloat(cantidadAParidad.value);
-                showHasWon();
+              localamountToAdd += parseFloat(cantidadAParidad.value);
+              showHasWon();
+                if (checkedParities.length === 1) {
+                  amountToAdd + localamountToAdd;
+                } else if (checkedParities.length === 2) {
+                  amountToAdd + localamountToAdd * 0.166; 
+                }
             } else if (checkedParities.length > 0 && cantidadAParidad.value.length > 0) {
 
               amountToAdd -= parseFloat(cantidadAParidad.value);
@@ -476,7 +486,14 @@ btnSpin.addEventListener('click', function () {
 
             // Docenas
             if ((checkedDozens.length > 0 && cantidadADocena.value.length > 0) && checkedDozens.includes(winnerDozen)) {
-              amountToAdd += parseFloat(cantidadADocena.value);
+              localamountToAdd += parseFloat(cantidadADocena.value);
+                if (checkedDozens.length === 1) {
+                  amountToAdd + localamountToAdd;
+                } else if (checkedParities.length === 2) {
+                  amountToAdd + localamountToAdd * 0.166; 
+                } else if (checkedParities.length === 3) {
+                  amountToAdd + localamountToAdd * 0.1; 
+                }
                 showHasWon();
             } else if (checkedDozens.length > 0 && cantidadADocena.value.length > 0) {
               amountToAdd -= parseFloat(cantidadADocena.value);
