@@ -459,11 +459,10 @@ btnSpin.addEventListener('click', function () {
                 if (checkedColors.length === 1) {
                   amountToAdd + localamountToAdd;
                 } else if (checkedColors.length === 2) {
-                  amountToAdd + localamountToAdd * 0.166;
+                  amountToAdd + localamountToAdd * 0.166; 
+                } else if (checkedColors.length === 3) {
+                  amountToAdd + localamountToAdd * 0.1;
                 }
-
-
-
                 showHasWon();
             } else if (checkedColors.length > 0 && cantidadAColor.value.length > 0) {
               amountToAdd -= parseFloat(cantidadAColor.value);
@@ -472,7 +471,11 @@ btnSpin.addEventListener('click', function () {
 
             // Lo mismo para par e impar
             if ((checkedParities.length && cantidadAParidad.value.length > 0) > 0 && checkedParities.includes(winnerParity)) {
-              amountToAdd += parseFloat(cantidadAParidad.value);
+              localamountToAdd += parseFloat(cantidadAParidad.value);
+              if (checkedParities.length === 1) {
+                amountToAdd + localamountToAdd;
+              } else if (checkedParities.length === 2) {
+                amountToAdd + localamountToAdd * 0.1; 
                 showHasWon();
             } else if (checkedParities.length > 0 && cantidadAParidad.value.length > 0) {
 
