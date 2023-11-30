@@ -472,11 +472,12 @@ btnSpin.addEventListener('click', function () {
             // Lo mismo para par e impar
             if ((checkedParities.length && cantidadAParidad.value.length > 0) > 0 && checkedParities.includes(winnerParity)) {
               localamountToAdd += parseFloat(cantidadAParidad.value);
-              if (checkedParities.length === 1) {
-                amountToAdd + localamountToAdd;
-              } else if (checkedParities.length === 2) {
-                amountToAdd + localamountToAdd * 0.1; 
-                showHasWon();
+              showHasWon();
+                if (checkedParities.length === 1) {
+                  amountToAdd + localamountToAdd;
+                } else if (checkedParities.length === 2) {
+                  amountToAdd + localamountToAdd * 0.166; 
+                }
             } else if (checkedParities.length > 0 && cantidadAParidad.value.length > 0) {
 
               amountToAdd -= parseFloat(cantidadAParidad.value);
@@ -485,7 +486,14 @@ btnSpin.addEventListener('click', function () {
 
             // Docenas
             if ((checkedDozens.length > 0 && cantidadADocena.value.length > 0) && checkedDozens.includes(winnerDozen)) {
-              amountToAdd += parseFloat(cantidadADocena.value);
+              localamountToAdd += parseFloat(cantidadADocena.value);
+                if (checkedDozens.length === 1) {
+                  amountToAdd + localamountToAdd;
+                } else if (checkedParities.length === 2) {
+                  amountToAdd + localamountToAdd * 0.166; 
+                } else if (checkedParities.length === 3) {
+                  amountToAdd + localamountToAdd * 0.1; 
+                }
                 showHasWon();
             } else if (checkedDozens.length > 0 && cantidadADocena.value.length > 0) {
               amountToAdd -= parseFloat(cantidadADocena.value);
