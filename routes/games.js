@@ -13,5 +13,9 @@ router.get("/hi-lo", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/../src/views/hi-lo.html"));
 });
 
+router.get("/mine", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "/../src/views/mineBet.html"));
+});
+
 
 module.exports = router;
