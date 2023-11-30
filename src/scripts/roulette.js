@@ -443,9 +443,9 @@ btnSpin.addEventListener('click', function () {
             if (checkboxSegunda.checked) checkedDozens.push('2');
             if (checkboxTercera.checked) checkedDozens.push('3');
 
-            console.log(checkedColors);
-            console.log(checkedParities);
-            console.log(checkedDozens);
+            console.log(checkedColors.length);
+            console.log(checkedParities.length);
+            console.log(checkedDozens.length);
 
             // ----------- Condiciones que compara propiedad ganadora con arreglos checked ---------
             
@@ -455,7 +455,13 @@ btnSpin.addEventListener('click', function () {
             // 3. Si es así, entonces sumar la cantidad
             // 4. De lo contrario, restarlo
             if ((checkedColors.length > 0 && cantidadAColor.value.length > 0) && checkedColors.includes(winnerColor)) {
-              amountToAdd += parseFloat(cantidadAColor.value);
+              localamountToAdd += parseFloat(cantidadAColor.value);
+                if (checkedColors.length === 1) {
+                  amountToAdd + localamountToAdd;
+                } else if (checkedColors.length === 2) {
+                  amountToAdd + localamountToAdd * 0.166;
+                }
+
 
 
                 showHasWon();
