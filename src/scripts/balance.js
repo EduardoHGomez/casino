@@ -126,7 +126,7 @@ function withdrawBalance() {
                 if (xhr.status === 200) {
                     let data = JSON.parse(xhr.responseText);
                     let balanceField = document.querySelector('#balanceField');
-                    balanceField.innerHTML = data.balance;
+                    balanceField.innerHTML = parseFloat(data.balance).toFixed(2);
 
                     document.querySelector('#balance-form-withdraw').value = '';
                 }

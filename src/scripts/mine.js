@@ -99,6 +99,7 @@ btnPlay.addEventListener('click', () => {
         minesLCount.textContent = NumberMines;
     }
 
+
 });
 
 // Nueva función para reiniciar el juego
@@ -239,7 +240,7 @@ function checkGameEnd()
         })
         storeActivity(negativeValue, "Mines");
         updateBalance(parseFloat(negativeValue));
-        showHasLost()
+        showHasLost();
     }
 }
 
@@ -299,7 +300,7 @@ function updateBalance(amount) {
             if (xhr.status === 200)
             {
                 var data = JSON.parse(xhr.responseText);
-                cantidadMine.innerHTML = data.balance.toFixed(2);
+                cantidadMine.innerHTML = 'hola';
                 document.querySelector('#tagBalance').innerHTML = parseFloat(data.balance).toFixed(2);
             }
         }
