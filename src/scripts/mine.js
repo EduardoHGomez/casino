@@ -3,6 +3,7 @@ const btnPlay = document.getElementById('btnPlay')
 let balance = 0;
 function showHasWon() {
     document.getElementById('hasWon').style.display = 'flex';
+    cantidadMine.value = '';
     setTimeout(function () {
         document.getElementById('hasWon').style.display = 'none';
     }, 2000);
@@ -11,6 +12,7 @@ function showHasWon() {
 
 function showHasLost() {
     document.getElementById('hasLost').style.display = 'flex';
+    cantidadMine.value = '';
     setTimeout(function () {
         document.getElementById('hasLost').style.display = 'none';
     }, 2000);
@@ -60,8 +62,10 @@ function loadBalance() {
 const cantidadMine = document.getElementById('cantidadMine');
 
 
+
 btnPlay.addEventListener('click', () => {
-    // Limpia el tablero antes de agregar nuevas casillas
+
+
     resetGame();
 
     if(cantidadMine.value === '')
@@ -82,6 +86,7 @@ btnPlay.addEventListener('click', () => {
     }
     else
     {
+
         board.forEach((row) => {
             row.forEach((tile) => {
                 boardElement.append(tile.element);
@@ -100,19 +105,20 @@ btnPlay.addEventListener('click', () => {
     }
 
 
+
 });
 
-// Nueva función para reiniciar el juego
+
 function resetGame() {
-    // Oculta los mensajes de ganar o perder
+
     document.getElementById('hasWon').style.display = 'none';
     document.getElementById('hasLost').style.display = 'none';
 
-    // Elimina los eventos click y contextmenu
+
     boardElement.removeEventListener('click', stopProp, { capture: true });
     boardElement.removeEventListener('contextmenu', stopProp, { capture: true });
 
-    // Limpia el contenido del tablero y reinicia el estado
+
     boardElement.innerHTML = '';
     board.forEach((row) => {
         row.forEach((tile) => {
@@ -205,6 +211,7 @@ function createTabla(boardSize,minesNumber)
 
 function checkGameEnd()
 {
+
     const win = checkWin(board);
     const lose = checkLose(board);
 
@@ -212,6 +219,7 @@ function checkGameEnd()
     {
         boardElement.addEventListener('click',stopProp,{capture:true})
         boardElement.addEventListener('contextmenu',stopProp,{capture:true})
+
     }
 
     if(win)
@@ -220,6 +228,7 @@ function checkGameEnd()
         storeActivity(balance, "Mines");
         updateBalance(parseFloat(balance));
         showHasWon();
+
     }
     if(lose)
     {
@@ -236,6 +245,7 @@ function checkGameEnd()
                 {
                     revealTile(board,tile)
                 }
+
             })
         })
         storeActivity(negativeValue, "Mines");
