@@ -201,17 +201,17 @@
 
 #cardHov4:hover {
     transform: translateY(20px);
-    box-shadow: 0 -7px 0 -2px #ffc71b,
-    0 -15px 0 -4px #ffeb85,
-    0 -16px 10px -3px orange;
+    box-shadow: 0 -8px 0 -2px #dceef1,
+    0 -15px 0 -4px #bcdbe5,
+    0 -16px 10px -3px #39a2db;
 }
 
 #cardHov4:active{
     transition: all 0.2s;
     transform: translateY(10px);
-    box-shadow: 0 -7px 0 -2px #ffc71b,
-    0 -15px 0 -4px #ffeb85,
-    0 -16px 10px -3px orange;
+    box-shadow: 0 -7px 0 -10px #dceef1,
+    0 -15px 0 -4px #bcdbe5,
+    0 -16px 10px -3px #39a2db;
 }
 
 #cardHov5 {

@@ -8,6 +8,7 @@ imagesMap.set('Ruleta', '/assets/images/roulette_car.png');
 imagesMap.set('Slide', '/assets/images/slide_prox.png');
 imagesMap.set('Slot', '/assets/images/slots_car.png');
 imagesMap.set('Poker', '/assets/images/videoPoker_prox.png');
+imagesMap.set('Mines', '/assets/images/mine.jpg');
 
 document.addEventListener('DOMContentLoaded', () => {
     loadActivity();

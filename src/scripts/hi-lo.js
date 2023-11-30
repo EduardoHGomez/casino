@@ -1,9 +1,7 @@
 const xhr = new XMLHttpRequest();
 
 document.addEventListener('DOMContentLoaded', () => {
-
     loadBalance();
-
 });
 
 function loadBalance() {
@@ -147,7 +145,6 @@ btnMayor.addEventListener('click', function () {
     }
     else
     {
-
         let cantidadValue = (cantidadHiLo.value === '') ? 0 : parseFloat(cantidadHiLo.value);
         let balanceValue = document.querySelector('#tagBalance').innerHTML;
 
