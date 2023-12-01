@@ -9,7 +9,7 @@ const router = express.Router();
 const profileRouter = require(path.resolve(__dirname + "/profile.js"));
 const gamesRouter = require(path.resolve(__dirname + "/games.js"));
 const User = require("../src/controllers/login_connect");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 
 
 // --------------- TOKEN -------------------------
@@ -65,7 +65,7 @@ router.post('/register',async (req,res,next) => {
         if (existingVerification) {
             return res.status(400).json({message: 'Ya existe el usuario'});
         }
-        const hashedPass = await bcrypt.hash(password, 10);
+        // const hashedPass = await bcrypt.hash(password, 10);
         const newUser = new User(
             {
                 name,
