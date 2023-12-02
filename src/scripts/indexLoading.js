@@ -25,7 +25,9 @@ function loadName()
         return;
     }
 
-    fetch('http://localhost:3000/getUserName', {
+    let currentURL = getBaseURL();
+
+        fetch(`${currentURL}/getUserName`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
