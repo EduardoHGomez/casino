@@ -127,7 +127,7 @@ router.use('/add', verifyToken);
 // Root /
 // Envía a la página de juegos
 router.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname + "/../src/views/index_logInpending.html"));
+    res.sendFile(path.resolve(__dirname + "/../src/views/index_logInPending.html"));
 })
 
 // Info
