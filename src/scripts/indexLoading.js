@@ -124,4 +124,5 @@ function redirectToGame(gamePath) {
     const baseURL = getBaseURL();
     const fullURL = `${baseURL}/games/${gamePath}`;
     window.location.href = fullURL;
+    console.log(fullURL);
 }
