@@ -123,7 +123,6 @@ router.use('/index', verifyToken);
 router.use('/add', verifyToken);
 
 
-
 // --------------- RUTAS -------------------------
 // Root /
 // Envía a la página de juegos
