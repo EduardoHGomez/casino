@@ -4,10 +4,13 @@ Frío Casino: This is a final project for a Web Development class using Node.js 
 in order to participa in various gaming activities, with multiple funcionailites on each game.
 
 ## Roulette
+![Alt text](images/roulette.gif?raw=true "Roulette")
 
 ## Hi-Lo
+![Alt text](images/hi-lo.gif?raw=true "Hi-Lo")
 
 ## Mines
+![Alt text](images/mines.gif?raw=true "Mines")
 
 # Games
 - Roulette: Bet by Dozens, Even or Odd and Colors.
