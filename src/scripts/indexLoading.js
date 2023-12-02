@@ -102,12 +102,12 @@ function goToExit()
 
 function goToBalance()
 {
-    navigateToPath('balance');
+    navigateToPath('profile/balance');
 }
 
 function goToActivity()
 {
-    navigateToPath('activity');
+    navigateToPath('profile/activity');
 }
 
 function goToInit()
