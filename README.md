@@ -1,5 +1,18 @@
-# frio-casino
-Casino project
+# Frío Casino
+
+Frío Casino: This is a final project for a Web Development class using Node.js as the backend and Vanilla JavaScript for the frontend. This website is inspired by some games offered by Stake, where the user can deposit or withdraw money
+in order to participa in various gaming activities, with multiple funcionailites on each game.
+
+## Roulette
+
+## Hi-Lo
+
+## Mines
+
+# Games
+- Roulette: Bet by Dozens, Even or Odd and Colors.
+- Mines: Guess all dimond locations to win with a x20 mutliplier.
+- Hi-Lo: Predict if the next card is higher or lower to win.
 
 
 # Installation
