@@ -1,6 +1,6 @@
 # Frío Casino
 
-Frío Casino: This is a final project for a Web Development class using Node.js as the backend and Vanilla JavaScript for the frontend. This website is inspired by some games offered by Stake, where the user can deposit or withdraw money
+This is a final project for a Web Development class using Node.js as the backend and Vanilla JavaScript for the frontend. This website is inspired by some games offered by Stake, where the user can deposit or withdraw money
 in order to participate in various gaming activities, with multiple funcionailites on each game.
 
 ## Roulette
