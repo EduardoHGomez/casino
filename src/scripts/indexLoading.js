@@ -44,31 +44,38 @@ function loadName()
 
 let defaultTransform = 0;
 
+function getBaseURL() {
+    return window.location.origin;
+}
+
+function navigateToPath(path) {
+    const baseURL = getBaseURL();
+    window.location.href = `${baseURL}/${path}`;
+}
 
 function goToIndex()
 {
-    window.location.href = "http://localhost:3000/index";
+    navigateToPath('index');
 }
 
 function goToIndexPending()
 {
-    window.location.href = "http://localhost:3000/";
+    navigateToPath('/');
 }
 
 function goToInfo()
 {
-    window.location.href = "http://localhost:3000/information";
+    navigateToPath('information');
 }
 
 function goToRules()
 {
-    window.location.href = "http://localhost:3000/rules";
+    navigateToPath('rules');
 }
 
 function goToProfile()
 {
-    window.location.href = "http://localhost:3000/profile";
-
+    navigateToPath('profile');
 }
 
 /*
@@ -88,26 +95,26 @@ function goToExit()
 {
     sessionStorage.removeItem('token')
     document.cookie = 'token=; Expires=0;';
-    window.location.href = "http://localhost:3000/";
+    navigateToPath('/');
 }
 
 function goToBalance()
 {
-    window.location.href = "http://localhost:3000/profile/balance";
+    navigateToPath('balance');
 }
 
 function goToActivity()
 {
-    window.location.href = "http://localhost:3000/profile/activity";
+    navigateToPath('activity');
 }
 
 function goToInit()
 {
-    window.location.href = "http://localhost:3000/login";
+    navigateToPath('login');
 }
 
 function goToReg()
 {
-    window.location.href = "http://localhost:3000/register";
+    navigateToPath('register');
 }
 
