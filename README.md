@@ -12,11 +12,14 @@ in order to participa in various gaming activities, with multiple funcionailites
 ## Mines
 ![Alt text](images/mines.gif?raw=true "Mines")
 
-# Games
+## Games
 - Roulette: Bet by Dozens, Even or Odd and Colors.
 - Mines: Guess all dimond locations to win with a x20 mutliplier.
 - Hi-Lo: Predict if the next card is higher or lower to win.
 
+## Profile 
+### Details
+![Alt text](images/Detalis.PNG "details")
 
 # Installation
 Some commands used for dependencies 
