@@ -19,7 +19,13 @@ in order to participate in various gaming activities, with multiple funcionailit
 
 ## Profile 
 ### Details
-![Alt text](images/Detalis.PNG?raw=true "details")
+![Alt text](images/details.PNG?raw=true "Details")
+
+### Balance
+![Alt text](images/details.PNG?raw=true "Details")
+
+### Activity
+![Alt text](images/activity.PNG?raw=true "History")
 
 # Installation
 Some commands used for dependencies 
