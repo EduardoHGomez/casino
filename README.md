@@ -19,7 +19,7 @@ in order to participate in various gaming activities, with multiple funcionailit
 
 ## Profile 
 ### Details
-![Alt text](images/Detalis.PNG "details")
+![Alt text](images/Detalis.PNG?raw=true "details")
 
 # Installation
 Some commands used for dependencies 
