@@ -21,9 +21,6 @@ in order to participate in various gaming activities, with multiple funcionailit
 ### Details
 ![Alt text](images/details.PNG?raw=true "Details")
 
-### Balance
-![Alt text](images/details.PNG?raw=true "Details")
-
 ### Activity
 ![Alt text](images/activity.PNG?raw=true "History")
 
