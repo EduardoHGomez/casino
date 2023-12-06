@@ -3,6 +3,8 @@
 This is a final project for a Web Development class using Node.js as the backend and Vanilla JavaScript for the frontend. This website is inspired by some games offered by Stake, where the user can deposit or withdraw money
 in order to participate in various gaming activities, with multiple funcionailites on each game.
 
+The project involves a virtual casino where you'll have access to a variety of fully functional games, with more set to be added soon. Moreover, you'll be able to create an account, log in, manage it, and simulate handling money within your account.
+
 ## Roulette
 ![Alt text](images/roulette.gif?raw=true "Roulette")
 
