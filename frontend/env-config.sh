@@ -21,5 +21,5 @@ EOF
 
 echo "Environment configuration complete"
 
-# Start the http-server (without auto-open to avoid # in URL)
-exec npx http-server public -p 8080 -c-1
+# Start the node app
+exec npm start
